@@ -7,7 +7,7 @@
 # Header
 DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
 DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
-SCRIPT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/02_trimmomatic_qs28.qsub
+SCRIPT=$0
 HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 TRIMMOMATICENV=". /appli/bioinfo/trimmomatic/latest/env.sh"
 TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
@@ -15,36 +15,33 @@ LOG_FOLDER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/98_l
 NAME=$(basename $0)
 
 
-# Create me this folder if them don't exist
-mkdir -p $DATAOUTPUT
-mkdir -p $SCRIPT
-mkdir -p $LOG_FOLDER
-
 # Global variables
 
 #>Illumina_TruSeq_LT_R1 AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC
 #>Illumina_TruSeq_LT_R2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
-ADAPTERFILE=/home1/datahome/plstenge/gdp/00_scripts/adapters.fasta
+ADAPTERFILE=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/adapters.fasta
 NCPU=8
 base=*
 
+cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
 for file in $(ls $DATADIRECTORY/*.fastq.gz) :
 do
-	
-     cp $HEADER $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
-     echo "cd $DATADIRECTORY" >> $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
-     echo "$TRIMMOMATICENV"  >> $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
-     echo "ftrimmomatic PE -Xmx60G \
+
+java -Xmx20G -jar $TRIMMOMATIC/trimmomatic.jar  PE \
         -threads 8 \
         -phred33 \
-        $DATADIRECTORY/$FILE \
-        $DATAOUTPUT/$FILE \
+        $DATADIRECTORY/*R1.fastq.gz \
+        $DATADIRECTORY/*R2.fastq.gz \
+        $DATAOUTPUT/*R1.paired.fastq.gz \
+        $DATAOUTPUT/*R1.single.fastq.gz \
+        $DATAOUTPUT/*R2.paired.fastq.gz \
+        $DATAOUTPUT/*R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
         LEADING:28 \
         TRAILING:28 \
         SLIDINGWINDOW:4:28 \
-        MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"" >> $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
-     qsub $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
+        MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"
 	
-done
+done	
+	
