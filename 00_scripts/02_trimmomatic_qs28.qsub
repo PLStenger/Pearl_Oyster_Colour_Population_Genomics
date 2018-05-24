@@ -14,7 +14,6 @@ HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scrip
 TRIMMOMATICENV=". /appli/bioinfo/trimmomatic/latest/env.sh"
 TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
 LOG_FOLDER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/98_log_files
-NAME=$(basename $0)
 
 
 # Global variables
