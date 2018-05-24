@@ -13,8 +13,10 @@ for file in $(ls $DATADIRECTORY/*_R1.fastq.gz|perl -pe 's/.f(ast)?q.gz//'|sort -
 
 do
 	# base=$(basename "$file")
-	base=${file%_R1.fastq.gz}
-	toEval="cat $SCRIPTFOLDER/02_trimmomatic_qs28.qsub | sed 's/__BASE__/$base/g'"; eval $toEval > $DATARMORJOB/TRIM_"$base".sh
+	tmp=${file%_R1.fastq.gz*}
+	base=${tmp##*/}
+	echo $base
+	#toEval="cat $SCRIPTFOLDER/02_trimmomatic_qs28.qsub | sed 's/__BASE__/$base/g'"; eval $toEval > $DATARMORJOB/TRIM_"$base".sh
 done
 
 
