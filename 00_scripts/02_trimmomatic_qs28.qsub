@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l ncpus=1
+#PBS -l mem=60gb
+#PBS -l walltime=24:00:00
+
+# Header
+DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
+DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
+SCRIPT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/02_trimmomatic_qs28.qsub
+HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
+TRIMMOMATICENV=". /appli/bioinfo/trimmomatic/latest/env.sh"
+TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
+LOG_FOLDER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/98_log_files
+NAME=$(basename $0)
+
+
+# Create me this folder if them don't exist
+mkdir -p $DATAOUTPUT
+mkdir -p $SCRIPT
+mkdir -p $LOG_FOLDER
+
+# Global variables
+
+#>Illumina_TruSeq_LT_R1 AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC
+#>Illumina_TruSeq_LT_R2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+ADAPTERFILE=/home1/datahome/plstenge/gdp/00_scripts/adapters.fasta
+NCPU=8
+base=*
+
+
+for file in $(ls $DATADIRECTORY/*.fastq.gz) :
+do
+	
+     cp $HEADER $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
+     echo "cd $DATADIRECTORY" >> $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
+     echo "$TRIMMOMATICENV"  >> $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
+     echo "ftrimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/$FILE \
+        $DATAOUTPUT/$FILE \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:28 \
+        TRAILING:28 \
+        SLIDINGWINDOW:4:28 \
+        MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"" >> $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
+     qsub $SCRIPT/trimmomatic_${FILE##*/}.qsub ;
+	
+done
