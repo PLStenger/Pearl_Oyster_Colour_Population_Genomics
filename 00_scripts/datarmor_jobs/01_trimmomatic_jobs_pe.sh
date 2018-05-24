@@ -9,10 +9,11 @@ SCRIPTFOLDER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00
 rm $DATARMORJOB/TRIM*sh
 
 # launch scripts for Colosse
-for file in $(ls $DATADIRECTORY/*fastq.gz|perl -pe 's/.f(ast)?q.gz//'|sort -u)
+for file in $(ls $DATADIRECTORY/*_R1.fastq.gz|perl -pe 's/.f(ast)?q.gz//'|sort -u)
 
 do
-	base=$(basename "$file")
+	# base=$(basename "$file")
+	base=${file%_R1.fastq.gz}
 	toEval="cat $SCRIPTFOLDER/02_trimmomatic_qs28.qsub | sed 's/__BASE__/$base/g'"; eval $toEval > $DATARMORJOB/TRIM_"$base".sh
 done
 
