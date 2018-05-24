@@ -7,7 +7,7 @@ DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-seque
 rm 00_scripts/datarmor_jobs/TRIM*sh
 
 # launch scripts for Colosse
-for file in $(ls DATADIRECTORY/*fastq.gz|perl -pe 's/.f(ast)?q.gz//'|sort -u)
+for file in $(ls $DATADIRECTORY/*fastq.gz|perl -pe 's/.f(ast)?q.gz//'|sort -u)
 
 do
 	base=$(basename "$file")
