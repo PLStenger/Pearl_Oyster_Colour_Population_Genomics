@@ -28,7 +28,7 @@ cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 for file in $(ls $DATADIRECTORY/*.fastq.gz) :
 do
 
-java -Xmx20G -jar $TRIMMOMATIC/trimmomatic.jar  PE \
+trimmomatic PE -Xmx60G \
         -threads 8 \
         -phred33 \
         $DATADIRECTORY/*R1.fastq.gz \
