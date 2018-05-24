@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 #PBS -N trimmomatic__BASE__
-#PBS -o trimmomatic__BASE__.out
-#PBS -q sequentiel
-#PBS -l ncpus=1
+#PBS -o 98_log_files/trimmomatic__BASE__.out
+#PBS -q omp
+#PBS -l ncpus=8
 #PBS -l mem=60gb
 #PBS -l walltime=24:00:00
+#PBS -r n
 
 # Header
 DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
