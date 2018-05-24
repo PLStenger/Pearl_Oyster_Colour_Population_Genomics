@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#PBS -N trimmomatic__BASE__
+#PBS -o trimmomatic__BASE__.out
 #PBS -q sequentiel
 #PBS -l ncpus=1
 #PBS -l mem=60gb
