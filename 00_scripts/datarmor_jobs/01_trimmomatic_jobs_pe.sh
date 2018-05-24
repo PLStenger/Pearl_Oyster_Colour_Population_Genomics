@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Header
+DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
+
 # Clean up
 rm 00_scripts/datarmor_jobs/TRIM*sh
 
