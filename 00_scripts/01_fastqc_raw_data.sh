@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
-DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_fastqc
-SCRIPT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/00_fastqc
+DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_fastqc_raw_data
+SCRIPT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/01_fastqc_raw_data
 HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 FASTQCENV=". /appli/bioinfo/fastqc/latest/env.sh"
 
