@@ -23,6 +23,8 @@ ADAPTERFILE=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_
 NCPU=8
 base=*
 
+$TRIMMOMATICENV
+
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
 for file in $(ls $DATADIRECTORY/*.fastq.gz) :
