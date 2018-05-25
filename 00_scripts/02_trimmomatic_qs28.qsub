@@ -4,12 +4,12 @@
 #PBS -q omp
 #PBS -l ncpus=8
 #PBS -l mem=60gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=96:00:00
 #PBS -r n
 
 # Header
 DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
-DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
+DATAOUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
 SCRIPT=$0
 HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 TRIMMOMATICENV=". /appli/bioinfo/trimmomatic/latest/env.sh"
