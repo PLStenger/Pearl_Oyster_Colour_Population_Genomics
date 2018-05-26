@@ -51,7 +51,7 @@ trimmomatic PE -Xmx60G \
         ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
         LEADING:28 \
         TRAILING:28 \
-        SLIDINGWINDOW:4:28 \
+        SLIDINGWINDOW:24:28 \
         MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"
 	
 # done	
