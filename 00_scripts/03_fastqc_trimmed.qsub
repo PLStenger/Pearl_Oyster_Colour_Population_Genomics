@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
+DATAOUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/04_fastqc_trimmed
+SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/03_fastqc_trimmed
+HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
+FASTQCENV=". /appli/bioinfo/fastqc/latest/env.sh"
+
+mkdir -p $SCRIPT
+
+for FILE in $(ls $DATADIRECTORY/*.fastq.gz)
+do
+        cp $HEADER $SCRIPT/fastqc_${FILE##*/}.qsub ;
+        echo "cd $DATADIRECTORY" >> $SCRIPT/fastqc_${FILE##*/}.qsub ;
+        echo "$FASTQCENV"  >> $SCRIPT/fastqc_${FILE##*/}.qsub ;
+        echo "fastqc $FILE -o $DATAOUTPUT" >> $SCRIPT/fastqc_${FILE##*/}.qsub ;
+        qsub $SCRIPT/fastqc_${FILE##*/}.qsub ;
+done ;
