@@ -16,7 +16,7 @@ do
 	tmp=${file%%_R1*}
 	base=${tmp##*/}
 	#echo $base
-	toEval="cat $SCRIPTFOLDER/02_trimmomatic_q26.qsub | sed 's/__BASE__/$base/g'"; eval $toEval > $DATARMORJOB/TRIM_"$base".sh
+	toEval="cat $SCRIPTFOLDER/01_trimmomatic_q26.qsub | sed 's/__BASE__/$base/g'"; eval $toEval > $DATARMORJOB/TRIM_"$base".sh
 done
 
 
