@@ -36,7 +36,7 @@ BLAST_PROGRAM=blastx
 OUT_FILE=yellowBlastX.txt
 
 # nombre de best hits (alignements) a rapporter dans le resultat
-ALIGNMENTS=25
+ALIGNMENTS=3
 
 # Parametres de recherche additionnels.
 #
