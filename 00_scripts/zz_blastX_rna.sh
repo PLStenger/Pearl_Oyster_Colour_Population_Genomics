@@ -26,7 +26,7 @@ BLAST_PROGRAM=blastx
 # Format du fichier de resultat BLAST
 #  0:Pairwise ; 5:XML ; 6: tabular ; 
 #  plus de formats: https://www.ncbi.nlm.nih.gov/books/NBK279684/ : Table C1
-BLAST_FORMAT="\"6 qseqid sseqid sallseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore\""
+BLAST_FORMAT="6 qseqid sseqid sallseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 # Votre fichier de resultat
 # Attention: uniquement un nom de fichier. Celui-ci sera place dans un dossier 
