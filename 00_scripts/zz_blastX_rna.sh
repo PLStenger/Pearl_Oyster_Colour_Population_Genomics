@@ -26,7 +26,7 @@ BLAST_PROGRAM=blastx
 # Format du fichier de resultat BLAST
 #  0:Pairwise ; 5:XML ; 6: tabular ; 
 #  plus de formats: https://www.ncbi.nlm.nih.gov/books/NBK279684/ : Table C1
-BLAST_FORMAT="6 qseqid sseqid sallseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+# BLAST_FORMAT="6 qseqid sseqid sallseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 # Votre fichier de resultat
 # Attention: uniquement un nom de fichier. Celui-ci sera place dans un dossier 
@@ -71,6 +71,6 @@ cp $0 $CB_LOG_FOLDER/$CB_NAME
 # Lancement de BLAST
 #  note: nous produisons le fichier 'archive blast' (-outfmt 11) ...
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+${BLAST_PROGRAM} -query "${QUERY}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt "6 qseqid sseqid sallseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore" -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
 #  ... comme cela nous pouvons reformatter le resultat a loisirs, sans relancer le blast
 blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt ${BLAST_FORMAT}
