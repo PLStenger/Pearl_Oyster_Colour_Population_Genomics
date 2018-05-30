@@ -1,4 +1,4 @@
-cd $SCRATCH
+cd $DATAWORK
 cp /appli/bioinfo/blast/latest/blast.pbs .
 
 QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/GreenGEDBlastX.fasta
