@@ -1,6 +1,6 @@
 run*
 *~
-*.txt
+#*.txt
 *.fastq.gz
 *.fq.gz
 *paired*
