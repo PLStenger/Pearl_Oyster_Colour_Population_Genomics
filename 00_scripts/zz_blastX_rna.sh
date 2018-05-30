@@ -74,4 +74,4 @@ BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
 ${BLAST_PROGRAM} -query "${QUERY}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
 #  ... comme cela nous pouvons reformatter le resultat a loisirs, sans relancer le blast
 # blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt ${BLAST_FORMAT}
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt "6 stitle qseqid qgi qacc sseqid sgi sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore sscinames"
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
