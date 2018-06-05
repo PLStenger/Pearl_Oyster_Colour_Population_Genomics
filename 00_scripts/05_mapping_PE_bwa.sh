@@ -1,15 +1,15 @@
 #!/bin/bash
 
 #Global variables
-ASSEMBLY=			/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/Pmarg_platanus_v1_trimmed.fasta
-INPUT=				/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/index.txt
-WORKING_DIRECTORY=		/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/05_mapping_PE_bwa
-SCRIPT=				/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
-HEADER=				/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
+ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/Pmarg_platanus_v1_trimmed.fasta
+INPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/index.txt
+WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/05_mapping_PE_bwa
+SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
+HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 BWA="bwa"			
-BWA_ENV=			". /appli/bioinfo/bwa/lastest/env.sh"
-INDEX=1				#boolean : 1 if transcriptome/genome index exists, else 0	
-NB_CPU=16			#number of cpus
+BWA_ENV=". /appli/bioinfo/bwa/lastest/env.sh"
+INDEX=1		#boolean : 1 if transcriptome/genome index exists, else 0	
+NB_CPU=16	#number of cpus
 
 TAG="mapping_BWA_${ASSEMBLY##*/}"
 
