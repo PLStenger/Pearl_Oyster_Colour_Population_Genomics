@@ -2,4 +2,4 @@
 #PBS -q sequentiel
 #PBS -l ncpus=1
 #PBS -l mem=60gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=96:00:00
