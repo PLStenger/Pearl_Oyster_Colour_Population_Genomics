@@ -8,7 +8,7 @@ SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scrip
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 BWA="bwa"			
 BWA_ENV=". /appli/bioinfo/bwa/lastest/env.sh"
-INDEX=1		#boolean : 1 if transcriptome/genome index exists, else 0	
+INDEX=0		# 0 une premiere fois pour créer l'index du génome, puis après mettre 1	
 NB_CPU=16	#number of cpus
 
 TAG="mapping_BWA_${ASSEMBLY##*/}"
@@ -32,7 +32,7 @@ mkdir -p $WORKING_DIRECTORY/$TAG
 cd $WORKING_DIRECTORY/$TAG
 
 #BWA
-for i in {1..24}
+for i in {1..12}
 do
 	R1=LEFT_$i ;
 	R2=RIGHT_$i ;
