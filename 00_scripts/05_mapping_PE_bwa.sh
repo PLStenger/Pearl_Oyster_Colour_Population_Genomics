@@ -7,7 +7,7 @@ WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomi
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 BWA="bwa"			
-BWA_ENV=". /appli/bioinfo/bwa/lastest/env.sh"
+BWA_ENV=". /appli/bioinfo/bwa/latest/env.sh"
 INDEX=0		# 0 une premiere fois pour créer l'index du génome, puis après mettre 1	
 NB_CPU=16	#number of cpus
 
