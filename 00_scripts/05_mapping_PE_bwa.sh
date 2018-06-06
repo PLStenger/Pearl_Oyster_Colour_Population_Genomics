@@ -8,7 +8,7 @@ SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scrip
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 BWA="bwa"			
 BWA_ENV=". /appli/bioinfo/bwa/latest/env.sh"
-INDEX=0		# 0 une premiere fois pour créer l'index du génome, puis après mettre 1	
+INDEX=1		# Lancer avec 0 une premiere fois le script pour créer l'index du génome, puis après mettre 1 et le relancer	
 NB_CPU=16	#number of cpus
 
 TAG="mapping_BWA_${ASSEMBLY##*/}"
