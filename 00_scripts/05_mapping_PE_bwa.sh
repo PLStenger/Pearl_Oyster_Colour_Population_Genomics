@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Global variables
-ASSEMBLY=/home/datawork-rmpf/p_margaritifera/genome/script/assembly/assembly_platanus_DBG2OLC1/sspace-standard/sspace.final.scaffolds.fasta
+ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
 INPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed_tests/index.txt
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/05_mapping_tests
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
