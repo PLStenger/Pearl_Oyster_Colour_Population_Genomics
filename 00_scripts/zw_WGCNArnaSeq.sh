@@ -13,7 +13,7 @@ cd $PBS_O_WORKDIR
 export PATH=$PATH:/appli/anaconda/2.7/bin
 
 #Chargement de votre environnement
-source activate /home1/scratch/pauffret/wgcna/src/test
+source activate /home1/scratch/plstenge/testWGCNA
 
 SCRIPT_WGCNA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/zw_WGCNArnaSeq.R
 
