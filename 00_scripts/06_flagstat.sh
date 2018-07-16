@@ -14,9 +14,11 @@ HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scrip
 FLAGSTATENV=". /appli/bioinfo/samtools/latest/env.sh"
 
 
-cd $PBS_O_WORKDIR
-
-
-for i in *.bam; do
-    samtools view $i | cut -f1 | sort | uniq | wc -l >> $DATAOUTPUT
-done
+for FILE in $(ls $DATADIRECTORY/*.bam)
+do
+        cp $HEADER $SCRIPT/flagstat_${FILE##*/}.qsub ;
+        echo "cd $DATADIRECTORY" >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
+        echo "$FLAGSTATENV"  >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
+        echo "samtools view $FILE | cut -f1 | sort | uniq | wc -l >> $DATAOUTPUT">> $SCRIPT/flagstat_${FILE##*/}.qsub ;
+        qsub $SCRIPT/flagstat_${FILE##*/}.qsub ;
+done ;
