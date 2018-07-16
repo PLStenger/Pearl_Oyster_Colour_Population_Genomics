@@ -9,7 +9,7 @@
 # Header
 DATADIRECTORY=/home1/scratch/plstenge/testBWA/mapping_BWA_sspace.final.scaffolds.fasta
 DATAOUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/06_flagstat
-SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/06_flagstat.qsub
+SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/06_flagstat
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 FLAGSTATENV=". /appli/bioinfo/samtools/latest/env.sh"
 
