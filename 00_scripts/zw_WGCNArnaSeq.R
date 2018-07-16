@@ -13,6 +13,9 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests
 load("dataInput_subset.Rda")
 load("sft_signed.Rda")
 
+# Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
+registerDoParallel()
+
 ######################### Module construction step-by-step #################################
 ################################################################################
 #=====================================================================================
@@ -63,7 +66,7 @@ plot(sft$fitIndices[,1], sft$fitIndices[,5],
      main = paste("Mean connectivity"))
 text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
 save(sft,file="sft_signed.Rda")
-View(sft$fitIndices)
+# View(sft$fitIndices)
 #=====================================================================================
 #
 #  Code chunk 3
