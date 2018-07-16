@@ -15,6 +15,7 @@ export PATH=$PATH:/appli/anaconda/2.7/bin
 #Chargement de votre environnement
 source activate /home1/datawork/plstenge/96_env_conda/wgcna
 
-SCRIPT_WGCNA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/zw_WGCNArnaSeq.R
+# SCRIPT_WGCNA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/zw_WGCNArnaSeq.R
 
-R --vanilla $SCRIPT_WGCNA
+#R --vanilla $SCRIPT_WGCNA
+R --vanilla $/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/zw_WGCNArnaSeq.R
