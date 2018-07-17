@@ -8,19 +8,24 @@
 
 # Header
 DATADIRECTORY=/home1/scratch/plstenge/testBWA/mapping_BWA_sspace.final.scaffolds.fasta
-DATAOUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/06_flagstat
+DATAOUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/06_flagstat/HI.4499.006.NS_Adaptor_16.pool8KJ.txt
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/06_flagstat
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 FLAGSTATENV=". /appli/bioinfo/samtools/latest/env.sh"
 
 
-for FILE in $(ls $DATADIRECTORY/*.bam)
-do
-        cp $HEADER $SCRIPT/flagstat_${FILE##*/}.qsub ;
-        echo "cd $DATADIRECTORY" >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
-        echo "$FLAGSTATENV"  >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
-        echo "samtools view $FILE | cut -f1 | sort | uniq | wc -l >> $DATAOUTPUT">> $SCRIPT/flagstat_${FILE##*/}.qsub ;
-        
-done ;
+#for FILE in $(ls $DATADIRECTORY/*.bam)
+#do
+#        cp $HEADER $SCRIPT/flagstat_${FILE##*/}.qsub ;
+#        echo "cd $DATADIRECTORY" >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
+#        echo "$FLAGSTATENV"  >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
+#        echo "samtools view $FILE | cut -f1 | sort | uniq | wc -l >> $DATAOUTPUT">> $SCRIPT/flagstat_${FILE##*/}.qsub ;
+#        
+#done ;
 
 #qsub $SCRIPT/flagstat_${FILE##*/}.qsub ;
+
+". /appli/bioinfo/samtools/latest/env.sh"
+
+samtools view /home1/scratch/plstenge/testBWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.006.NS_Adaptor_16.pool8KJ.bam | cut -f1 | sort | uniq | wc -l >> $DATAOUTPUT
+
