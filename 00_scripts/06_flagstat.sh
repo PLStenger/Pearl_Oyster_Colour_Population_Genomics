@@ -20,5 +20,7 @@ do
         echo "cd $DATADIRECTORY" >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
         echo "$FLAGSTATENV"  >> $SCRIPT/flagstat_${FILE##*/}.qsub ;
         echo "samtools view $FILE | cut -f1 | sort | uniq | wc -l >> $DATAOUTPUT">> $SCRIPT/flagstat_${FILE##*/}.qsub ;
-        qsub $SCRIPT/flagstat_${FILE##*/}.qsub ;
+        
 done ;
+
+#qsub $SCRIPT/flagstat_${FILE##*/}.qsub ;
