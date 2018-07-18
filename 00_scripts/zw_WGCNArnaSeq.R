@@ -66,7 +66,12 @@ plot(sft$fitIndices[,1], sft$fitIndices[,5],
      xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
      main = paste("Mean connectivity"))
 text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
+aaa <- plot(sft$fitIndices[,1], sft$fitIndices[,5],
+     xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
+     main = paste("Mean connectivity"))
+aaa <- text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
 save(sft,file="sft_signed.Rda")
+save(aaa,file="RplotTest1.pdf")
 # View(sft$fitIndices)
 #=====================================================================================
 #
@@ -107,6 +112,9 @@ geneTree = hclust(as.dist(dissTOM), method = "average");
 sizeGrWindow(12,9)
 plot(geneTree, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity",
      labels = FALSE, hang = 0.04);
+bbb <- plot(geneTree, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity",
+     labels = FALSE, hang = 0.04);
+save(bbb,file="RplotTest2.pdf")
 
 
 #=====================================================================================
