@@ -244,7 +244,7 @@ GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSam
 names(geneTraitSignificance) = paste("GS.", names(green), sep="");
 names(GSPvalue) = paste("p.GS.", names(green), sep="");
 
-save.image("wgcna_part1.Rda")
+save.image("wgcna_part_green.Rda")
 
 #=====================================================================================
 #
@@ -273,7 +273,7 @@ GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSam
 names(geneTraitSignificance) = paste("GS.", names(red), sep="");
 names(GSPvalue) = paste("p.GS.", names(red), sep="");
 
-save.image("wgcna_part1.Rda")
+save.image("wgcna_part_red.Rda")
 
 #=====================================================================================
 #
@@ -302,6 +302,6 @@ GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSam
 names(geneTraitSignificance) = paste("GS.", names(yellow), sep="");
 names(GSPvalue) = paste("p.GS.", names(yellow), sep="");
 
-save.image("wgcna_part1.Rda")
+save.image("wgcna_part_yellow.Rda")
 
 
