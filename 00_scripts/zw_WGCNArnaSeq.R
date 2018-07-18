@@ -17,104 +17,29 @@ load("sft_signed.Rda")
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
 registerDoParallel()
 
-######################### Module construction step-by-step #################################
-################################################################################
-#=====================================================================================
-#
-#  Code chunk 1
-#
-#=====================================================================================
 
-#setting is important, do not omit.
-options(stringsAsFactors = FALSE);
-# Allow multi-threading within WGCNA. At present this call is necessary.
-# Any error here may be ignored but you may want to update WGCNA if you see one.
-# Caution: skip this line if you run RStudio or other third-party R environments.
-# See note above.
-#enableWGCNAThreads()
-# Load the data saved in the first part
-lnames = load(file = "dataInput_subset.Rda");
-#The variable lnames contains the names of loaded variables.
-lnames
-
-
-#=====================================================================================
-#
-#  Code chunk 2
-#
-#=====================================================================================
-
-load(file = "dataInput_subset.Rda")
-# Choose a set of soft-thresholding powers
-powers = c(c(1:10), seq(from = 10, to=24, by=2))
-# Call the network topology analysis function
-sft = pickSoftThreshold(datExpr, powerVector = powers, verbose = 5,networkType="signed")
-# Plot the results:
-sizeGrWindow(9, 5)
-par(mfrow = c(1,2));
-cex1 = 0.9;
-# Scale-free topology fit index as a function of the soft-thresholding power
-plot(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
-     xlab="Soft Threshold (power)",ylab="Scale Free Topology Model Fit,signed R^2",type="n",
-     main = paste("Scale independence"));
-text(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
-     labels=powers,cex=cex1,col="red");
-# this line corresponds to using an R^2 cut-off of h
-abline(h=0.80,col="red")
-# Mean connectivity as a function of the soft-thresholding power
-plot(sft$fitIndices[,1], sft$fitIndices[,5],
-     xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
-     main = paste("Mean connectivity"))
-text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
-aaa <- plot(sft$fitIndices[,1], sft$fitIndices[,5],
-     xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
-     main = paste("Mean connectivity"))
-aaa <- text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
-save(sft,file="sft_signed.Rda")
-save(aaa,file="RplotTest1.pdf")
-# View(sft$fitIndices)
-#=====================================================================================
-#
-#  Code chunk 3
-#
-#=====================================================================================
-
-### SUR DATARMOR
-softPower = 12; #reached 90 R2 
+softPower = 9; #reach 90%
 adjacency = adjacency(datExpr, power = softPower,type="signed");
-?adjacency
-
-
-#=====================================================================================
-#
-#  Code chunk 4
-#
-#=====================================================================================
-load("sft_signed.Rda")
-
-# Turn adjacency into topological overlap
-TOM = TOMsimilarity(adjacency,TOMType="signed");
+TOM = TOMsimilarity(adjacency,TOMType = "signed");
 dissTOM = 1-TOM
 
+#save(adjacency,file="adjacency_cell.Rda")
+#save(dissTOM,file="disTOM.Rda")
+#save(TOM,file="TOM.Rda")
 
-
-
+message("dissimilarity done")
 #=====================================================================================
 #
 #  Code chunk 5
 #
 #=====================================================================================
-
-
 # Call the hierarchical clustering function
 geneTree = hclust(as.dist(dissTOM), method = "average");
 # Plot the resulting clustering tree (dendrogram)
-sizeGrWindow(12,9)
+svg("genetree_subset.svg")
 plot(geneTree, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity",
      labels = FALSE, hang = 0.04);
-bbb <- plot(geneTree, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity",
-     labels = FALSE, hang = 0.04);
-save(bbb,file="RplotTest2.pdf")
+dev.off()
 
 
 #=====================================================================================
@@ -125,13 +50,13 @@ save(bbb,file="RplotTest2.pdf")
 
 
 # We like large modules, so we set the minimum module size relatively high:
-minModuleSize = 30;
+minModuleSize = 50;
 # Module identification using dynamic tree cut:
 dynamicMods = cutreeDynamic(dendro = geneTree, distM = dissTOM,
                             deepSplit = 2, pamRespectsDendro = FALSE,
                             minClusterSize = minModuleSize);
+print("table dynamicMods")
 table(dynamicMods)
-
 
 #=====================================================================================
 #
@@ -142,20 +67,22 @@ table(dynamicMods)
 
 # Convert numeric lables into colors
 dynamicColors = labels2colors(dynamicMods)
+print("table dynamicColors")
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
-sizeGrWindow(8,6)
+svg("genetree_dyn_subset.svg")
 plotDendroAndColors(geneTree, dynamicColors, "Dynamic Tree Cut",
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,
                     main = "Gene dendrogram and module colors")
-
+dev.off()
 
 #=====================================================================================
 #
 #  Code chunk 8
 #
 #=====================================================================================
+
 
 
 # Calculate eigengenes
@@ -165,11 +92,11 @@ MEs = MEList$eigengenes
 MEDiss = 1-cor(MEs);
 # Cluster module eigengenes
 METree = hclust(as.dist(MEDiss), method = "average");
+MEDissThres = 0.25
 # Plot the result
-sizeGrWindow(7, 6)
+svg("cluster_modules_subset.svg")
 plot(METree, main = "Clustering of module eigengenes",
      xlab = "", sub = "")
-
 
 #=====================================================================================
 #
@@ -177,10 +104,10 @@ plot(METree, main = "Clustering of module eigengenes",
 #
 #=====================================================================================
 
-
-MEDissThres = 0.25
 # Plot the cut line into the dendrogram
 abline(h=MEDissThres, col = "red")
+dev.off()
+
 # Call an automatic merging function
 merge = mergeCloseModules(datExpr, dynamicColors, cutHeight = MEDissThres, verbose = 3)
 # The merged module colors
@@ -188,38 +115,29 @@ mergedColors = merge$colors;
 # Eigengenes of the new merged modules:
 mergedMEs = merge$newMEs;
 
-
-#=====================================================================================
-#
-#  Code chunk 10
-#
-#=====================================================================================
-
-
-sizeGrWindow(12, 9)
-#pdf(file = "Plots/geneDendro-3.pdf", wi = 9, he = 6)
+svg(file = "geneDendro-3_subset.svg")
 plotDendroAndColors(geneTree, cbind(dynamicColors, mergedColors),
                     c("Dynamic Tree Cut", "Merged dynamic"),
                     dendroLabels = FALSE, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05)
-#dev.off()
-
+dev.off()
 
 #=====================================================================================
 #
 #  Code chunk 11
 #
 #=====================================================================================
-### RETOUR SUR LOCAL
+
+
 
 # Rename to moduleColors
 moduleColors = mergedColors
-# Construct numerical labels corresponding to the colors
+## Construct numerical labels corresponding to the colors
 colorOrder = c("grey", standardColors(50));
 moduleLabels = match(moduleColors, colorOrder)-1;
 MEs = mergedMEs;
 # Save module colors and labels for use in subsequent parts
-save(MEs, moduleLabels, moduleColors, geneTree, file = "juveniles-networkConstruction-stepByStep_subset.Rda")
+#save(MEs, moduleLabels, moduleColors, geneTree, file = "networkConstruction-stepByStep_temp.Rda")
 
 
 ############### Relating genes with traits and identifying important traits ##############
@@ -231,15 +149,21 @@ save(MEs, moduleLabels, moduleColors, geneTree, file = "juveniles-networkConstru
 #
 #=====================================================================================
 
+#=====================================================================================
+#
+#  Code chunk 1
+#
+#=====================================================================================
+
 # The following setting is important, do not omit.
-options(stringsAsFactors = FALSE);
+#options(stringsAsFactors = FALSE);
 # Load the expression and trait data saved in the first part
-lnames = load(file = "dataInput_subset.Rda");
+#lnames = load(file = "dataInput_subset.Rda");
 #The variable lnames contains the names of loaded variables.
-lnames
+#lnames
 # Load network data saved in the second part.
-lnames = load(file = "networkConstruction-stepByStep_subset.noalbinos.Rda");
-lnames
+#lnames = load(file = "networkConstruction-stepByStep_temp.Rda");
+#lnames
 
 
 #=====================================================================================
@@ -247,7 +171,6 @@ lnames
 #  Code chunk 2
 #
 #=====================================================================================
-
 
 # Define numbers of genes and samples
 nGenes = ncol(datExpr);
@@ -269,12 +192,11 @@ head(moduleTraitPvalue)
 
 
 sizeGrWindow(25,15)
-#tiff(file = "correlation_matrix.signed.noalbinos.tiff", width =2500, height = 2000, units = "px", res = "200")
+svg(file = "correlation_matrix.signed.nogreen.svg")
 # Will display correlations and their p-values
 #moduleTraitPvalue[moduleTraitPvalue >0.049]=NA #test
 textMatrix =  paste(signif(moduleTraitCor, 2), "\n(",
                     signif(moduleTraitPvalue, 1), ")", sep = "");
-
 
 
 dim(textMatrix) = dim(moduleTraitCor)
@@ -303,61 +225,83 @@ dev.off()
 
 
 # Define variable weight containing the weight column of datTrait
-albinos = as.data.frame(datTraits$albinos);
-names(albinos) = "albinos"
-str(albinos)
+green = as.data.frame(datTraits$green);
+names(green) = "green"
+
 # names (colors) of the modules
 modNames = substring(names(MEs), 3)
 
 geneModuleMembership = as.data.frame(cor(datExpr, MEs, use = "p"));
-str(geneModuleMembership)
 
 
 MMPvalue = as.data.frame(corPvalueStudent(as.matrix(geneModuleMembership), nSamples));
-str(MMPvalue)
 names(geneModuleMembership) = paste("MM", modNames, sep="");
 names(MMPvalue) = paste("p.MM", modNames, sep="");
 
-geneTraitSignificance = as.data.frame(cor(datExpr, albinos, use = "p"));
+geneTraitSignificance = as.data.frame(cor(datExpr, green, use = "p"));
 GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSamples));
 
-names(geneTraitSignificance) = paste("GS.", names(albinos), sep="");
-names(GSPvalue) = paste("p.GS.", names(albinos), sep="");
+names(geneTraitSignificance) = paste("GS.", names(green), sep="");
+names(GSPvalue) = paste("p.GS.", names(green), sep="");
 
+save.image("wgcna_part1.Rda")
 
 #=====================================================================================
 #
-#  Code chunk 5
+#  Code chunk 4
 #
 #=====================================================================================
 
-### plot correlation module membqrship vs gene significance
 
-module = "darkred"
-column = match(module, modNames);
-moduleGenes = moduleColors==module;
+# Define variable weight containing the weight column of datTrait
+red = as.data.frame(datTraits$red);
+names(red) = "red"
 
-sizeGrWindow(7, 7);
-par(mfrow = c(1,1));
-verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
-                   abs(geneTraitSignificance[moduleGenes, 1]),
-                   xlab = paste("Module Membership in", module, "module"),
-                   ylab = "Gene significance for temperature",
-                   main = paste("Module membership vs. gene significance\n"),
-                   cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
-abline(h = 0.6,v=0.8, col = "red")
+# names (colors) of the modules
+modNames = substring(names(MEs), 3)
 
-module = "darkmagenta"
-column = match(module, modNames);
-moduleGenes = moduleColors==module;
+geneModuleMembership = as.data.frame(cor(datExpr, MEs, use = "p"));
 
-sizeGrWindow(7, 7);
-par(mfrow = c(1,1));
-verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
-                   abs(geneTraitSignificance[moduleGenes, 1]),
-                   xlab = paste("Module Membership in", module, "module"),
-                   ylab = "Gene significance for temperature",
-                   main = paste("Module membership vs. gene significance\n"),
-                   cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
-abline(h = 0.6,v=0.8, col = "red")
+
+MMPvalue = as.data.frame(corPvalueStudent(as.matrix(geneModuleMembership), nSamples));
+names(geneModuleMembership) = paste("MM", modNames, sep="");
+names(MMPvalue) = paste("p.MM", modNames, sep="");
+
+geneTraitSignificance = as.data.frame(cor(datExpr, red, use = "p"));
+GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSamples));
+
+names(geneTraitSignificance) = paste("GS.", names(red), sep="");
+names(GSPvalue) = paste("p.GS.", names(red), sep="");
+
+save.image("wgcna_part1.Rda")
+
+#=====================================================================================
+#
+#  Code chunk 4
+#
+#=====================================================================================
+
+
+# Define variable weight containing the weight column of datTrait
+yellow = as.data.frame(datTraits$yellow);
+names(yellow) = "yellow"
+
+# names (colors) of the modules
+modNames = substring(names(MEs), 3)
+
+geneModuleMembership = as.data.frame(cor(datExpr, MEs, use = "p"));
+
+
+MMPvalue = as.data.frame(corPvalueStudent(as.matrix(geneModuleMembership), nSamples));
+names(geneModuleMembership) = paste("MM", modNames, sep="");
+names(MMPvalue) = paste("p.MM", modNames, sep="");
+
+geneTraitSignificance = as.data.frame(cor(datExpr, yellow, use = "p"));
+GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSamples));
+
+names(geneTraitSignificance) = paste("GS.", names(yellow), sep="");
+names(GSPvalue) = paste("p.GS.", names(yellow), sep="");
+
+save.image("wgcna_part1.Rda")
+
 
