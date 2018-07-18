@@ -2,8 +2,8 @@
 
 #Global variables
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
-INPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed_tests/index.txt
-WORKING_DIRECTORY=/home1/scratch/plstenge/testBWA
+INPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/index.txt
+WORKING_DIRECTORY=/home1/scratch/plstenge/BWA
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 BWA="bwa"			
@@ -32,7 +32,7 @@ mkdir -p $WORKING_DIRECTORY/$TAG
 cd $WORKING_DIRECTORY/$TAG
 
 #BWA
-for i in {1..2}
+for i in {1..12}
 do
 	R1=LEFT_$i ;
 	R2=RIGHT_$i ;
