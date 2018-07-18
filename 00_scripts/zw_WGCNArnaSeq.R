@@ -6,6 +6,7 @@ rm(list=ls())
 library("assertthat")
 library("scales")
 library("WGCNA")
+library("doParallel")
 
 ALLOW_WGCNA_THREADS=20
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests")
