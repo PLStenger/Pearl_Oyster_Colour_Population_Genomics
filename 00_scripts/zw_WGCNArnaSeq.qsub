@@ -3,7 +3,7 @@
 #PBS -l mem=100gb
 #PBS -N "wgcna"
 #PBS -o "log.wgcna.out"
-#PBS -l ncpus=56
+#PBS -l ncpus=1
 #PBS -q omp
 #PBS -r n
 
