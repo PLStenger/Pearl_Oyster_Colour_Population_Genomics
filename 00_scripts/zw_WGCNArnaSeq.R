@@ -3,9 +3,13 @@
 ####################################################
 rm(list=ls())
 
-library("assertthat")
-library("scales")
-library("WGCNA")
+library("assertthat", warn.conflicts = FALSE)
+library("scales", warn.conflicts = FALSE)
+library("WGCNA", warn.conflicts = FALSE)
+library("fastcluster", warn.conflicts = FALSE) 
+library("dynamicTreeCut", warn.conflicts = FALSE) 
+
+
 # library("doParallel")
 
 ALLOW_WGCNA_THREADS=56
@@ -17,7 +21,7 @@ load("sft_signed.Rda")
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
 # registerDoParallel()
 
-allowWGCNAThreads()
+allowWGCNAThreads(56)
 
 
 softPower = 9; #reach 90%
