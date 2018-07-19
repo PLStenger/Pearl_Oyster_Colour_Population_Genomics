@@ -6,16 +6,18 @@ rm(list=ls())
 library("assertthat")
 library("scales")
 library("WGCNA")
-library("doParallel")
+# library("doParallel")
 
-ALLOW_WGCNA_THREADS=20
+ALLOW_WGCNA_THREADS=56
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests")
 
 load("dataInput_subset.Rda")
 load("sft_signed.Rda")
 
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
-registerDoParallel()
+# registerDoParallel()
+
+allowWGCNAThreads()
 
 
 softPower = 9; #reach 90%
