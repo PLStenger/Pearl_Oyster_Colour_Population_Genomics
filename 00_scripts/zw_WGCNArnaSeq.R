@@ -8,6 +8,7 @@ library("scales", warn.conflicts = FALSE)
 library("WGCNA", warn.conflicts = FALSE)
 library("fastcluster", warn.conflicts = FALSE) 
 library("dynamicTreeCut", warn.conflicts = FALSE) 
+library("stats", warn.conflicts = FALSE) 
 
 
 # library("doParallel")
@@ -21,7 +22,7 @@ load("sft_signed.Rda")
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
 # registerDoParallel()
 
-allowWGCNAThreads(56)
+#allowWGCNAThreads(56)
 
 
 softPower = 9; #reach 90%
