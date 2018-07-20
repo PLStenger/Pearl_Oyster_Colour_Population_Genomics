@@ -34,7 +34,7 @@ head(datExpr)
 #=====================================================================================
 
 ### SUR DATARMOR
-softPower = 9; #reached 90 R2 
+softPower = 12; #reached 90 R2 Valeur du graph "scale independence"
 adjacency = adjacency(datExpr, power = "softPower" ,type="signed");
 
 
