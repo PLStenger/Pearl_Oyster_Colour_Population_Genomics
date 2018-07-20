@@ -6,6 +6,7 @@ rm(list=ls())
 library("assertthat", warn.conflicts = FALSE)
 library("scales", warn.conflicts = FALSE)
 library("WGCNA", warn.conflicts = FALSE)
+allowWGCNAThreads()
 library("fastcluster", warn.conflicts = FALSE) 
 library("dynamicTreeCut", warn.conflicts = FALSE) 
 library("stats", warn.conflicts = FALSE) 
@@ -25,7 +26,7 @@ load("sft_signed.Rda")
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
 # registerDoParallel()
 
-allowWGCNAThreads()
+#allowWGCNAThreads()
 
 #=====================================================================================
 #
