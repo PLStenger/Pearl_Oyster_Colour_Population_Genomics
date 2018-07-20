@@ -32,7 +32,7 @@ load("sft_signed.Rda")
 
 ### SUR DATARMOR
 oftPower = 9; #reach 90%
-adjacency = adjacency(datExpr, power = softPower,type="signed");
+adjacency = adjacency(datExpr, power = "softPower", type="signed");
 TOM = TOMsimilarity(adjacency,TOMType = "signed");
 dissTOM = 1-TOM
 
