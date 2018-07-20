@@ -13,7 +13,7 @@ library("stats", warn.conflicts = FALSE)
 
 # library("doParallel")
 
-ALLOW_WGCNA_THREADS=120
+ALLOW_WGCNA_THREADS=2
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests")
 
 load("dataInput_subset.Rda")
