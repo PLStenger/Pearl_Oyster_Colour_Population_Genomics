@@ -19,7 +19,7 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests
 load("dataInput_subset.Rda")
 load("sft_signed.Rda")
 
-head(datExpr)
+#head(datExpr)
 
 
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
@@ -35,6 +35,7 @@ head(datExpr)
 
 ### SUR DATARMOR
 softPower = 12; #reached 90 R2 Valeur du graph "scale independence"
+print(softPower)
 adjacency = adjacency(datExpr, power = softPower, type="signed");
 
 
