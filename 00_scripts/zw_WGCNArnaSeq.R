@@ -32,7 +32,7 @@ load("sft_signed.Rda")
 
 ### SUR DATARMOR
 softPower = 12; #reached 90 R2 
-adjacency = adjacency(datExpr, power = softPower,type=signed);
+adjacency = adjacency(datExpr, power = softPower,type="signed");
 
 
 #=====================================================================================
