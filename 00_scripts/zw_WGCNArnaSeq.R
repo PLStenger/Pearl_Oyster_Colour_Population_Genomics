@@ -19,6 +19,9 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests
 load("dataInput_subset.Rda")
 load("sft_signed.Rda")
 
+head(datExpr)
+
+
 # Test pour éviter ça : "Warning message:executing %dopar% sequentially: no parallel backend registered"
 # registerDoParallel()
 
