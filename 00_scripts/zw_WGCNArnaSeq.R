@@ -6,7 +6,7 @@ rm(list=ls())
 library("assertthat", warn.conflicts = FALSE)
 library("scales", warn.conflicts = FALSE)
 library("WGCNA", warn.conflicts = FALSE)
-allowWGCNAThreads()
+allowWGCNAThreads(2)
 library("fastcluster", warn.conflicts = FALSE) 
 library("dynamicTreeCut", warn.conflicts = FALSE) 
 library("stats", warn.conflicts = FALSE) 
@@ -38,6 +38,7 @@ load("sft_signed.Rda")
 softPower = 12; #reached 90 R2 Valeur du graph "scale independence"
 print(softPower)
 adjacency = adjacency(datExpr, power = softPower, type="signed");
+print(adjacency)
 
 
 #=====================================================================================
