@@ -7,7 +7,7 @@
 
 
 #Global variables
-INPUT=/home1/scratch/plstenge/testBWA/mapping_BWA_sspace.final.scaffolds.fasta
+INPUT=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/06_flagstat
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
 SAMTOOLS="samtools"
