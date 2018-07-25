@@ -41,6 +41,8 @@ do
 	cp ${HEADER} ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 	echo "${BWA_ENV}" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 	echo "time ${BWA} mem -t ${NB_CPU} -M ${ASSEMBLY} ${!R1} ${!R2} > ${WORKING_DIRECTORY}/${TAG}/${prefix}.sam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+	echo "samtools view -Sb  ${WORKING_DIRECTORY}/${TAG}/${prefix}.sam  >  ${WORKING_DIRECTORY}/${TAG}/${prefix}.bam"
+	echo "rm -r ${WORKING_DIRECTORY}/${TAG}/${prefix}.sam"
 	qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 done
 
