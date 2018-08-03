@@ -17,4 +17,5 @@ NB_CPU=16	#number of cpus
 
 $SAM_ENV
 cd $WORKING_DIRECTORY
-samtools view -b  HI.4499.006.NS_Adaptor_16.pool8KJ.sam  >  HI.4499.006.NS_Adaptor_16.pool8KJ.bam
+samtools view -b  HI.4499.008.NS_Adaptor_14.pool6GV.sam  >  HI.4499.008.NS_Adaptor_14.pool6GV.bam
+
