@@ -2,7 +2,7 @@
 #PBS -o flagstat.out
 #PBS -q omp
 #PBS -l ncpus=16
-#PBS -l mem=60gb
+#PBS -l mem=120gb
 #PBS -l walltime=96:00:00
 #Global variables
 
