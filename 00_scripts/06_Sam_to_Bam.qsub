@@ -7,7 +7,7 @@
 #Global variables
 
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
-INPUT=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.007.NS_Adaptor_15.pool7KR.sam
+INPUT=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
 WORKING_DIRECTORY=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
 HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
