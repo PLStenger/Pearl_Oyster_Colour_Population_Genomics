@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#PBS -o flagstat.out
+#PBS -o Sam_to_Bam.out
 #PBS -q omp
 #PBS -l walltime=720:00:00
 #PBS -l mem=1024g
