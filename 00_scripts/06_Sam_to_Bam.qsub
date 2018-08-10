@@ -2,8 +2,8 @@
 #PBS -o Sam_to_Bam.out
 #PBS -q omp
 #PBS -l walltime=40:00:00
-#PBS -l mem=120g
-#PBS -l ncpus=2
+#PBS -l mem=400g
+#PBS -l ncpus=16
 #Global variables
 
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
