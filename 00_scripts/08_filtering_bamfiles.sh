@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=60gb
+#PBS -l walltime=48:00:00
 
 #Global variables
 WORKING_DIRECTORY=/home1/scratch/plstenge/filtering_bamfiles
