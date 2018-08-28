@@ -42,7 +42,7 @@ cd $INPUT
 
 $SAMTOOLS_ENV
 
-$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b HI.4499.007.NS_Adaptor_15.pool7KR.bam > HI.4499.007.NS_Adaptor_15.pool7KR_filtered.bam
+$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b HI.4499.006.NS_Adaptor_16.pool8KJ.bam > HI.4499.006.NS_Adaptor_16.pool8KJ_filtered.bam
 
 
 
