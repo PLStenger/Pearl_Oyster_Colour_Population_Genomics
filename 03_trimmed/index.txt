@@ -1,4 +1,6 @@
-LEFT_1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.paired.fastq.gz
-RIGHT_1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.paired.fastq.gz
-LEFT_2=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.003.NS_Adaptor_11.pool3TV_R1.paired.fastq.gz
-RIGHT_2=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.003.NS_Adaptor_11.pool3TV_R2.paired.fastq.gz
+LEFT_1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.005.NS_Adaptor_9.pool1TR_R1.paired.fastq.gz
+RIGHT_1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.005.NS_Adaptor_9.pool1TR_R2.paired.fastq.gz
+LEFT_2=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.005.NS_Adaptor_19.pool11EJ_R1.paired.fastq.gz
+RIGHT_2=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.005.NS_Adaptor_19.pool11EJ_R2.paired.fastq.gz
+LEFT_3=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.006.NS_Adaptor_18.pool10ER_R1.paired.fastq.gz
+RIGHT_3=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.006.NS_Adaptor_18.pool10ER_R2.paired.fastq.gz
