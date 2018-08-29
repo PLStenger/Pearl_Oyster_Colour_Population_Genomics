@@ -48,23 +48,23 @@ do
 	prefix=${temp%%_R1*} ;
 	
   cp ${HEADER} ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-	echo "${BWA_ENV}" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-	
+  
   echo "# Mapping BWA" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ; 
+  echo "${BWA_ENV}" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "time ${BWA} mem -t ${NB_CPU} -M ${ASSEMBLY} ${!R1} ${!R2} > ${WORKING_DIRECTORY1}/${TAG}/${prefix}.sam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Sam To Bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ; 
+  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS view -b  ${WORKING_DIRECTORY1}/${TAG}/${prefix}.sam  >  ${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 	
   echo "# Delete Sam file" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ; 
   echo "rm -r ${WORKING_DIRECTORY1}/${TAG}/${prefix}.sam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
-  echo "# Move bam file to data_work RMPF" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "# Copy bam file from scratch to datawork_rmpf" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cp -r plstenge@datarmor:/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-  echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Flagstat" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam > ${WORKING_DIRECTORY1}/${TAG}/${prefix}_flagstat_bam.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Filtering" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
@@ -72,6 +72,7 @@ do
   echo "$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b ${WORKING_DIRECTORY3}/${TAG}/${prefix}.bam > ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Flagstat for filtered files" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered_flagstat.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;  
   
   echo "# Sorting" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
@@ -79,6 +80,7 @@ do
   echo "$SAMTOOLS view sort ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered_sorted.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
  
   echo "# Flagstat for sort files" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered_sorted_flagstat.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;  
 
 qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
