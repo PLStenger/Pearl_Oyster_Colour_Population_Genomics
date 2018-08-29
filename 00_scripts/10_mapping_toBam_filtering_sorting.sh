@@ -12,7 +12,7 @@ BWA="bwa"
 BWA_ENV=". /appli/bioinfo/bwa/latest/env.sh"
 SAMTOOLS="samtools"
 SAM_ENV=". /appli/bioinfo/samtools/latest/env.sh"
-INDEX=0		# Lancer avec 0 une premiere fois le script pour créer l'index du génome, puis après mettre 1 et le relancer	
+INDEX=1		# Lancer avec 0 une premiere fois le script pour créer l'index du génome, puis après mettre 1 et le relancer	
 NB_CPU=16	#number of cpus
 
 # Explanations
@@ -61,11 +61,11 @@ do
   echo "rm -r ${WORKING_DIRECTORY1}/${TAG}/${prefix}.sam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Copy bam file from scratch to datawork_rmpf" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-  echo "cp -r plstenge@datarmor:/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "cp ${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Flagstat" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-  echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam > ${WORKING_DIRECTORY1}/${TAG}/${prefix}_flagstat_bam.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${TAG}/${prefix}.bam > ${WORKING_DIRECTORY3}/${TAG}/${prefix}_flagstat_bam.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Filtering" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
@@ -83,7 +83,7 @@ do
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${TAG}/${prefix}_filtered_sorted_flagstat.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;  
 
-qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+# qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 done
 
 fi
