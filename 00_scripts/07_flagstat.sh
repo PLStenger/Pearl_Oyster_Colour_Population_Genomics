@@ -7,8 +7,8 @@
 
 
 #Global variables
-INPUT=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
-WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/06_flagstat
+INPUT=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+WORKING_DIRECTORY=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
 SAMTOOLS="samtools"
 SAM_ENV=". /appli/bioinfo/samtools/latest/env.sh"
@@ -17,5 +17,5 @@ NB_CPU=16	#number of cpus
 
 #loop through sam files:
 $SAM_ENV
-for f in $INPUT/*.bam; do $SAMTOOLS flagstat $f > ${f/.bam/.mapped_stat.txt};
+for f in $INPUT/*.bam; do $SAMTOOLS flagstat $f > ${f/.flagstat_results.txt};
 done
