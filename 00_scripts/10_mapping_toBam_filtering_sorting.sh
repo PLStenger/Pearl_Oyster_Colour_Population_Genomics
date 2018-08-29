@@ -13,7 +13,7 @@ BWA_ENV=". /appli/bioinfo/bwa/latest/env.sh"
 SAMTOOLS="samtools"
 SAM_ENV=". /appli/bioinfo/samtools/latest/env.sh"
 INDEX=1		# Lancer avec 0 une premiere fois le script pour créer l'index du génome, puis après mettre 1 et le relancer	
-NB_CPU=16	#number of cpus
+NB_CPU=12	#number of cpus
 
 # Explanations
 # Wrote one script for one individual
