@@ -17,5 +17,5 @@ NB_CPU=16	#number of cpus
 
 #loop through sam files:
 $SAM_ENV
-for f in $INPUT/*.bam; do $SAMTOOLS flagstat $f > ${f/.flagstat_results.txt};
+Aaaaaaaaaaaaaah ne surtout pas utiliser ca change touuuuuut les bam en flagstat for f in $INPUT/*.bam; do $SAMTOOLS flagstat $f > ${f/.flagstat_results.txt};
 done
