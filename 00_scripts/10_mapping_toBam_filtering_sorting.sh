@@ -40,7 +40,7 @@ mkdir -p $WORKING_DIRECTORY1/$TAG
 cd $WORKING_DIRECTORY1/$TAG
 
 # BWA
-for i in {1..8}
+for i in {1..10}
 do
 	R1=LEFT_$i ;
 	R2=RIGHT_$i ;
@@ -83,7 +83,7 @@ do
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered_sorted_flagstat.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;  
 
-# qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 done
 
 fi
