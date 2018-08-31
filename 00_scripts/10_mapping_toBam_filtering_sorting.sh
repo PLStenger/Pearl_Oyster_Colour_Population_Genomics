@@ -40,7 +40,7 @@ mkdir -p $WORKING_DIRECTORY1/$TAG
 cd $WORKING_DIRECTORY1/$TAG
 
 # BWA
-for i in {1..8}
+for i in {1..7}
 do
 	R1=LEFT_$i ;
 	R2=RIGHT_$i ;
