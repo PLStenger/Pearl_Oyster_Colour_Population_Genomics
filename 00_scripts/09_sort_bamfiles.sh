@@ -13,8 +13,6 @@ SAMTOOLS_ENV=". /appli/bioinfo/samtools/latest/env.sh"
 SAMTOOLS="samtools"
 
 
-# $HEADER
-
 cd $INPUT
 
 $SAMTOOLS_ENV
