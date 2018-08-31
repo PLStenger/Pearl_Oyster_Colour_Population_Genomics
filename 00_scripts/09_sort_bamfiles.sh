@@ -20,4 +20,7 @@ cd $INPUT
 
 $SAMTOOLS_ENV
 
-$SAMTOOLS view sort HI.4499.007.NS_Adaptor_15.pool7KR_filtered.bam > HI.4499.007.NS_Adaptor_15.pool7KR_filtered_sorted.bam
+$SAMTOOLS view sort HI.4499.006.NS_Adaptor_16.pool8KJ_filtered.bam > HI.4499.006.NS_Adaptor_16.pool8KJ_filtered_sorted.bam
+$SAMTOOLS view sort HI.4506.003.NS_Adaptor_11.pool3TV_filtered.bam > HI.4506.003.NS_Adaptor_11.pool3TV_filtered_sorted.bam
+$SAMTOOLS view sort HI.4527.004.NS_Adaptor_20.pool12EV_filtered.bam > HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted.bam
+$SAMTOOLS view sort HI.4527.007.NS_Adaptor_17.pool9KV_filtered.bam > HI.4527.007.NS_Adaptor_17.pool9KV_filtered.bam_sorted.bam
