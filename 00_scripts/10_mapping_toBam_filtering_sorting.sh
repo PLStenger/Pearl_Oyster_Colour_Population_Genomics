@@ -78,7 +78,7 @@ do
   echo "# Sorting" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-  echo "$SAMTOOLS view sort ${WORKING_DIRECTORY3}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered_sorted.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAMTOOLS sort ${WORKING_DIRECTORY3}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered_sorted.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
  
   echo "# Flagstat for sort files" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
