@@ -40,7 +40,7 @@ mkdir -p $WORKING_DIRECTORY1/$TAG
 cd $WORKING_DIRECTORY1/$TAG
 
 # BWA
-for i in {1..10}
+for i in {1..8}
 do
 	R1=LEFT_$i ;
 	R2=RIGHT_$i ;
@@ -57,9 +57,6 @@ do
   echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS view -b  ${WORKING_DIRECTORY1}/${TAG}/${prefix}.sam  >  ${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
 	
-  echo "# Delete Sam file" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ; 
-  echo "rm -r ${WORKING_DIRECTORY1}/${TAG}/${prefix}.sam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
-  
   echo "# Copy bam file from scratch to datawork_rmpf" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cp ${WORKING_DIRECTORY1}/${TAG}/${prefix}.bam $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
