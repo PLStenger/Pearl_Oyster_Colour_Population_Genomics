@@ -62,22 +62,27 @@ do
   
   echo "# Flagstat" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${prefix}.bam > ${WORKING_DIRECTORY3}/${prefix}_flagstat_bam.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Filtering" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b ${WORKING_DIRECTORY3}/${prefix}.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   
   echo "# Flagstat for filtered files" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered_flagstat.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;  
   
   echo "# Sorting" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS view sort ${WORKING_DIRECTORY3}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered_sorted.bam" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
  
   echo "# Flagstat for sort files" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "cd $WORKING_DIRECTORY3" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
+  echo "$SAM_ENV" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
   echo "$SAMTOOLS flagstat ${WORKING_DIRECTORY3}/${prefix}_filtered.bam > ${WORKING_DIRECTORY3}/${prefix}_filtered_sorted_flagstat.txt" >> ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;  
 
 qsub ${SCRIPT}/remapping_BWA_${ASSEMBLY##*/}_${prefix}.qsub ;
