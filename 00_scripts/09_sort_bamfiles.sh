@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #PBS -q sequentiel
-#PBS -l walltime=120:00:00
-#PBS -l mem=100g
+#PBS -l walltime=180:00:00
+#PBS -l mem=120g
 
 #Global variables
 WORKING_DIRECTORY=/home1/scratch/plstenge/filtering_bamfiles
