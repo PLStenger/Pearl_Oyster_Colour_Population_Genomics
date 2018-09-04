@@ -18,4 +18,3 @@ cd ${WORKING_DIRECTORY}
 ${BWA_ENV}
   
 time bwa mem -t 16 -M ${ASSEMBLY} /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.007.NS_Adaptor_15.pool7KR_R1.paired.fastq.gz /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.007.NS_Adaptor_15.pool7KR_R2.paired.fastq.gz > HI.4499.007.NS_Adaptor_15.pool7KR_05_mapping_unique.sam
-samtools view -b HI.4499.007.NS_Adaptor_15.pool7KR_05_mapping_unique.sam > HI.4499.007.NS_Adaptor_15.pool7KR_05_mapping_unique.bam
