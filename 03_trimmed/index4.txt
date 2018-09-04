@@ -1,0 +1,2 @@
+LEFT_1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.007.NS_Adaptor_15.pool7KR_R1.paired.fastq.gz
+RIGHT_1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.007.NS_Adaptor_15.pool7KR_R2.paired.fastq.gz
