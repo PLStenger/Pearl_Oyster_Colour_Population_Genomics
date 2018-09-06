@@ -18,4 +18,5 @@ NB_CPU=16	#number of cpus
 $SAM_ENV
 cd $INPUT
 
-$SAMTOOLS flagstat HI.4506.005.NS_Adaptor_9.pool1TR.bam > HI.4506.005.NS_Adaptor_9.pool1TR_flagstat.txt
+$SAMTOOLS flagstat HI.4499.007.NS_Adaptor_15.pool7KR_filtered.bam > HI.4499.007.NS_Adaptor_15.pool7KR_filtered_flagstat.txt
+$SAMTOOLS flagstat HI.4499.007.NS_Adaptor_15.pool7KR_06_Bam_to_Sam.bam > HI.4499.007.NS_Adaptor_15.pool7KR_06_Bam_to_Sam_flagstat.txt
