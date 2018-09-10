@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #PBS -q mpi
-#PBS -l walltime=90:00:00
-#PBS -l select=1:ncpus=16:mem=115g
+#PBS -l walltime=70:00:00
+#PBS -l select=1:ncpus=16:mem=100g
 
 #Global variables
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
