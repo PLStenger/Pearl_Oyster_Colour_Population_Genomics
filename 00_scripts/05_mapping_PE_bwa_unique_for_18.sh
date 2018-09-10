@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#PBS -q sequentiel
-#PBS -l walltime=180:00:00
-#PBS -l mem=600g
+#PBS -q omp
+#PBS -l walltime=96:00:00
+#PBS -l mem=120g
+#PBS -l ncpus=16
 
 #Global variables
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
@@ -16,5 +17,5 @@ cd ${WORKING_DIRECTORY}
   
 ${BWA_ENV}
   
-time bwa mem -t 1 -M ${ASSEMBLY} /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.006.NS_Adaptor_18.pool10ER_R1.paired.fastq.gz /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.006.NS_Adaptor_18.pool10ER_R2.paired.fastq.gz > HI.4527.006.NS_Adaptor_18.pool10ER_05_mapping_unique_sequentiel.sam
+time bwa mem -t 16 -M ${ASSEMBLY} /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.006.NS_Adaptor_18.pool10ER_R1.paired.fastq.gz /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4527.006.NS_Adaptor_18.pool10ER_R2.paired.fastq.gz > HI.4527.006.NS_Adaptor_18.pool10ER_05_mapping_unique_sequentiel.sam
 
