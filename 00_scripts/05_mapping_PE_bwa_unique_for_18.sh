@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #PBS -q omp
-#PBS -l walltime=80:00:00
-#PBS -l mem=100g
+#PBS -l walltime=96:00:00
+#PBS -l mem=60g
 #PBS -l ncpus=16
 
 #Global variables
