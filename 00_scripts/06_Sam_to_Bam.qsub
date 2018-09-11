@@ -6,11 +6,8 @@
 #PBS -l walltime=96:00:00
 #Global variables
 
-ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
-INPUT=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
-WORKING_DIRECTORY=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
+WORKING_DIRECTORY=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
-HEADER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 SAMTOOLS="samtools"
 SAM_ENV=". /appli/bioinfo/samtools/latest/env.sh"
 NB_CPU=16	#number of cpus
