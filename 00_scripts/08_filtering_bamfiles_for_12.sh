@@ -4,7 +4,7 @@
 #PBS -l select=1:ncpus=28:mem=115g
 
 #Global variables
-WORKING_DIRECTORY=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+WORKING_DIRECTORY=/home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts
 SAMTOOLS_ENV=". /appli/bioinfo/samtools/latest/env.sh"
 SAMTOOLS="samtools"
@@ -36,4 +36,4 @@ cd $WORKING_DIRECTORY
 
 $SAMTOOLS_ENV
 
-$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b HI.4506.002.NS_Adaptor_12.pool4GR_05_mapping_unique_sequentiel.bam > HI.4506.002.NS_Adaptor_12.pool4GR_05_filtered.bam
+$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_05_mapping_unique_sequentiel.bam > /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4506.002.NS_Adaptor_12.pool4GR_filtered.bam
