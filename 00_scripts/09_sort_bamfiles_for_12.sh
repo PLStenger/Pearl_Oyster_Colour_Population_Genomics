@@ -12,4 +12,4 @@ SAMTOOLS="samtools"
 cd $WORDING_DIRECTORY
 $SAMTOOLS_ENV
 
-$SAMTOOLS sort /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.005.NS_Adaptor_9.pool1TR_filtered.bam > /home1/scratch/plstenge/filtering_bamfiles/HI.4506.005.NS_Adaptor_9.pool1TR_filtered_sorted.bam
+$SAMTOOLS sort /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4506.002.NS_Adaptor_12.pool4GR_filtered.bam > /home1/scratch/plstenge/filtering_bamfiles/HI.4506.002.NS_Adaptor_12.pool4GR_filtered_sorted.bam
