@@ -36,4 +36,4 @@ cd $WORKING_DIRECTORY
 
 $SAMTOOLS_ENV
 
-$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b HI.4506.005.NS_Adaptor_9.pool1TR_05_mapping_unique_sequentiel.bam > HI.4506.005.NS_Adaptor_9.pool1TR_filtered.bam
+$SAMTOOLS view -F 4 -F 256 -q 5 -f2 -b HI.4506.002.NS_Adaptor_12.pool4GR_05_mapping_unique_sequentiel.bam > HI.4506.002.NS_Adaptor_12.pool4GR_05_filtered.bam
