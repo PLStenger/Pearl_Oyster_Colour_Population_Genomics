@@ -10,10 +10,10 @@ TMP=/home1/scratch/plstenge/tmp # Path for temporary files
 PICARD_TOOLS="source activate /home1/datawork/plstenge/96_env_conda/picard_tools" # version 2.18.14
 SAMTOOLS="source activate /home1/datawork/plstenge/96_env_conda/samtools" # version 1.9
 GATK="source activate /home1/datawork/plstenge/96_env_conda/gatk" # version 3.8
+PATH=$PATH:/appli/anaconda/2.7/bin
 
 file=__BASE__
 
-module load anaconda-py2.7/4.3.13
 
 # 1) Marking duplicates and removing them
 cd ${DATA}
