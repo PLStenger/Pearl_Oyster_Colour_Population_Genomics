@@ -13,6 +13,8 @@ GATK="source activate /home1/datawork/plstenge/96_env_conda/gatk" # version 3.8
 
 file=__BASE__
 
+module load anaconda-py2.7/4.3.13
+
 # 1) Marking duplicates and removing them
 cd ${DATA}
 $PICARD_TOOLS
