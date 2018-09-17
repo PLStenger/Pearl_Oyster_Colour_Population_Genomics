@@ -6,8 +6,8 @@
 DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 OUTDIR=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
-PICARD_TOOLS="source activate /home1/datawork/plstenge/96_env_conda/picard_tools" # version 2.18.14
 TMP=/home1/scratch/plstenge/tmp # Path for temporary files
+PICARD_TOOLS="source activate /home1/datawork/plstenge/96_env_conda/picard_tools" # version 2.18.14
 SAMTOOLS="source activate /home1/datawork/plstenge/96_env_conda/samtools" # version 1.9
 GATK="source activate /home1/datawork/plstenge/96_env_conda/gatk" # version 3.8
 
