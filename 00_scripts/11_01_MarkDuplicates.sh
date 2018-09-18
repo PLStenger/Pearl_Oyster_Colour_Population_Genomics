@@ -18,7 +18,7 @@ file=__BASE__
 # 1) Marking duplicates and removing them
 cd ${DATA}
 # module load java
-time java -Xmx4g -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard-1.119.jar MarkDuplicates I=${file} O=${OUTDIR}/${file%.*}_MD.bam M=${OUTDIR}/${file%.*}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+time java -Xmx2g -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard-1.119.jar MarkDuplicates I=${file} O=${OUTDIR}/${file%.*}_MD.bam M=${OUTDIR}/${file%.*}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 
 file=${OUTDIR}/${file%.*}_MD.bam
 
