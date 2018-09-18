@@ -1,24 +1,23 @@
 #!/usr/bin/env bash
-#PBS -q mpi
+#PBS -q omp
 #PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=28:mem=115g
+#PBS -l mem=60g
+#PBS -l ncpus=4
 
 DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 OUTDIR=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
 TMP=/home1/scratch/plstenge/tmp # Path for temporary files
-PICARD_TOOLS="source activate /home1/datawork/plstenge/96_env_conda/picard_tools" # version 2.18.14
-SAMTOOLS="source activate /home1/datawork/plstenge/96_env_conda/samtools" # version 1.9
-GATK="source activate /home1/datawork/plstenge/96_env_conda/gatk" # version 3.8
-PATH=$PATH:/appli/anaconda/2.7/bin
+PICARD_TOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/picard-tools-1.119 
+SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
+GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
 
 file=__BASE__
 
 
 # 1) Marking duplicates and removing them
 cd ${DATA}
-$PICARD_TOOLS
-time java -jar -Djava.io.TMPdir=$TMP picard/MarkDuplicates.jar I=${file} O=${OUTDIR}/${file%.*}_MD.bam M=${OUTDIR}/${file%.*}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+time java -jar -Djava.io.TMPdir=$TMP $PICARD_TOOLS/MarkDuplicates.jar I=${file} O=${OUTDIR}/${file%.*}_MD.bam M=${OUTDIR}/${file%.*}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 
 file=${OUTDIR}/${file%.*}_MD.bam
 
@@ -54,10 +53,9 @@ time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${file%.*}_MD_sorted
 # RGPI (Integer)	Read Group predicted insert size Default value: null.
 # RGPG (String)	Read Group program group Default value: null.
 # RGPM (String)	Read Group platform model Default value: null.
-$PICARD_TOOLS
 id=${file##*/}
 id=${file%.*}
-time java -jar -Djava.io.TMPdir=$TMP picard/AddOrReplaceReadGroups.jar I=${OUTDIR}/${file%.*}_sorted_split.bam O=${OUTDIR}/${file%.*}_sorted_split_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
+time java -jar -Djava.io.TMPdir=$TMP $PICARD_TOOLS/AddOrReplaceReadGroups.jar I=${OUTDIR}/${file%.*}_sorted_split.bam O=${OUTDIR}/${file%.*}_sorted_split_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
 
 # 6) Indexing bam
 $SAMTOOLS
