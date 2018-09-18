@@ -11,3 +11,6 @@ cd $WORKING_DIRECTORY
 $SAMTOOLS
 
 samtools faidx $DATA
+
+# Don't forget to did it:
+# java -jar CreateSequenceDictionary.jar R= sspace.final.scaffolds.fasta O= sspace.final.scaffolds.dict
