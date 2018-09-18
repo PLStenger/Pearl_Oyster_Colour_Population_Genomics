@@ -13,4 +13,4 @@ $SAMTOOLS
 samtools faidx $DATA
 
 # Don't forget to did it:
-# java -jar CreateSequenceDictionary.jar R= sspace.final.scaffolds.fasta O= sspace.final.scaffolds.dict
+# java -jar /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/picard-tools-1.119/CreateSequenceDictionary.jar R= /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta O= /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.dict
