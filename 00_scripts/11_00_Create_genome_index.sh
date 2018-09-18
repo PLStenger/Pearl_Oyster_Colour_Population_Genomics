@@ -8,5 +8,6 @@ DATA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/ss
 SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
 
 cd $WORKING_DIRECTORY
+$SAMTOOLS
 
 samtools faidx $DATA
