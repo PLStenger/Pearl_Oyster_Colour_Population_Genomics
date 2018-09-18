@@ -15,7 +15,7 @@ DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 for file in $(ls ${DATA}/*_sorted.bam)
 do
 	base=${file##*/}
-	name=${base%%_*}
+	name=${base%.*}
         toEval="cat ${SCRIPT} | sed 's/__BASE__/$base/g'"; eval $toEval > ${SCRIPT%.*}_$name.qsub 
-	#qsub ${SCRIPT%.*}_$name.qsub
+	qsub ${SCRIPT%.*}_$name.qsub
 done
