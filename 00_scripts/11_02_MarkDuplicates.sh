@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-#PBS -q mpi
-#PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=28:mem=115g
 
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/11_01_MarkDuplicates.sh
 DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
