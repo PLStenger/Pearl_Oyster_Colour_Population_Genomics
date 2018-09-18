@@ -17,8 +17,8 @@ file=__BASE__
 
 # 1) Marking duplicates and removing them
 cd ${DATA}
-module load java
-time java -jar -Djava.io.TMPdir=$TMP $PICARD_TOOLS/MarkDuplicates.jar I=${file} O=${OUTDIR}/${file%.*}_MD.bam M=${OUTDIR}/${file%.*}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+# module load java
+time java jvm-args -jar -Djava.io.TMPdir=$TMP $PICARD_TOOLS/MarkDuplicates.jar I=${file} O=${OUTDIR}/${file%.*}_MD.bam M=${OUTDIR}/${file%.*}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 
 file=${OUTDIR}/${file%.*}_MD.bam
 
