@@ -34,8 +34,9 @@ samtools index ${file%.*}_MD_sorted.bam  > ${file%.*}_MD_sorted.bam.bai  ;
 # the splicing events represented by the Ns in the original CIGAR.
 # The first read includes the bases that are to the left of the first N element, while the part of the read that is 
 # to the right of the N (including the Ns) is hard clipped, and so on for the rest of the new reads.
+cd ${OUTDIR}
 $GATK
-time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${file%.*}_MD_sorted.bam -O ${OUTDIR}/${file%.*}_sorted_split.bam ;
+time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${file%.*}_MD_sorted.bam -O ${file%.*}_sorted_split.bam ;
 
 # 4) Told it's pooling data
 # En fait, étape uniquement dans Freebayes ?
@@ -54,12 +55,14 @@ time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${file%.*}_MD_sorted
 # RGPI (Integer)	Read Group predicted insert size Default value: null.
 # RGPG (String)	Read Group program group Default value: null.
 # RGPM (String)	Read Group platform model Default value: null.
+cd ${OUTDIR}
 id=${file##*/}
 id=${file%.*}
-time java -jar -Djava.io.TMPdir=$TMP ${PICARD_TOOLS}/AddOrReplaceReadGroups.jar I=${OUTDIR}/${file%.*}_sorted_split.bam O=${OUTDIR}/${file%.*}_sorted_split_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
+time java -jar -Djava.io.TMPdir=$TMP ${PICARD_TOOLS}/AddOrReplaceReadGroups.jar I=${file%.*}_sorted_split.bam O=${file%.*}_sorted_split_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
 
 # 6) Indexing bam
+cd ${OUTDIR}
 $SAMTOOLS
-samtools index ${OUTDIR}/${file%.*}_sorted_split_RG.bam > ${OUTDIR}/${file%.*}_sorted_split_RG.bam.bai ;
-samtools flagstat ${OUTDIR}/${file%.*}_sorted_split_RG.bam > ${OUTDIR}/${file%.*}_sorted_split_RG.bam.flagstat ;
+samtools index ${file%.*}_sorted_split_RG.bam > ${file%.*}_sorted_split_RG.bam.bai ;
+samtools flagstat ${file%.*}_sorted_split_RG.bam > ${file%.*}_sorted_split_RG.bam.flagstat ;
 
