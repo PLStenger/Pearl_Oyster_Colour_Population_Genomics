@@ -28,6 +28,7 @@ nAlleles=4
 # LOG=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/12_freebayes.out		#path to log file
 
 cd ${BAM}
+export PATH=$PATH:/appli/anaconda/2.7/bin
 source activate /home1/datawork/plstenge/96_env_conda/freebayes
 
 #freebayes -f ${REF} \
