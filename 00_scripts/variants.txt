@@ -1,0 +1,1 @@
+/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes/HI.4499.006.NS_Adaptor_16.pool8KJ_filtered_sorted_MD_sorted_split_RG.bam
