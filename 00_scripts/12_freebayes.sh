@@ -17,7 +17,7 @@
 # dans cnv-map.bed
 # mettre
 
-FB_ENV=/home1/datawork/plstenge/96_env_conda/freebayes # path to conda freebayes env if needed Version 1.2.0
+# FB_ENV=/home1/datawork/plstenge/96_env_conda/freebayes # path to conda freebayes env if needed Version 1.2.0
 REF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # path to ref genome
 BAM=/home1/scratch/plstenge/freebayes		#path to txt file containing list of filtered bam files (resulting from step 03)
 NB_CPU=12
@@ -28,7 +28,7 @@ nAlleles=4
 # LOG=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/12_freebayes.out		#path to log file
 
 cd ${BAM}
-${FB_ENV}
+source activate /home1/datawork/plstenge/96_env_conda/freebayes
 
 #freebayes -f ${REF} \
 #	--use-best-n-alleles $nAlleles \
