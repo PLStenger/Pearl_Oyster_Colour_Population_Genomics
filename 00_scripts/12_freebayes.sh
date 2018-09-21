@@ -40,4 +40,4 @@ source activate /home1/datawork/plstenge/96_env_conda/freebayes
 #	pool1.bam pool2.bam \
 #	--vcf ${VCF} >& $LOG
 	
-freebayes -f ${REF} --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map sspace.final.scaffolds_Pool1_Pool2.bed --ploidy 2 pool1.bam pool2.bam | vcffilter -f "QUAL > 20" > pools1_2.vcf
+freebayes -f ${REF} --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map sspace.final.scaffolds_Pool1_Pool2.bed --ploidy 2 pool1.bam pool2.bam > pools1_2.vcf
