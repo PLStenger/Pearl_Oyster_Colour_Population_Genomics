@@ -1,8 +1,7 @@
 #r/bin/env bash
-#PBS -q omp
-#PBS -l walltime=96:00:00
-#PBS -l mem=100g
-#PBS -l ncpus=12
+#PBS -q sequentiel
+#PBS -l walltime=100:00:00
+#PBS -l mem=300g
 
 ##### ATTENTION: on utilise GATK4, la synthaxe est differente de celle de GATK3 ######
 
