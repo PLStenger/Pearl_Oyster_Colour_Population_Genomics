@@ -26,8 +26,7 @@ $GATK
 
  gatk --java-options "-Xmx4g" HaplotypeCaller  \
    -R $ASSEMBLY \
-   -I pool1.bam [pool2.bam] \
-   -ploidy 14 [22]\
+   -I pool1.bam -ploidy 14 [-I pool2.bam -ploidy 22] \
    -O output.g.vcf.gz \
    -ERC GVCF
  
