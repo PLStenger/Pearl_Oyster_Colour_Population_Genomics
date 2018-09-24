@@ -1,7 +1,7 @@
 r/bin/env bash
 #PBS -q omp
-#PBS -l walltime=180:00:00
-#PBS -l mem=300g
+#PBS -l walltime=96:00:00
+#PBS -l mem=100g
 #PBS -l ncpus=12
 
 # java -jar <path to GenomeAnalysisTK.jar> -T CountReads -R exampleFASTA.fasta -I exampleBAM.bam
