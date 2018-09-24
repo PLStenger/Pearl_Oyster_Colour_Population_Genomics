@@ -4,6 +4,8 @@ r/bin/env bash
 #PBS -l mem=100g
 #PBS -l ncpus=12
 
+##### ATTENTION: on utilise GATK4, la synthaxe est differente de celle de GATK3 ######
+
 # java -jar <path to GenomeAnalysisTK.jar> -T CountReads -R exampleFASTA.fasta -I exampleBAM.bam
 # where -T CountReads specifies which analysis tool we want to use, -R exampleFASTA.fasta specifies the reference sequence, 
 # and -I exampleBAM.bam specifies the file of aligned reads we want to analyze.
@@ -22,14 +24,11 @@ GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
 
 cd $WORKING_DIRECTORY
 $GATK
-# java -jar <path to GenomeAnalysisTK.jar> -T CountReads -R $ASSEMBLY -I pool1.bam pool2.bam
 
-   java -jar GenomeAnalysisTK.jar \
-     -R $ASSEMBLY \
-     -T HaplotypeCaller \
-     -I pool1.bam [-ploidy 14] \
-     -I pool2.bam [-ploidy 22] \
-     [--dbsnp dbSNP.vcf] \
-     [-stand_call_conf 30] \
-     [-L targets.interval_list] \
-     -o output.raw.snps.indels.vcf
+ gatk --java-options "-Xmx4g" HaplotypeCaller  \
+   -R $ASSEMBLY \
+   -I pool1.bam [-ploidy 14] \
+   -I pool2.bam [-ploidy 22] \
+   -O output.g.vcf.gz \
+   -ERC GVCF
+ 
