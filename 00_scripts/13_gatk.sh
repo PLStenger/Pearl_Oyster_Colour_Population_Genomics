@@ -1,4 +1,4 @@
-r/bin/env bash
+#r/bin/env bash
 #PBS -q omp
 #PBS -l walltime=96:00:00
 #PBS -l mem=100g
