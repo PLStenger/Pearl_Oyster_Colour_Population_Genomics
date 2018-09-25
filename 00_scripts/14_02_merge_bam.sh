@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #PBS -q mpi
-#PBS -l walltime=96:00:00
+#PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
 #Global variables
