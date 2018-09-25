@@ -13,6 +13,7 @@ for file in $(ls ${DATA}/*_sorted.bam)
 do
 	base=${file##*/}
 	name=${base%.*}
-        toEval="cat ${SCRIPT} | sed 's/__BASE__/$base/g'"; eval $toEval > ${SCRIPT%.*}_$name_for_merge.qsub 
-	qsub ${SCRIPT%.*}_$name_for_merge.qsub
+	suffix= ${"merged_bam"}
+        toEval="cat ${SCRIPT} | sed 's/__BASE__/$base/g'"; eval $toEval > ${SCRIPT%.*}_$name_$suffix.qsub 
+	qsub ${SCRIPT%.*}_$name_$suffix.qsub
 done
