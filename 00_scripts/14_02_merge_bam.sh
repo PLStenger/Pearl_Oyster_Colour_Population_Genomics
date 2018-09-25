@@ -72,5 +72,5 @@ samtools flagstat HI.4527.007.NS_Adaptor_17.pool9KV_filtered_sorted_MD_sorted_sp
 samtools flagstat HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD_sorted_split_RG.bam > HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD_sorted_split_RG.bam.flagstat ;
 
 # 3) Removing int files
-rm *_sorted_split.bam
+# rm *_sorted_split.bam
 
