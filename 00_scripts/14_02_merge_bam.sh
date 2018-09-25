@@ -13,7 +13,7 @@ PICARD_TOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95
 SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
 GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-
 
-source activate /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/picard-tools-1.119 
+# source activate /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/picard-tools-1.119 
 
 # 1) Changing read's header avec PicardTools pour autoriser le pooling
 # AddOrReplaceReadGroups = Replace read groups in a BAM file.This tool enables the user to replace all read groups 
