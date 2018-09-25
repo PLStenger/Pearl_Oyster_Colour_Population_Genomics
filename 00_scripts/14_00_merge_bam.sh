@@ -14,5 +14,5 @@ do
 	base=${file##*/}
 	name=${base%.*}
         toEval="cat ${SCRIPT} | sed 's/__BASE__/$base/g'"; eval $toEval > ${SCRIPT%.*}_$name.qsub
-	qsub ${SCRIPT%.*}_$name_$suffix.qsub
+	qsub ${SCRIPT%.*}_$name.qsub
 done
