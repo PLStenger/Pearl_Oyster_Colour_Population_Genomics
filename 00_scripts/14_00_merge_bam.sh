@@ -12,8 +12,11 @@ DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 for file in $(ls ${DATA}/*_sorted.bam)
 do
 	base=${file##*/}
+	echo $base
 	name=${base%.*}
+	echo $name
 	suffix="merged_bam"
+	echo $suffix
         toEval="cat ${SCRIPT} | sed 's/__BASE__/$base/g'"; eval $toEval > ${SCRIPT%.*}_$name_$suffix.qsub 
-	qsub ${SCRIPT%.*}_$name_$suffix.qsub
+	# qsub ${SCRIPT%.*}_$name_$suffix.qsub
 done
