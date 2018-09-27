@@ -43,4 +43,4 @@ source activate /home1/datawork/plstenge/96_env_conda/freebayes
 #	pool1.bam pool2.bam \
 #	--vcf ${VCF} >& $LOG
 	
-freebayes -f ${REF} --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map sspace.final.scaffolds_Pool1_Pool2_test.bed pool1.bam pool2.bam | vcffilter -f "TYPE = snp" > pools1_2test2.vcf
+freebayes -f ${REF} --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map sspace.final.scaffolds_Pool1_Pool2_test.bed pool1.bam pool2.bam > pools1_2test2.vcf
