@@ -15,3 +15,8 @@ $VCFLIBENV
 cd $DATADIRECTORY
 
 vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2_test.vcf > $DATADIRECTORY/pools1_2_test_filter.vcf
+
+# ensuite il faudra ajouter des parametres
+# vcftools --maf 0.1 --max-missing 1 --vcf $INDIR/platax_sex_DP15_snp.vcf --recode --out $INDIR/platax_sex_DP15_snp_maf0.1_miss0
+
+# Céline: tu vois là dans le code j'ai mis une fréquence allélique minimum de 10% pour l'allèle minoritaire, et j'ai refusé d'avoir des génotypes manquant dans mes données
