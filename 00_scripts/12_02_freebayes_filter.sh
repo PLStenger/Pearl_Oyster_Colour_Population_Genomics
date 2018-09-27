@@ -14,4 +14,4 @@ VCFLIBENV=". /appli/bioinfo/vcflib/1.0.0_rc1/env.sh"
 $VCFLIBENV
 cd $DATADIRECTORY
 
-vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2.vcf > $DATADIRECTORY/pools1_2.vcf
+vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2.vcf > $DATADIRECTORY/pools1_2_filter.vcf
