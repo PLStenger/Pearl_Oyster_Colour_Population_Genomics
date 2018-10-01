@@ -72,6 +72,7 @@ cp $0 $CB_LOG_FOLDER/$CB_NAME
 #  note: nous produisons le fichier 'archive blast' (-outfmt 11) ...
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
 ${BLAST_PROGRAM} -query "${QUERY}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+# -max_target_seqs is here intentional in order to limit the number of lines. This is here just for a "shot gun" in order to see brievly the datas before re-run with good parameters.
 #  ... comme cela nous pouvons reformatter le resultat a loisirs, sans relancer le blast
 # blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt ${BLAST_FORMAT}
 blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
