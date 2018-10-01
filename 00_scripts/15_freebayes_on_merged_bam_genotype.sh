@@ -31,4 +31,4 @@ cd ${BAM}
 export PATH=$PATH:/appli/anaconda/2.7/bin
 source activate /home1/datawork/plstenge/96_env_conda/freebayes
 	
-freebayes -f ${REF} --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map cnv_for_merged_bam.bed red_sorted.bam yellow_sorted.bam green_sorted.bam > merged_bam_ryg.vcf
+freebayes -f ${REF} --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map cnv_for_merged_bam.bed red_sorted.bam yellow_sorted.bam green_sorted.bam > merged_bam_ryg_genotypes.vcf
