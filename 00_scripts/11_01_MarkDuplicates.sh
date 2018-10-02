@@ -67,8 +67,8 @@ samtools index ${file%.*}_sorted_split_RG.bam > ${file%.*}_sorted_split_RG.bam.b
 samtools flagstat ${file%.*}_sorted_split_RG.bam > ${file%.*}_sorted_split_RG.bam.flagstat ;
 
 # 7) Removing int files
-rm ${file%.*}_sorted_split.bam
-rm ${file%.*}_sorted.bam
-rm ${file%.*}_sorted.bam.bai
-rm ${file}
+# rm ${file%.*}_sorted_split.bam
+# rm ${file%.*}_sorted.bam
+# rm ${file%.*}_sorted.bam.bai
+# rm ${file}
 
