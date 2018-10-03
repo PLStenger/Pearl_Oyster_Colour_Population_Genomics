@@ -12,6 +12,10 @@ SAMTOOLS="samtools"
 cd $WORDING_DIRECTORY
 $SAMTOOLS_ENV
 
-$SAMTOOLS sort red.bam > red_sorted.bam
-$SAMTOOLS sort yellow.bam > yellow_sorted.bam
-$SAMTOOLS sort green.bam > green_sorted.bam
+# $SAMTOOLS sort red.bam > red_sorted.bam
+# $SAMTOOLS sort yellow.bam > yellow_sorted.bam
+# $SAMTOOLS sort green.bam > green_sorted.bam
+
+$SAMTOOLS index red.bam > red.bam.bai
+$SAMTOOLS index yellow.bam > yellow.bam.bai
+$SAMTOOLS index green.bam > green.bam.bai
