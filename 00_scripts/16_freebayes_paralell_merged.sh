@@ -17,4 +17,4 @@ source activate /home1/datawork/plstenge/96_env_conda/freebayes
 
 freebayes-parallel      <(fasta_generate_regions.py $INDEX 10000) "$NCPU" \
 -f $REF --use-best-n-alleles $nAlleles --pooled-discrete --cnv-map cnv_for_merged_bam.bed \
--b $BAM/yellow.bam $BAM/red $BAM/green --no-indels > merged_bam_ryg_genotypes_paralell.vcf
+-b $BAM/yellow.bam $BAM/red.bam $BAM/green.bam --no-indels > merged_bam_ryg_genotypes_paralell.vcf
