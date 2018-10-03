@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #PBS -q sequentiel
 #PBS -l ncpus=1
-#PBS -l mem=60g
-#PBS -l walltime=12:00:00
+#PBS -l mem=180g
+#PBS -l walltime=96:00:00
 
 DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
 OUTDIR=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes
