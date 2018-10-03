@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-#PBS -q sequentiel
-#PBS -l ncpus=1
-#PBS -l mem=60g
-#PBS -l walltime=12:00:00
+#PBS -q mpi
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
 
 DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
-OUTDIR=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes
+OUTDIR=/home1/scratch/creisser/PL_BAM_MD
 ASSEMBLY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
-TMP=/home1/scratch/plstenge/tmp # Path for temporary files
+TMP=/home1/scratch/creisser/PL_BAM_MD/tmp # Path for temporary files
 PICARD_TOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/picard-tools-1.119 
 SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
 GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
