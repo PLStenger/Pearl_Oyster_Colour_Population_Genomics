@@ -18,7 +18,7 @@ file=HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted.bam
 # 1) Marking duplicates and removing them
 cd ${DATA}
 # module load java
-time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${file} O=${OUTDIR}/HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD.bam M=${OUTDIR}/HI.4506.004.NS_Adaptor_10.pool2TJ_filtered_sorted_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${file} O=${OUTDIR}/HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD.bam M=${OUTDIR}/HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 
 file=${OUTDIR}/HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD.bam
 
