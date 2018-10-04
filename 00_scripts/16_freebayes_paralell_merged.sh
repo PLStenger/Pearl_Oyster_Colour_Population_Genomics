@@ -8,7 +8,7 @@ REF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/ssp
 INDEX=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta.fai # path to ref genome index
 BAM=/home1/scratch/plstenge/merged_bam		
 nAlleles=4
-NCPU=30
+NCPU=12
 
 cd ${BAM}
 export PATH=$PATH:/appli/anaconda/2.7/bin
