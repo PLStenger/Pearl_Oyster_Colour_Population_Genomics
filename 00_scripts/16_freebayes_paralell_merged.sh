@@ -1,8 +1,8 @@
 #!/bin/bash
 #PBS -q omp
-#PBS -l walltime=72:00:00
-#PBS -l mem=180g
-#PBS -l ncpus=4
+#PBS -l walltime=180:00:00
+#PBS -l mem=1024g
+#PBS -l ncpus=12
 
 REF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # path to ref genome
 INDEX=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta.fai # path to ref genome index
