@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #PBS -q omp
-#PBS -l walltime=680:00:00
+#PBS -l walltime=480:00:00
 #PBS -l mem=800g
 #PBS -l ncpus=12
 
