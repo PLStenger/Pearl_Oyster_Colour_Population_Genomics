@@ -22,7 +22,7 @@
 
 # FB_ENV=/home1/datawork/plstenge/96_env_conda/freebayes # path to conda freebayes env if needed Version 1.2.0
 REF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # path to ref genome
-BAM=/home1/scratch/plstenge/freebayes		#path to txt file containing list of filtered bam files (resulting from step 03)
+BAM=/home1/scratch/creisser/PL_BAM_MD		#path to txt file containing list of filtered bam files (resulting from step 03)
 NCPU=12
 INDEX=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta.fai # path to ref genome index
 nAlleles=4
