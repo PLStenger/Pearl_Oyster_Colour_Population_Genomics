@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #PBS -q omp
 #PBS -l walltime=180:00:00
-#PBS -l mem=800g
-#PBS -l ncpus=12
+#PBS -l mem=80g
+#PBS -l ncpus=120
 
 # FreeBayes is a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), 
 # indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) 
