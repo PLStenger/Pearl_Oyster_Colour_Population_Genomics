@@ -14,7 +14,8 @@ VCFLIBENV=". /appli/bioinfo/vcflib/1.0.0_rc1/env.sh"
 $VCFLIBENV
 cd $DATADIRECTORY
 
-vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2_test.vcf > $DATADIRECTORY/pools1_2_test_filter.vcf
+# a verifier le DP --> Mettre g pour genotype, penser au nombre d'individu, car DP correspond a la somme totale des DP et NON a la moyenne
+# vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2_test.vcf > $DATADIRECTORY/pools1_2_test_filter.vcf
 
 # ensuite il faudra ajouter des parametres
 # vcftools --maf 0.1 --max-missing 1 --vcf $INDIR/platax_sex_DP15_snp.vcf --recode --out $INDIR/platax_sex_DP15_snp_maf0.1_miss0
