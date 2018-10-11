@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #PBS -q omp
-#PBS -l walltime=120:00:00
+#PBS -l walltime=600:00:00
 #PBS -l mem=115g
-#PBS -l ncpus=40
+#PBS -l ncpus=56
 
 # FreeBayes is a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), 
 # indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) 
@@ -23,7 +23,7 @@
 # FB_ENV=/home1/datawork/plstenge/96_env_conda/freebayes # path to conda freebayes env if needed Version 1.2.0
 REF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # path to ref genome
 BAM=/home1/scratch/creisser/PL_BAM_MD		#path to txt file containing list of filtered bam files (resulting from step 03)
-NCPU=40
+NCPU=56
 INDEX=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta.fai # path to ref genome index
 nAlleles=4
 # minMapQ=20
