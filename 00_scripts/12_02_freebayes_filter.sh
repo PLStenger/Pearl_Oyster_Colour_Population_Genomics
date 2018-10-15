@@ -3,16 +3,20 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
+# Data from 12_01_freebayes_pool_no_genotypes.sh
+
 # In order to filter just snp with vcffilter from vcflib
 
 # -f, --info-filter: specifies a filter to apply to the info fields of records,removes alleles which do not pass the filter
 # DP = The number of reads covering = c'est par rapport au nombre de reads qui couvrent le snp, c'est un cut off de minimum, donc regarder "à l'oeil" les DP du VCF non filtré
 
-DATADIRECTORY=/home1/scratch/plstenge/freebayes	
+DATADIRECTORY=/home1/scratch/creisser/PL_BAM_MD
 VCFLIBENV=". /appli/bioinfo/vcflib/1.0.0_rc1/env.sh"
 
 $VCFLIBENV
 cd $DATADIRECTORY
+
+vcffilter -g "DP > 50" -f "TYPE = snp" $DATADIRECTORY/individuals.vcf > $DATADIRECTORY/individuals.vcf_DP50.vcf
 
 # a verifier le DP --> Mettre g pour genotype, penser au nombre d'individu, car DP correspond a la somme totale des DP et NON a la moyenne
 # vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2_test.vcf > $DATADIRECTORY/pools1_2_test_filter.vcf
