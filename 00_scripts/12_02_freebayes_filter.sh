@@ -16,7 +16,7 @@ VCFLIBENV=". /appli/bioinfo/vcflib/1.0.0_rc1/env.sh"
 $VCFLIBENV
 cd $DATADIRECTORY
 
-vcffilter -g "DP > 50" -f "TYPE = snp" $DATADIRECTORY/individuals.vcf > $DATADIRECTORY/individuals.vcf_DP50.vcf
+vcffilter -g "DP > 10" -f "TYPE = snp" $DATADIRECTORY/individuals.vcf > $DATADIRECTORY/individuals.vcf_DP50.vcf
 
 # a verifier le DP --> Mettre g pour genotype, penser au nombre d'individu, car DP correspond a la somme totale des DP et NON a la moyenne
 # vcffilter -f "DP > 50 & TYPE = snp" $DATADIRECTORY/pools1_2_test.vcf > $DATADIRECTORY/pools1_2_test_filter.vcf
