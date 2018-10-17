@@ -11,4 +11,6 @@ VCFTOOLSENV=". /appli/bioinfo/vcftools/0.1.14/env.sh"
 $VCFTOOLSENV
 cd $DATADIRECTORY
 
-vcftools --maf 0.1 --max-missing 1 --vcf $DATADIRECTORY/individuals.vcf_DP10.vcf --recode --out $DATADIRECTORY/individuals.vcf_DP10_maf0.1_miss1.vcf
+# --max-missing 1 = On garde tout 
+
+vcftools --maf 0.1 --max-missing 0.9 --vcf $DATADIRECTORY/individuals.vcf_DP10.vcf --recode --out $DATADIRECTORY/individuals.vcf_DP10_maf0.1_miss1.vcf
