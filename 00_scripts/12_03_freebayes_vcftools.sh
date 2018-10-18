@@ -13,4 +13,4 @@ cd $DATADIRECTORY
 
 # --max-missing 1 = On garde tout 
 
-vcftools --maf 0.1 --max-missing 0.9 --vcf $DATADIRECTORY/individuals.vcf_DP10.vcf --recode --out $DATADIRECTORY/individuals.vcf_DP10_maf0.1_miss0.9.vcf
+vcftools --maf 0.1 --max-missing 0.9 --vcf $DATADIRECTORY/individuals.vcf_DP20.vcf --recode --out $DATADIRECTORY/individuals.vcf_DP20_maf0.1_miss0.9.vcf
