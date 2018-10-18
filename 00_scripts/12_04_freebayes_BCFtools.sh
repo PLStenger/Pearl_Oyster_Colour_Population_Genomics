@@ -15,4 +15,4 @@ cd $DATADIRECTORY
 # Manual for bcftools : http://samtools.github.io/bcftools/bcftools.html#view
 # Use -m2 -M2 -v snps to only view biallelic SNPs.
 
-bcftools view -m2 -M2 -v snps individuals.vcf_DP10_maf0.1_miss1.vcf.recode.vcf -o individuals.vcf_DP10_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf
+bcftools view -m2 -M2 -v snps individuals.vcf_DP20_maf0.1_miss1.vcf.recode.vcf -o individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf
