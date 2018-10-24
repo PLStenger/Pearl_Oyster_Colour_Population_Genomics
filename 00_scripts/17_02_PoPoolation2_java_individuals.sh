@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -v DOCKER_IMAGE="docker.ifremer.fr/bioinfo/popoolation2:1201"
-#PBS -l ncpus=1
+#PBS -l ncpus=8
 #PBS -l mem=60g
 #PBS -l walltime=24:00:00
 
