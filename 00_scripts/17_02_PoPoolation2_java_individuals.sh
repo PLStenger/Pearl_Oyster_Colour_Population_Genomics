@@ -1,8 +1,10 @@
 #!/bin/bash
 #PBS -v DOCKER_IMAGE="docker.ifremer.fr/bioinfo/popoolation2:1201"
+#PBS -q omp
 #PBS -l ncpus=8
 #PBS -l mem=60g
 #PBS -l walltime=24:00:00
+
 
 BAM=/home1/scratch/plstenge/freebayes	
 
