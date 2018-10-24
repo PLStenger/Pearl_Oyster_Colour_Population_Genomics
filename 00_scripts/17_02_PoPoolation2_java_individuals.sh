@@ -9,5 +9,4 @@ BAM=/home1/scratch/plstenge/freebayes
 
 cd $BAM
 
-$POPOO_HOME
-java -ea -Xmx7g -jar <popoolation2-path>/mpileup2sync.jar --input all_12_bam.mpileup --output all_12_bam_mpileup_java.sync --fastq-type sanger --min-qual 20 --threads 8
+java -ea -Xmx7g -jar $POPOO_HOME/mpileup2sync.jar --input all_12_bam.mpileup --output all_12_bam_mpileup_java.sync --fastq-type sanger --min-qual 20 --threads 8 >& $HOME/popoo_sync.log
