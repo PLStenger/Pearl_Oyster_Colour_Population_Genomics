@@ -3,6 +3,7 @@
 setwd("/home1/scratch/creisser/PL_BAM_MD/")
 
 library(ggplot2)
+library(dplyr)
 
 
 dat <- read.table("individuals.vcf_DP10_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.modif_chi2_v3", skip=1)
