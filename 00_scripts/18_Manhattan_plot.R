@@ -10,24 +10,26 @@ colnames(dat) <- c("CHROM", "POS", "REF", "ALT", "P")
 dat2 <- data.frame(dat$CHROM, dat$POS, dat$POS, dat$P)
 colnames(dat2) <- c("SNP", "CHR", "BP", "P")
 
-don <- dat2 %>% 
+don <- dat2
   
   # Compute chromosome size
-  group_by(CHR) %>% 
-  summarise(chr_len=max(BP)) %>% 
+  group_by(CHR) 
+  summarise(chr_len=max(BP)) 
   
   # Calculate cumulative position of each chromosome
-  mutate(tot=cumsum(chr_len)-chr_len) %>%
-  select(-chr_len) %>%
-  
+  mutate(tot=cumsum(chr_len)-chr_len) 
+  select(-chr_len) 
+ 
   # Add this info to the initial dataset
-  left_join(gwasResults, ., by=c("CHR"="CHR")) %>%
+  left_join(gwasResults, ., by=c("CHR"="CHR")) 
   
   # Add a cumulative position of each SNP
-  arrange(CHR, BP) %>%
+  arrange(CHR, BP) 
   mutate( BPcum=BP+tot)
 
-axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+axisdf = don  
+group_by(CHR)
+summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
 
 
 ggplot(don, aes(x=BPcum, y=-log10(P))) +
