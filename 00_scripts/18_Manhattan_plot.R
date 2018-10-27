@@ -26,9 +26,6 @@ ggplot(don, aes(x=CHR, y=-log10(P))) +
     geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
     scale_color_manual(values = rep(c("grey", "skyblue"), 22 )) +
     
-    # custom X axis:
-    scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
-    scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
   
     # Custom the theme:
     theme_bw() +
