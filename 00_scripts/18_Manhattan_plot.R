@@ -12,7 +12,12 @@ dat2 <- data.frame(dat$CHROM, dat$POS, dat$POS, dat$P)
 colnames(dat2) <- c("SNP", "CHR", "BP", "P")
 
 don <- dat2
-  
+
+CHR = dat2$CHR
+P = dat2$P
+SNP = dat2$SNP
+BP = dat2$BP
+
   # Compute chromosome size
   group_by(CHR) 
   summarise(chr_len=max(BP)) 
