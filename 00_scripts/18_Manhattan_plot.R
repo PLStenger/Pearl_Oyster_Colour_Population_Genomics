@@ -18,27 +18,9 @@ P = dat2$P
 SNP = dat2$SNP
 BP = dat2$BP
 
-  # Compute chromosome size
-  group_by(CHR) 
-  summarise(chr_len=max(BP)) 
-  
-  # Calculate cumulative position of each chromosome
-  mutate(tot=cumsum(chr_len)-chr_len) 
-  select(-chr_len) 
- 
-  # Add this info to the initial dataset
-  left_join(gwasResults, ., by=c("CHR"="CHR")) 
-  
-  # Add a cumulative position of each SNP
-  arrange(CHR, BP) 
-  mutate( BPcum=BP+tot)
-
-axisdf = don  
-group_by(CHR)
-summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
 
 
-ggplot(don, aes(x=BPcum, y=-log10(P))) +
+ggplot(don, aes(x=CHR, y=-log10(P))) +
     
     # Show all points
     geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
