@@ -1,0 +1,8 @@
+#!/bin/bash
+#PBS -q mpi
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
+
+cd /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests
+
+awk 'NF{NF-=1};1' individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header_snp.vcf > individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header_snp_clean.vcf
