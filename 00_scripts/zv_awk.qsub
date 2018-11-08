@@ -5,4 +5,4 @@
 
 cd /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests
 
-awk 'NF{NF-=1};1' individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header_snp.vcf > individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header_snp_clean.vcf
+grep -f snp_ind_DP20_single2.txt individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header.vcf > individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header_snp.vcf 
