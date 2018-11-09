@@ -6,7 +6,7 @@
 SNPEFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/snpEff #/Path/to/snpEff/Folder
 GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.gff3 # 01_info_files/your_genome.gff3
 FASTA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # 01_info_files/your_genome.fasta
-DBNAME=your_genome
+DBNAME=sspace.final.scaffolds.fasta
 WORKDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff #/your/path/to/WGS_pipeline
 
 cd $SNPEFF
@@ -18,8 +18,9 @@ mkdir -p data/genomes
 
 
 # Copy files where they need to be. GFF in the $DBNAME directory, fasta in the "genomes" directory
-cp $WORKDIR/$GFF ./data/$DBNAME/genes.gff
-cp $WORKDIR/01_info_files/$DBNAME.fasta ./data/genomes/$DBNAME.fa
+#cp $WORKDIR/$GFF ./data/$DBNAME/genes.gff
+cp $GFF ./data/$DBNAME/genes.gff
+cp $FASTA.fa ./data/genomes/$DBNAME.fa
 
 
 #Modify the config file in order to add the new genome
