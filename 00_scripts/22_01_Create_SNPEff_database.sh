@@ -20,7 +20,7 @@ mkdir -p data/genomes
 # Copy files where they need to be. GFF in the $DBNAME directory, fasta in the "genomes" directory
 #cp $WORKDIR/$GFF ./data/$DBNAME/genes.gff
 cp $GFF ./data/$DBNAME/genes.gff
-cp $FASTA.fa ./data/genomes/$DBNAME.fa
+cp $FASTA ./data/genomes/$DBNAME.fa
 
 
 #Modify the config file in order to add the new genome
