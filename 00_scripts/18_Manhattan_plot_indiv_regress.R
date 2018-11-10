@@ -9,11 +9,11 @@ library(dplyr)
 
 
 dat <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.logitR.txt", skip=1)
-colnames(dat) <- c("CHROM", "POS", "REF", "ALT",	"P_origin",	"P_color,	"P_count")
+colnames(dat) <- c("CHROM", "POS", "REF", "ALT", "P_origin", "P_color", "P_count")
 
 # Bonferroni correction for Pvalue (Chi2) 
 dat2 <- data.frame(dat$CHROM, dat$POS, dat$REF, dat$ALT,p.adjust(dat$P_origin, method = "bonferroni", n = length(dat$P_origin)), p.adjust(dat$P_color, method = "bonferroni", n = length(dat$P_color)), p.adjust(dat$P_count, method = "bonferroni", n = length(dat$P_count)))
-colnames(dat2) <- c("CHROM", "POS", "REF", "ALT",	"P_origin_Bonf",	"P_color_Bonf,	"P_count_Bonf")
+colnames(dat2) <- c("CHROM", "POS", "REF", "ALT", "P_origin_Bonf", "P_color_Bonf", "P_count_Bonf")
 
 
 # Manhattan plot for ORIGIN
