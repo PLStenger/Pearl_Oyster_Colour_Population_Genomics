@@ -51,7 +51,7 @@ length(commun)
 
 # Données DP20 individuels avec uniquement Chi2
 
-dat3 <- read.table("individuals.vcf_DP10_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.modif_chi2_v3", skip=1)
+dat3 <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.modif_chi2_v3", skip=1)
 colnames(dat3) <- c("CHROM", "POS", "REF", "ALT", "P")
 
 datChi2 <- data.frame(dat3$CHROM, dat3$POS, dat3$REF, dat3$ALT, p.adjust(dat3$P, method = "bonferroni", n = length(dat3$P)))
