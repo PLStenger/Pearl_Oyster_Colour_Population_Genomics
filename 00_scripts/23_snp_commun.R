@@ -18,34 +18,34 @@ datRL$NAME <- paste(dat$CHROM, dat$POS, sep= "_")
 THRESHOLD <- 0.00001
 datRL_origin <- subset(datRL, datRL$P_origin_Bonf<THRESHOLD)
 # Nombre de SNP Données DP20 individuels avec regression logistique + Chi2 pour THRESHOLD <- 0.00001 ### ORIGIN
-length(datRL_origin$P_origin_Bonf)
+length(datRL_origin$P_origin_Bonf) # 2972
 
 ### COLOR
 THRESHOLD <- 0.00001
 datRL_color <- subset(datRL, datRL$P_color_Bonf<THRESHOLD)
 
 # Nombre de SNP Données DP20 individuels avec regression logistique + Chi2 pour THRESHOLD <- 0.00001 ### COLOR
-length(datRL_color$P_color_Bonf)
+length(datRL_color$P_color_Bonf) # 949
 
 ### COUNT
 THRESHOLD <- 0.00001
 datRL_count <- subset(datRL, datRL$P_count_Bonf<THRESHOLD)
 
 # Nombre de SNP Données DP20 individuels avec regression logistique + Chi2 pour THRESHOLD <- 0.00001 ### COUNT
-length(datRL_count$P_count_Bonf)
+length(datRL_count$P_count_Bonf) # 150
 
 
 ### SNP COMMUN ENTRE ORIGIN & COLOR
 commun <- intersect(datRL_origin$NAME, datRL_color$NAME)
-length(commun)
+length(commun) # 368
 
 ### SNP COMMUN ENTRE COUNT & COLOR
 commun <- intersect(datRL_count$NAME, datRL_color$NAME)
-length(commun)
+length(commun) # 72
 
 ### SNP COMMUN ENTRE COUNT & ORIGIN
 commun <- intersect(datRL_count$NAME, datRL_origin$NAME)
-length(commun)
+length(commun) # 97
 
 
 
@@ -63,16 +63,53 @@ THRESHOLD <- 0.00001
 datChi2 <- subset(datChi2, datChi2$P_Bonf<THRESHOLD)
 
 # Nombre de SNP Données DP20 individuels avec uniquement Chi2 pour THRESHOLD <- 0.00001
-length(datChi2$P_Bonf)
+length(datChi2$P_Bonf) # 12355
 
 # Combien y a t-il de SNP en commun entre les 2 méthodes (Chi2 vs RL+Chi2 ORIGIN) ?
 commun <- intersect(datRL_origin$NAME, datChi2$NAME)
-length(commun)
+length(commun) # 714
 
 # Combien y a t-il de SNP en commun entre les 2 méthodes (Chi2 vs RL+Chi2 COLOR ?
 commun <- intersect(datRL_color$NAME, datChi2$NAME)
-length(commun)
+length(commun) # 929
 
 # Combien y a t-il de SNP en commun entre les 2 méthodes (Chi2 vs RL+Chi2 COUNT) ?
 commun <- intersect(datRL_count$NAME, datChi2$NAME)
-length(commun)
+length(commun) # 101
+
+#### Maintenant on ajoute les données Merged
+merged <- read.table("merged_bam_ryg_paralell_DP50_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.modif_chi2_v4", skip=1)
+
+colnames(merged) <- c("CHROM", "POS", "REF", "ALT", "P")
+
+merged <- data.frame(merged$CHROM, merged$POS, merged$REF, merged$ALT,p.adjust(merged$P, method = "bonferroni", n = length(merged$P)))
+colnames(merged) <- c("CHROM", "POS", "REF", "ALT", "P_Bonf")
+
+merged$NAME <- paste(merged$CHROM, merged$POS, sep= "_")
+
+### ORIGIN
+THRESHOLD <- 0.00001
+merged <- subset(merged, merged$P_Bonf<THRESHOLD)
+# Nombre de SNP Données Merged Chi2 <- 0.00001
+length(merged$P_Bonf) # 
+
+
+
+# Combien y a t-il de SNP en commun entre les 2 méthodes (merged vs RL+Chi2 ORIGIN) ?
+commun <- intersect(datRL_origin$NAME, merged$NAME)
+length(commun) # 
+
+# Combien y a t-il de SNP en commun entre les 2 méthodes (merged vs RL+Chi2 COLOR ?
+commun <- intersect(datRL_color$NAME, merged$NAME)
+length(commun) # 
+
+# Combien y a t-il de SNP en commun entre les 2 méthodes (merged vs RL+Chi2 COUNT) ?
+commun <- intersect(datRL_count$NAME, merged$NAME)
+length(commun) # 
+
+# Combien y a t-il de SNP en commun entre les 2 méthodes (merged vs Chi2) ?
+commun <- intersect(merged$NAME, datChi2$NAME)
+length(commun) # 
+
+
+
