@@ -107,52 +107,57 @@ length(commun) # 162
 commun <- intersect(datRL_count$NAME, merged$NAME)
 length(commun) # 18
 
-# Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # count
-commun <- intersect(merged$NAME, datChi2$NAME, datRL_count$NAME)
-length(commun) # 
-
-# Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # color
-commun <- intersect(merged$NAME, datChi2$NAME, datRL_color$NAME)
-length(commun) # 
-
 
 
 
 ####
 
 commun <- intersect(merged$NAME, datChi2$NAME)
-length(commun) # 3298
+length(commun) # 
 
 # Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # count
-commun <- intersect(merged$NAME, datChi2$NAME, datRL_count$NAME)
+commun <- intersect(merged$NAME, datChi2$NAME)
+commun <- intersect(commun, datRL_count$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # color
-commun <- intersect(merged$NAME, datChi2$NAME, datRL_color$NAME)
+commun <- intersect(merged$NAME, datChi2$NAME)
+commun <- intersect(commun, datRL_color$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # origin
-commun <- intersect(merged$NAME, datChi2$NAME, datRL_origin$NAME)
+commun <- intersect(merged$NAME, datChi2$NAME)
+commun <- intersect(commun, datRL_origin$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre les 3 RL ? # origin - color - count
-commun <- intersect(datRL_count$NAME, datRL_color$NAME, datRL_origin$NAME)
+commun <- intersect(datRL_count$NAME, datRL_color$NAME)
+commun <- intersect(commun, datRL_origin$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre tous ?
-commun <- intersect(datRL_count$NAME, datRL_color$NAME, datRL_origin$NAME, merged$NAME, datChi2$NAME)
+commun <- intersect(datRL_count$NAME, datRL_color$NAME)
+commun <- intersect(commun, datRL_origin$NAME)
+commun <- intersect(commun, merged$NAME)
+commun <- intersect(commun, datChi2$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre tous ?
-commun <- intersect(datRL_count$NAME, datRL_color$NAME, merged$NAME, datChi2$NAME)
+commun <- intersect(datRL_count$NAME, datRL_color$NAME)
+commun <- intersect(commun, merged$NAME)
+commun <- intersect(commun, datChi2$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre tous ?
-commun <- intersect(datRL_count$NAME, datRL_origin$NAME, merged$NAME, datChi2$NAME)
+commun <- intersect(datRL_count$NAME, datRL_origin$NAME)
+commun <- intersect(commun, merged$NAME)
+commun <- intersect(commun, datChi2$NAME)
 length(commun) # 
 
 # Combien y a t-il de SNP en commun entre tous ?
-commun <- intersect(datRL_color$NAME, datRL_origin$NAME, merged$NAME, datChi2$NAME)
+commun <- intersect(datRL_color$NAME, datRL_origin$NAME)
+commun <- intersect(commun, merged$NAME)
+commun <- intersect(commun, datChi2$NAME)
 length(commun) # 
 
 
