@@ -19,6 +19,7 @@ THRESHOLD <- 0.00001
 datRL_origin <- subset(datRL, datRL$P_origin_Bonf<THRESHOLD)
 # Nombre de SNP Données DP20 individuels avec regression logistique + Chi2 pour THRESHOLD <- 0.00001 ### ORIGIN
 length(datRL_origin$P_origin_Bonf) # 2972
+write.csv(datRL_origin, file = "datRL_origin.csv")
 
 ### COLOR
 THRESHOLD <- 0.00001
@@ -26,6 +27,8 @@ datRL_color <- subset(datRL, datRL$P_color_Bonf<THRESHOLD)
 
 # Nombre de SNP Données DP20 individuels avec regression logistique + Chi2 pour THRESHOLD <- 0.00001 ### COLOR
 length(datRL_color$P_color_Bonf) # 949
+write.csv(datRL_color, file = "datRL_color.csv")
+
 
 ### COUNT
 THRESHOLD <- 0.00001
@@ -33,6 +36,7 @@ datRL_count <- subset(datRL, datRL$P_count_Bonf<THRESHOLD)
 
 # Nombre de SNP Données DP20 individuels avec regression logistique + Chi2 pour THRESHOLD <- 0.00001 ### COUNT
 length(datRL_count$P_count_Bonf) # 150
+write.csv(datRL_count, file = "datRL_count.csv")
 
 
 ### SNP COMMUN ENTRE ORIGIN & COLOR
@@ -64,6 +68,8 @@ datChi2 <- subset(datChi2, datChi2$P_Bonf<THRESHOLD)
 
 # Nombre de SNP Données DP20 individuels avec uniquement Chi2 pour THRESHOLD <- 0.00001
 length(datChi2$P_Bonf) # 12355
+write.csv(datChi2, file = "datChi2.csv")
+
 
 # Combien y a t-il de SNP en commun entre les 2 méthodes (Chi2 vs RL+Chi2 ORIGIN) ?
 commun <- intersect(datRL_origin$NAME, datChi2$NAME)
@@ -92,6 +98,7 @@ THRESHOLD <- 0.00001
 merged <- subset(merged, merged$P_Bonf<THRESHOLD)
 # Nombre de SNP Données Merged Chi2 <- 0.00001
 length(merged$P_Bonf) # 5482
+write.csv(merged, file = "merged.csv")
 
 
 
@@ -113,52 +120,52 @@ length(commun) # 18
 ####
 
 commun <- intersect(merged$NAME, datChi2$NAME)
-length(commun) # 
+length(commun) # 3298
 
 # Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # count
 commun <- intersect(merged$NAME, datChi2$NAME)
 commun <- intersect(commun, datRL_count$NAME)
-length(commun) # 
+length(commun) # 18
 
 # Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # color
 commun <- intersect(merged$NAME, datChi2$NAME)
 commun <- intersect(commun, datRL_color$NAME)
-length(commun) # 
+length(commun) # 161
 
 # Combien y a t-il de SNP en commun entre les 3 méthodes (merged vs Chi2) ? # origin
 commun <- intersect(merged$NAME, datChi2$NAME)
 commun <- intersect(commun, datRL_origin$NAME)
-length(commun) # 
+length(commun) # 114
 
 # Combien y a t-il de SNP en commun entre les 3 RL ? # origin - color - count
 commun <- intersect(datRL_count$NAME, datRL_color$NAME)
 commun <- intersect(commun, datRL_origin$NAME)
-length(commun) # 
+length(commun) # 64
 
 # Combien y a t-il de SNP en commun entre tous ?
 commun <- intersect(datRL_count$NAME, datRL_color$NAME)
 commun <- intersect(commun, datRL_origin$NAME)
 commun <- intersect(commun, merged$NAME)
 commun <- intersect(commun, datChi2$NAME)
-length(commun) # 
+length(commun) # 9
 
 # Combien y a t-il de SNP en commun entre tous ?
 commun <- intersect(datRL_count$NAME, datRL_color$NAME)
 commun <- intersect(commun, merged$NAME)
 commun <- intersect(commun, datChi2$NAME)
-length(commun) # 
+length(commun) # 13
 
 # Combien y a t-il de SNP en commun entre tous ?
 commun <- intersect(datRL_count$NAME, datRL_origin$NAME)
 commun <- intersect(commun, merged$NAME)
 commun <- intersect(commun, datChi2$NAME)
-length(commun) # 
+length(commun) # 12
 
 # Combien y a t-il de SNP en commun entre tous ?
 commun <- intersect(datRL_color$NAME, datRL_origin$NAME)
 commun <- intersect(commun, merged$NAME)
 commun <- intersect(commun, datChi2$NAME)
-length(commun) # 
+length(commun) # 53
 
 
 
