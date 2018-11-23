@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/csh
 #PBS -q mpi
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
