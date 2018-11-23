@@ -16,6 +16,8 @@ LOG=${WORKING_DIRECTORY}/python.log
 
 #source activate $DATAWORK/96_env_conda/python_env
 
+module load anaconda-py2.7/4.3.13
+
 cd ${WORKING_DIRECTORY} 
 
 python ${PYTHON_SCRIPT} ${VCF_FILE} -t 16 -o ${FINAL_OUTPUT} >& ${LOG} 2>&1
