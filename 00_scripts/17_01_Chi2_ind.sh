@@ -16,7 +16,7 @@ export PATH=$PATH:/appli/anaconda/2.7/bin
 
 source activate $DATAWORK/96_env_conda/python_env
 
-module load anaconda-py2.7/4.3.13
+#module load anaconda-py2.7/4.3.13
 
 cd ${WORKING_DIRECTORY} 
 
