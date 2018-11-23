@@ -17,7 +17,7 @@ LOG=${WORKING_DIRECTORY}/python.log
 #Load conda env
 #export PATH=$PATH:/appli/anaconda/2.7/bin
 
-source activate python_env
+#source activate python_env
 #source activate $DATAWORK/96_env_conda/python_env
 
 
