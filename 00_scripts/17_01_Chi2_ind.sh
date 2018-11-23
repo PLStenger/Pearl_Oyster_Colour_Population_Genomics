@@ -3,8 +3,6 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
-module load anaconda-py2.7/4.3.13
-
 
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_vcf_files
 PYTHON_SCRIPT=get_AF_from_vcf_v4.py
@@ -14,11 +12,11 @@ FINAL_OUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08
 LOG=${WORKING_DIRECTORY}/python.log
 
 #Load conda env
-# export PATH=$PATH:/appli/anaconda/2.7/bin
+export PATH=$PATH:/appli/anaconda/2.7/bin
 
-# source activate $DATAWORK/96_env_conda/python_env
+source activate $DATAWORK/96_env_conda/python_env
 
-#module load anaconda-py2.7/4.3.13
+module load anaconda-py2.7/4.3.13
 
 cd ${WORKING_DIRECTORY} 
 
