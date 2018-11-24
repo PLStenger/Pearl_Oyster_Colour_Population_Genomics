@@ -112,7 +112,7 @@ def process(line):
                 jaune += (ADr, DP - ADr)
     
     try:
-        raw_pval_VvsR = chi2_contingency([[i[0] for i in (vert, rouge],
+        raw_pval_VvsR = chi2_contingency([[i[0] for i in (vert, rouge)],
                                      [i[1] for i in (vert, rouge)]])[1]
                                      
         raw_pval_VvsJ = chi2_contingency([[i[0] for i in (vert, jaune)],
