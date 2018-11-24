@@ -1,11 +1,8 @@
-#!/usr/bin/csh
-#PBS -q mpi
+#!/usr/bin/env bash
+#PBS -q omp
 #PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=28:mem=115g
-
-module load anaconda-py2.7/4.3.13
-
-bash
+#PBS -l ncpus=28
+#PBS -l mem=115g
 
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_vcf_files
 PYTHON_SCRIPT=17_01_Chi2_ind.py
@@ -14,15 +11,7 @@ BASENAME_VCF=${ORIGINAL_VCF_FILE##*/}
 FINAL_OUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_chi2/${BASENAME_VCF}._chi2
 LOG=${WORKING_DIRECTORY}/python.log
 
-#Load conda env
-#export PATH=$PATH:/appli/anaconda/2.7/bin
-
-#source activate python_env
-#source activate $DATAWORK/96_env_conda/python_env
-
-
-#module load anaconda-py2.7/4.3.13
 
 cd ${WORKING_DIRECTORY} 
 
-python ${PYTHON_SCRIPT} ${VCF_FILE} -t 16 -o ${FINAL_OUTPUT} >& ${LOG} 2>&1
+python ${PYTHON_SCRIPT} ${VCF_FILE} -t 28 -o ${FINAL_OUTPUT} >& ${LOG} 2>&1
