@@ -11,6 +11,10 @@ BASENAME_VCF=${ORIGINAL_VCF_FILE##*/}
 FINAL_OUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_chi2/${BASENAME_VCF}._chi2
 LOG=${WORKING_DIRECTORY}/python.log
 
+#Load conda env
+export PATH=$PATH:/appli/anaconda/2.7/bin
+
+source activate $DATAWORK/python
 
 cd ${WORKING_DIRECTORY} 
 
