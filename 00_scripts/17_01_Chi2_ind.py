@@ -110,7 +110,7 @@ def process(line):
             else :
                 jaune += (ADr, DP - ADr)
     
-    try:
+try:
         raw_pval_VvsR = chi2_contingency([[i[0] for i in (vert, rouge)],
                                      [i[1] for i in (vert, rouge)]])[1]
 except ValueError, e:
