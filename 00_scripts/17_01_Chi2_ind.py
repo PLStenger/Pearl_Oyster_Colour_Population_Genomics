@@ -137,7 +137,7 @@ def process(line):
 
 	newline = split_char.join([newline, str(raw_pval_VvsR), str(raw_pval_VvsJ), str(raw_pval_RvsJ)])
     
-    	return newline
+	return newline
 
 ###################################################################
 
