@@ -91,13 +91,13 @@ def process(line):
     #Initialize 3 lists for allele frequencies
     vert, rouge, jaune = (np.array([0,0]) for i in range(3))
 
-	for index in range(int(indx_columns_start),nbcol) :
+    for index in range(int(indx_columns_start),nbcol) :
         missing = 0
         sample_name = original_column_names[index-1]
         color = color_info[sample_name]
         section = line[index-1]
         DP = int(section.split(field_sep)[int(DP_field)-1].replace("\n",""))
-        if str(DP) == "." :
+	    if str(DP) == "." :
             missing=1	#to do : missing case
         #Compute Allele frequencies
         else :
@@ -110,23 +110,23 @@ def process(line):
             else :
                 jaune += (ADr, DP - ADr)
     
-	try:
-        	raw_pval_VvsR = chi2_contingency([[i[0] for i in (vert, rouge)],
+    try:
+        raw_pval_VvsR = chi2_contingency([[i[0] for i in (vert, rouge)],
                                      [i[1] for i in (vert, rouge)]])[1]
-	except ValueError, e:
-        	raw_pval_VvsR = np.nan
+    except ValueError, e:
+        raw_pval_VvsR = np.nan
 
-	try:                                 
-        	raw_pval_VvsJ = chi2_contingency([[i[0] for i in (vert, jaune)],
+    try:                                 
+        raw_pval_VvsJ = chi2_contingency([[i[0] for i in (vert, jaune)],
                                      [i[1] for i in (vert, jaune)]])[1]
-	except ValueError, e:
-		raw_pval_VvsJ = np.nan
+    except ValueError, e:
+        raw_pval_VvsJ = np.nan
 
-	try:                                                                  
-        	raw_pval_RvsJ = chi2_contingency([[i[0] for i in (rouge, jaune)],
+    try: 
+        raw_pval_RvsJ = chi2_contingency([[i[0] for i in (rouge, jaune)],
                                      [i[1] for i in (rouge, jaune)]])[1]
-	except ValueError, e:
-		raw_pval_RvsJ = np.nan
+    except ValueError, e:
+        raw_pval_RvsJ = np.nan
                                       
         #raw_pval = fisher_exact([[i[0] for i in (vert, rouge, jaune)],
         #                         [i[1] for i in (vert, rouge, jaune)]],
@@ -135,9 +135,9 @@ def process(line):
         #                        #attempt = 4
         #                        )
 
-	newline = split_char.join([newline, str(raw_pval_VvsR), str(raw_pval_VvsJ), str(raw_pval_RvsJ)])
+    newline = split_char.join([newline, str(raw_pval_VvsR), str(raw_pval_VvsJ), str(raw_pval_RvsJ)])
     
-	return newline
+    return newline
 
 ###################################################################
 
