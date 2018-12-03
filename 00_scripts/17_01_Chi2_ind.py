@@ -110,22 +110,22 @@ def process(line):
             else :
                 jaune += (ADr, DP - ADr)
     
-try:
+	try:
         raw_pval_VvsR = chi2_contingency([[i[0] for i in (vert, rouge)],
                                      [i[1] for i in (vert, rouge)]])[1]
-except ValueError, e:
+	except ValueError, e:
         raw_pval_VvsR = np.nan
 
-try:                                 
+	try:                                 
         raw_pval_VvsJ = chi2_contingency([[i[0] for i in (vert, jaune)],
                                      [i[1] for i in (vert, jaune)]])[1]
-except ValueError, e:
+	except ValueError, e:
 	raw_pval_VvsJ = np.nan
 
-try:                                                                  
+	try:                                                                  
         raw_pval_RvsJ = chi2_contingency([[i[0] for i in (rouge, jaune)],
                                      [i[1] for i in (rouge, jaune)]])[1]
-except ValueError, e:
+	except ValueError, e:
 	raw_pval_RvsJ = np.nan
                                       
         #raw_pval = fisher_exact([[i[0] for i in (vert, rouge, jaune)],
@@ -135,7 +135,7 @@ except ValueError, e:
         #                        #attempt = 4
         #                        )
 
-newline = split_char.join([newline, str(raw_pval_VvsR), str(raw_pval_VvsJ), str(raw_pval_RvsJ)])
+	newline = split_char.join([newline, str(raw_pval_VvsR), str(raw_pval_VvsJ), str(raw_pval_RvsJ)])
     
     return newline
 
