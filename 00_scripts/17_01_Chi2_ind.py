@@ -91,7 +91,7 @@ def process(line):
     #Initialize 3 lists for allele frequencies
     vert, rouge, jaune = (np.array([0,0]) for i in range(3))
 
-    for index in range(int(indx_columns_start),nbcol) :
+	for index in range(int(indx_columns_start),nbcol) :
         missing = 0
         sample_name = original_column_names[index-1]
         color = color_info[sample_name]
