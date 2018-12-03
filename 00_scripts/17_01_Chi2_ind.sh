@@ -6,7 +6,7 @@
 
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_vcf_files
 PYTHON_SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_01_Chi2_ind.py
-VCF_FILE=individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf
+VCF_FILE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_vcf_files/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf
 BASENAME_VCF=${ORIGINAL_VCF_FILE##*/}
 FINAL_OUTPUT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_chi2/${BASENAME_VCF}._chi2
 LOG=${WORKING_DIRECTORY}/python.log
