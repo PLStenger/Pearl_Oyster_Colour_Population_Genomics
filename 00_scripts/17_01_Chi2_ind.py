@@ -97,7 +97,7 @@ def process(line):
         color = color_info[sample_name]
         section = line[index-1]
         DP = int(section.split(field_sep)[int(DP_field)-1].replace("\n",""))
-	    if str(DP) == "." :
+        if str(DP) == "." :
             missing=1	#to do : missing case
         #Compute Allele frequencies
         else :
