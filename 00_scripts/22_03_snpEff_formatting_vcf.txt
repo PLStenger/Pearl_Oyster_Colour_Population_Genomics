@@ -16,7 +16,7 @@ grep "^#" individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests.vcf > indi
 
 awk '{OFS = "_" ; print $1,$2}' individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header.vcf | paste - individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_no_header.vcf > individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_tests_header.vcf_single_ID.vcf
 
-# Après avec R, j'ai obtenue un fichier .txt avec le nom de mes 12355 snp qui ont une p-value inférieure à 0.00001 (Test du Chi2). (le nom est construit de la meme maniere, scaffold_position). Il se nomme snp_ind_DP20_single.txt
+# Après avec R ("nb_Pvalue_chi2.R"), j'ai obtenue un fichier .txt avec le nom de mes 12355 snp qui ont une p-value inférieure à 0.00001 (Test du Chi2). (le nom est construit de la meme maniere, scaffold_position). Il se nomme snp_ind_DP20_single.txt
 
 # puis on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse (les 12355)
 
