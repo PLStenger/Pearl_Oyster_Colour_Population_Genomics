@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -q mpi
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
+
+cd $PBS_O_WORKDIR
+
+#Chargement de conda
+export PATH=$PATH:/appli/anaconda/2.7/bin
+
+#Chargement de votre environnement
+source activate /home1/datawork/plstenge/96_env_conda/VeenDiagram
+
+SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/22_03_nb_Pvalue_Chi2_RvsJ_JvsV_VvsR_VeenDiagram.R
+
+Rscript --vanilla $SCRIPT_R
