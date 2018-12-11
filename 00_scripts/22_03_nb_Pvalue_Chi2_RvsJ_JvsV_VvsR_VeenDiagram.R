@@ -1,13 +1,13 @@
 #!/usr/bin/env Rscript
 
-setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified")
+setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_chi2")
 
 #######################################################################################################################
 # Calculs sur les Pvalues brutes
 #######################################################################################################################
 
 
-dat <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf._chi2", skip=1)
+dat <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex.vcf._chi2", skip=1)
 colnames(dat) <- c("CHROM", "POS", "REF", "ALT", "raw_pval_VvsR", "raw_pval_VvsJ", "raw_pval_RvsJ")
 head(dat)
 dat <- data.frame(paste(dat$CHROM, dat$POS, sep="_"), dat$POS, dat$REF, dat$ALT, dat$raw_pval_VvsR, dat$raw_pval_VvsJ, dat$raw_pval_RvsJ)
@@ -132,7 +132,7 @@ library(Vennerable)
 
 venn.diagram(
   list(raw_pval_VvsR = dat2$CHROM, raw_pval_VvsJ = dat2.1$CHROM, raw_pval_RvsJ=dat2.2$CHROM), 
-  "Venn_raw_pval_VvsR_VS_raw_pval_VvsJ_VS_raw_pval_RvsJ.tiff",
+  "Venn_raw_pval_VvsR_VS_raw_pval_VvsJ_VS_raw_pval_RvsJ_NoComplex.tiff",
   fill = c("yellow","greenyellow","orange"),
   cat.col = c("yellow", "greenyellow", "orange")
 )
@@ -169,7 +169,7 @@ min(dat3[dat3$pval_VvsR_Bonf > 0, ]$pval_VvsR_Bonf, na.rm = T)
 
 115/22169780 #5.187241e-04 % de SNP outliers...
 
-write.table(dat4, "snp_ind_DP20_pval_VvsR_Bonf.txt")
+write.table(dat4, "snp_ind_DP20_NoComplex_pval_VvsR_Bonf.txt")
 
 ###################################################
 ##### pval_VvsJ_Bonf
@@ -185,7 +185,7 @@ min(dat3[dat3$pval_VvsJ_Bonf > 0, ]$pval_VvsJ_Bonf, na.rm = T)
 
 331/22169780 #1.493023e-03 % de SNP outliers...
 
-write.table(dat5, "snp_ind_DP20_pval_VvsJ_Bonf.txt")
+write.table(dat5, "snp_ind_DP20_NoComplex_pval_VvsJ_Bonf.txt")
 
 
 
@@ -202,7 +202,7 @@ min(dat3[dat3$pval_RvsJ_Bonf > 0, ]$pval_RvsJ_Bonf, na.rm = T)
 
 335/22169780 #1.511066e-03 % de SNP outliers...
 
-write.table(dat6, "snp_ind_DP20_pval_RvsJ_Bonf.txt")
+write.table(dat6, "snp_ind_DP20_NoComplex_pval_RvsJ_Bonf.txt")
 
 # pval_VvsR_Bonf
 #dat4.1 <- data.frame(dat4$CHROM, dat4$pval_VvsR_Bonf, dat4$CHROM, dat4$pval_VvsJ_Bonf, dat4$CHROM, dat4$pval_RvsJ_Bonf)
@@ -294,7 +294,7 @@ library(Vennerable)
 
 venn.diagram(
   list(pval_VvsR_Bonf = dat4.1$CHROM, pval_VvsJ_Bonf = dat5.1$CHROM, pval_RvsJ_Bonf=dat6.1$CHROM), 
-  "Venn_pval_VvsR_Bonf_VS_pval_VvsJ_Bonf_VS_pval_RvsJ_Bonf.tiff",
+  "Venn_pval_VvsR_Bonf_VS_pval_VvsJ_Bonf_VS_pval_RvsJ_Bonf_NoComplex.tiff",
   fill = c("yellow","greenyellow","orange"),
   cat.col = c("yellow", "greenyellow", "orange"),
   euler.d = TRUE
