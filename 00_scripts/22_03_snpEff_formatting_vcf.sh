@@ -22,7 +22,7 @@ grep -v "^#" $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComp
 
 # Et pour stocker le header dans un autre fichier:
 
-grep "^#" $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex.vcf > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex.vcf_header.vcf
+grep "^#" $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex.vcf > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf
 
 # On va maintenant merged les noms de scaffold et la position des SNP afin d'avoir un nom unique pour chaque SNP
 
