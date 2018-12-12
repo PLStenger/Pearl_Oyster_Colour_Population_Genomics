@@ -128,7 +128,6 @@ head(dat2.1$CHROM)
 head(dat2.2$CHROM)
 
 library(VennDiagram)
-library(Vennerable)
 
 venn.diagram(
   list(raw_pval_VvsR = dat2$CHROM, raw_pval_VvsJ = dat2.1$CHROM, raw_pval_RvsJ=dat2.2$CHROM), 
@@ -290,7 +289,6 @@ head(dat6.1$CHROM)
 length(dat6.1$CHROM) #335
 
 library(VennDiagram)
-library(Vennerable)
 
 venn.diagram(
   list(pval_VvsR_Bonf = dat4.1$CHROM, pval_VvsJ_Bonf = dat5.1$CHROM, pval_RvsJ_Bonf=dat6.1$CHROM), 
