@@ -252,7 +252,7 @@ commun2 <- intersect(dat6.1$CHROM, dat5.1$CHROM)
 #length(dat5.1$CHROM)
 length(commun2) # 84
 #length(Reduce(intersect, list(dat6.1$CHROM,dat5.1$CHROM)))
-write.table(commun3, "SNP_COMMUN_pval_RvsJ_Bonf_&_pval_VvsJ_Bonf.txt")
+write.table(commun2, "SNP_COMMUN_pval_RvsJ_Bonf_&_pval_VvsJ_Bonf.txt")
 
 
 
