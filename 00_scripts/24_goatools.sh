@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#PBS -q mpi
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=28:mem=115g
 
 # Global variables
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment
