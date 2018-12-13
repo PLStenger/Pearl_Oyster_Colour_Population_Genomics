@@ -7,11 +7,11 @@
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment
 GOATOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment/01_scripts
 FISHER_FOLDER=06_fisher_tests
-GO_DATABASE=02_go_database/go.obo
-SIGNIFICANT_IDS=03_sequences/significant_ids.txt
-ALL_IDS=03_sequences/all_ids.txt
-ANNOTATIONS=05_annotations/all_go_annotations_test3.tab
-ENRICHMENT=06_fisher_tests/go_enrichment.csv
+GO_DATABASE=02_go_database
+SIGNIFICANT_IDS=03_sequences
+ALL_IDS=03_sequences
+ANNOTATIONS=05_annotations
+ENRICHMENT=06_fisher_tests
 
 cd $WORKING_DIRECTORY
 
