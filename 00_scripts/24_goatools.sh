@@ -2,7 +2,7 @@
 
 # Global variables
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment
-GOATOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment/01_scripts/find_enrichment.py
+GOATOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment/01_scripts
 FISHER_FOLDER=06_fisher_tests
 GO_DATABASE=02_go_database/go.obo
 SIGNIFICANT_IDS=03_sequences/significant_ids.txt
