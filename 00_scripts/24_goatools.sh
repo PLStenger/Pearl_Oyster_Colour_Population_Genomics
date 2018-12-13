@@ -2,7 +2,7 @@
 
 # Global variables
 WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment
-GOATOOLS=/Users/pierre-louisstenger/Desktop/go_enrichment-master/goatools/scripts/find_enrichment.py
+GOATOOLS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment/01_scripts/find_enrichment.py
 FISHER_FOLDER=06_fisher_tests
 GO_DATABASE=02_go_database/go.obo
 SIGNIFICANT_IDS=03_sequences/significant_ids.txt
@@ -20,7 +20,7 @@ source activate /home1/datahome/plstenge/goatools2
 
 
 # Running goa tools
-python find_enrichment.py --pval=0.05 --indent --obo $GO_DATABASE/go.obo $SIGNIFICANT_IDS/significant_ids.txt $ALL_IDS/all_ids.txt $ANNOTATIONS/all_go_annotations_test3.tab > $FISHER_FOLDER/go_enrichment_test.csv
+python $GOATOOLS/find_enrichment.py --pval=0.05 --indent --obo $GO_DATABASE/go.obo $SIGNIFICANT_IDS/significant_ids.txt $ALL_IDS/all_ids.txt $ANNOTATIONS/all_go_annotations_test3.tab > $FISHER_FOLDER/go_enrichment_test.csv
 
 # python $WORKING_DIRECTORY/find_enrichment.py --pval=0.05 --indent --obo $WORKING_DIRECTORY/go.obo significant_ids.txt all_ids.txt all_go_annotations_test3.tab > $WORKING_DIRECTORY/go_enrichment.csv
 
