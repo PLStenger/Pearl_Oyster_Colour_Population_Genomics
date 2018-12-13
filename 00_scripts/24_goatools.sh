@@ -23,7 +23,9 @@ source activate /home1/datawork/plstenge/96_env_conda/goatools
 
 
 # Running goa tools
-python find_enrichment.py --pval=0.05 --indent --obo go.obo significant_ids.txt all_ids.txt all_go_annotations_test3.tab > go_enrichment.csv
+python $WORKING_DIRECTORY/find_enrichment.py --pval=0.05 --indent --obo $WORKING_DIRECTORY/go.obo $WORKING_DIRECTORY/significant_ids.txt $WORKING_DIRECTORY/all_ids.txt $WORKING_DIRECTORY/all_go_annotations_test3.tab > $WORKING_DIRECTORY/go_enrichment.csv
+
+# python $WORKING_DIRECTORY/find_enrichment.py --pval=0.05 --indent --obo $WORKING_DIRECTORY/go.obo significant_ids.txt all_ids.txt all_go_annotations_test3.tab > $WORKING_DIRECTORY/go_enrichment.csv
 
 
 # python scripts/find_enrichment.py --pval=0.05 --indent data/study \
