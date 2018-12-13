@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Global variables
-WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_goatools
+WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_01_goatools/go_enrichment
 GOATOOLS=/Users/pierre-louisstenger/Desktop/go_enrichment-master/goatools/scripts/find_enrichment.py
 FISHER_FOLDER=06_fisher_tests
 GO_DATABASE=02_go_database/go.obo
@@ -16,11 +16,11 @@ cd $WORKING_DIRECTORY
 export PATH=$PATH:/appli/anaconda/2.7/bin
 
 #Chargement de votre environnement
-source activate /home1/datawork/plstenge/96_env_conda/goatools
+source activate goatools2
 
 
 # Running goa tools
-python $WORKING_DIRECTORY/find_enrichment.py --pval=0.05 --indent --obo $WORKING_DIRECTORY/go.obo $WORKING_DIRECTORY/significant_ids.txt $WORKING_DIRECTORY/all_ids.txt $WORKING_DIRECTORY/all_go_annotations_test3.tab > $WORKING_DIRECTORY/go_enrichment.csv
+python scripts/find_enrichment.py --pval=0.05 --indent --obo $GO_DATABASE/go.obo $SIGNIFICANT_IDS/significant_ids.txt $ALL_IDS/all_ids.txt $ANNOTATIONS/all_go_annotations_test3.tab > $FISHER_FOLDER/go_enrichment_test.csv
 
 # python $WORKING_DIRECTORY/find_enrichment.py --pval=0.05 --indent --obo $WORKING_DIRECTORY/go.obo significant_ids.txt all_ids.txt all_go_annotations_test3.tab > $WORKING_DIRECTORY/go_enrichment.csv
 
