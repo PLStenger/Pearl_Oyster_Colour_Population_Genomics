@@ -237,13 +237,13 @@ head(dat6.1)
 # SNP propres au vert
 commun <- intersect(dat4.1$CHROM, dat5.1$CHROM)
 length(commun) # 15
-write.table(commun, "SNP_COMMUN_pval_VvsR_Bonf_&_pval_VvsJ_Bonf.txt")
+write.table(commun, "SNP_COMMUN_pval_VvsR_Bonf_and_pval_VvsJ_Bonf.txt")
 
 ### SNP COMMUN ENTRE pval_VvsR_Bonf & pval_RvsJ_Bonf
 # SNP propres au rouge
 commun1 <- intersect(dat4.1$CHROM, dat6.1$CHROM)
 length(commun1) # 31
-write.table(commun1, "SNP_COMMUN_pval_VvsR_Bonf_&_pval_RvsJ_Bonf.txt")
+write.table(commun1, "SNP_COMMUN_pval_VvsR_Bonf_and_pval_RvsJ_Bonf.txt")
 
 ### SNP COMMUN ENTRE pval_RvsJ_Bonf & pval_VvsJ_Bonf 
 # SNP propres au jaune
@@ -252,7 +252,7 @@ commun2 <- intersect(dat6.1$CHROM, dat5.1$CHROM)
 #length(dat5.1$CHROM)
 length(commun2) # 84
 #length(Reduce(intersect, list(dat6.1$CHROM,dat5.1$CHROM)))
-write.table(commun2, "SNP_COMMUN_pval_RvsJ_Bonf_&_pval_VvsJ_Bonf.txt")
+write.table(commun2, "SNP_COMMUN_pval_RvsJ_Bonf_and_pval_VvsJ_Bonf.txt")
 
 
 
@@ -261,7 +261,7 @@ write.table(commun2, "SNP_COMMUN_pval_RvsJ_Bonf_&_pval_VvsJ_Bonf.txt")
 communTot <- intersect(commun1, commun2)
 communTot2 <- intersect(commun, communTot)
 length(communTot2) # 2
-write.table(communTot2, "SNP_COMMUN_pval_RvsJ_Bonf_&_pval_VvsJ_Bonf_&_pval_VvsR_Bonf.txt")
+write.table(communTot2, "SNP_COMMUN_pval_RvsJ_Bonf_and_pval_VvsJ_Bonf_and_pval_VvsR_Bonf.txt")
 
 
 
