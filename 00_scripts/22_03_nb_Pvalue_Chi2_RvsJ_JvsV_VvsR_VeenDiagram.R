@@ -304,4 +304,33 @@ venn.diagram(
   euler.d = TRUE
 )
 
+venn<-VennDiagram::get.venn.partitions(list(VvsR = dat4.1$CHROM, VvsJ = dat5.1$CHROM, RvsJ=dat6.1$CHROM))
+venn
+
+
+all <-venn$..values..$"1"
+write.table(all, "SNP_commun_a_tous.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+VvsJ_vs_RvsJ <-venn$..values..$"2"
+write.table(VvsJ_vs_RvsJ, "SNP_commun_VvsJ_vs_RvsJ.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+VvsR_vs_RvsJ <-venn$..values..$"3"
+write.table(VvsR_vs_RvsJ, "SNP_commun_VvsR_vs_RvsJ.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+RvsJ <-venn$..values..$"4"
+write.table(RvsJ, "SNP_commun_RvsJ.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+VvsR_vs_VvsJ <-venn$..values..$"5"
+write.table(VvsR_vs_VvsJ, "SNP_commun_VvsR_vs_VvsJ.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+VvsJ <-venn$..values..$"6"
+write.table(VvsJ, "SNP_commun_VvsJ.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+VvsR <-venn$..values..$"7"
+write.table(VvsR, "SNP_commun_VvsR.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+
+
+
+
 
