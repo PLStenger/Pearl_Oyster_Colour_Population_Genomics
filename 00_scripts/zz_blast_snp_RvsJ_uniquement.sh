@@ -10,7 +10,7 @@
 #
 
 # La query a utiliser: VOTRE fichier Fasta
-QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/SNP_RvsJ_uniquement.txt
+QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/SNP_RvsJ_uniquement.fasta
 
 # La banque de reference a utiliser
 # Comment trouver une banque ? 
