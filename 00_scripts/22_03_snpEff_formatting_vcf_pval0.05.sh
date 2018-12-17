@@ -36,28 +36,28 @@ awk '{OFS = "_" ; print $1,$2}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.rec
 
 # puis on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
 
-awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_single_ID.vcf $INDIR/snp_ind_DP20_NoComplex_pval_RvsJ_Bonf_Pvalue0.05.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf.vcf
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_single_ID.vcf $INDIR/snp_ind_DP20_NoComplex_pval_RvsJ_Bonf_Pvalue0.05.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf_Pvalue0.05.vcf
 
-awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_single_ID.vcf $INDIR/snp_ind_DP20_NoComplex_pval_VvsJ_Bonf_Pvalue0.05.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsJ_Bonf.vcf
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_single_ID.vcf $INDIR/snp_ind_DP20_NoComplex_pval_VvsJ_Bonf_Pvalue0.05.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsJ_Bonf_Pvalue0.05.vcf
 
-awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_single_ID.vcf $INDIR/snp_ind_DP20_NoComplex_pval_VvsR_Bonf_Pvalue0.05.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsR_Bonf.vcf
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_single_ID.vcf $INDIR/snp_ind_DP20_NoComplex_pval_VvsR_Bonf_Pvalue0.05.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsR_Bonf_Pvalue0.05.vcf
 
 
 # On va vérifier le nombre de SNPs:
-wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf.vcf
-wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsJ_Bonf.vcf
-wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsR_Bonf.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf_Pvalue0.05.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsJ_Bonf_Pvalue0.05.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsR_Bonf_Pvalue0.05.vcf
 
 # ici le vcf est bon, mais il y a la colonne supplémentaire que l'on a rajouté (scaffold_position) à la fin qui nous gène, et il n'y a toujours pas le headerfunction .
 # Donc, on va enlever la première colonne dans le individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_snp.vcf
 # sed -re 's/^[ ]//g' pour enlever l'espace en trop qui va apparaitre juste devant le nom unique du snp
 # sed -re 's/ /\t/g'  car pour remplacer les espaces par des tabulations entre les différentes colonnes.
 
-awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_RvsJ.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf_Pvalue0.05.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_RvsJ_Pvalue0.05.vcf
 
-awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsJ_Bonf.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_VvsJ.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsJ_Bonf_Pvalue0.05.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_VvsJ_Pvalue0.05.vcf
 
-awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsR_Bonf.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_VvsR.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_VvsR_Bonf_Pvalue0.05.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_VvsR_Pvalue0.05.vcf
 
 
  
