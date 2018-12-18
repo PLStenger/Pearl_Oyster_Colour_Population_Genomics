@@ -25,7 +25,7 @@ grep "^#" $VCF >  $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm
 
 grep "scaffold2460|size144317" $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_no_header.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_no_header.vcf
 
-awk $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_no_header.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_header.vcf - > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_OK.vcf
+awk $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_no_header.vcf | cat $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_header.vcf - > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_OK.vcf
 
 
 vcfallelicprimitives -m -t COMPLEX $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_OK.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_NoAllComplex_TEST.vcf 
