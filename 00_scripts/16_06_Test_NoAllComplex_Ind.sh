@@ -14,5 +14,5 @@ VCF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_vcf_file
 $VCFLIBENV
 cd $WORKING_OUT
 
-grep "scaffold2460|size144317" $VCF > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460|size144317.vcf
-vcfallelicprimitives -t, --tag-parsed $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460|size144317.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460|size144317_NoAllComplex_TEST.vcf 
+grep "scaffold2460|size144317" $VCF > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317.vcf
+vcfallelicprimitives -t, --tag-parsed $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_NoAllComplex_TEST.vcf 
