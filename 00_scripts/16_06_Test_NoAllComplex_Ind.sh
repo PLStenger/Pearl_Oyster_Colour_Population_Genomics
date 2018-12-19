@@ -28,6 +28,6 @@ grep "scaffold2460|size144317" $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vc
 cat $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_header.vcf $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_no_header.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_OK.vcf
  #awk 
 
-vcfallelicprimitives -m -t COMPLEX $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_OK.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_NoAllComplex_TEST.vcf 
+vcfallelicprimitives -t COMPLEX $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_OK.vcf > $WORKING_OUT/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_scaffold2460_size144317_NoAllComplex_TEST.vcf 
 
 # --tag-parsed COMPLEX
