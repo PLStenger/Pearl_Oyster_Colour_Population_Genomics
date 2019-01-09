@@ -16,7 +16,7 @@ QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/
 # Comment trouver une banque ? 
 # cf. https://w3z.ifremer.fr/bioinfo/Cmdline-Datarmor/BLAST-en-ligne-de-commande
 #     section "Lister les banques disponibles" 
-BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nrM
+BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 
 # Quel program BLAST faut-il lancer: blastp, blastn, blastx, tblastn, tblastx ?
 # Attention: 'blastn' lancera 'megablast'. Pour forcer l'utilisation de 'blastn',
