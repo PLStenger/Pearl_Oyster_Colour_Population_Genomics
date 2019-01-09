@@ -10,7 +10,7 @@
 #
 
 # La query a utiliser: VOTRE fichier Fasta
-QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/UDP_YvsG.fasta
+QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/Monooxygenase_YvsG.fasta
 
 # La banque de reference a utiliser
 # Comment trouver une banque ? 
@@ -33,7 +33,7 @@ BLAST_PROGRAM=blastx
 #            unique sur votre dossier $DATAWORK, et plus precisement dans 
 #            un sous-dossier date de ce type la :
 #            $DATAWORK/2018-01-30_15h10m54s_blast.pbs/ 
-OUT_FILE=UDP_YvsG_Blast.txt
+OUT_FILE=Monooxygenase_YvsG_Blast.txt
 
 # nombre de best hits (alignements) a rapporter dans le resultat
 ALIGNMENTS=3
