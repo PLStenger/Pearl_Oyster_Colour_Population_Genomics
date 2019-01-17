@@ -10,13 +10,13 @@
 #
 
 # La query a utiliser: VOTRE fichier Fasta
-QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RedGEDBlastX.fasta
+QUERY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/enzyme_RvsG.fasta
 
 # La banque de reference a utiliser
 # Comment trouver une banque ? 
 # cf. https://w3z.ifremer.fr/bioinfo/Cmdline-Datarmor/BLAST-en-ligne-de-commande
 #     section "Lister les banques disponibles" 
-BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nrM
+BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 
 # Quel program BLAST faut-il lancer: blastp, blastn, blastx, tblastn, tblastx ?
 # Attention: 'blastn' lancera 'megablast'. Pour forcer l'utilisation de 'blastn',
@@ -33,7 +33,7 @@ BLAST_PROGRAM=blastx
 #            unique sur votre dossier $DATAWORK, et plus precisement dans 
 #            un sous-dossier date de ce type la :
 #            $DATAWORK/2018-01-30_15h10m54s_blast.pbs/ 
-OUT_FILE=redBlastX.txt
+OUT_FILE=enzyme_RvsG_Blast.txt
 
 # nombre de best hits (alignements) a rapporter dans le resultat
 ALIGNMENTS=3
