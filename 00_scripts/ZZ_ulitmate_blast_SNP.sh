@@ -6,32 +6,35 @@
 
 
 
-QUERY_RvsJ_Pvalue0.001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0.001_HIGHER.txt
-QUERY_RvsJ_Pvalue0.001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0.001_MODIFIER.txt
-QUERY_VvsJ_Pvalue0.001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0.001_HIGHER.txt
-QUERY_VvsJ_Pvalue0.001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0.001_MODIFIER.txt
-QUERY_VvsR_Pvalue0.001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0.001_HIGHER.txt
-QUERY_VvsR_Pvalue0.001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0.001_MODIFIER.txt
-OUT_FILE_RvsJ_Pvalue0.001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0.001_HIGHER_blast_output.txt
-OUT_FILE_RvsJ_Pvalue0.001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0.001_MODIFIER_blast_output.txt
-OUT_FILE_VvsJ_Pvalue0.001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0.001_HIGHER_blast_output.txt
-OUT_FILE_VvsJ_Pvalue0.001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0.001_MODIFIER_blast_output.txt
-OUT_FILE_VvsR_Pvalue0.001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0.001_HIGHER_blast_output.txt
-OUT_FILE_VvsR_Pvalue0.001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0.001_MODIFIER_blast_output.txt
+QUERY_RvsJ_Pvalue0_001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0_001_HIGHER.fasta
+QUERY_RvsJ_Pvalue0_001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0_001_MODIFIER.fasta
+QUERY_VvsJ_Pvalue0_001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0_001_HIGHER.fasta
+QUERY_VvsJ_Pvalue0_001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0_001_MODIFIER.fasta
+QUERY_VvsR_Pvalue0_001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0_001_HIGHER.fasta
+QUERY_VvsR_Pvalue0_001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0_001_MODIFIER.fasta
+OUT_FILE_RvsJ_Pvalue0_001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0_001_HIGHER_blast_output.txt
+OUT_FILE_RvsJ_Pvalue0_001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0_001_MODIFIER_blast_output.txt
+OUT_FILE_VvsJ_Pvalue0_001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0_001_HIGHER_blast_output.txt
+OUT_FILE_VvsJ_Pvalue0_001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0_001_MODIFIER_blast_output.txt
+OUT_FILE_VvsR_Pvalue0_001_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0_001_HIGHER_blast_output.txt
+OUT_FILE_VvsR_Pvalue0_001_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0_001_MODIFIER_blast_output.txt
 
-QUERY_RvsJ_Pvalue0.01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0.01_HIGHER.txt
-QUERY_RvsJ_Pvalue0.01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0.01_MODIFIER.txt
-QUERY_VvsJ_Pvalue0.01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0.01_HIGHER.txt
-QUERY_VvsJ_Pvalue0.01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0.01_MODIFIER.txt
-QUERY_VvsR_Pvalue0.01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0.01_HIGHER.txt
-QUERY_VvsR_Pvalue0.01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0.01_MODIFIER.txt
-OUT_FILE_RvsJ_Pvalue0.01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0.01_HIGHER_blast_output.txt
-OUT_FILE_RvsJ_Pvalue0.01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0.01_MODIFIER_blast_output.txt
-OUT_FILE_VvsJ_Pvalue0.01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0.01_HIGHER_blast_output.txt
-OUT_FILE_VvsJ_Pvalue0.01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0.01_MODIFIER_blast_output.txt
-OUT_FILE_VvsR_Pvalue0.01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0.01_HIGHER_blast_output.txt
-OUT_FILE_VvsR_Pvalue0.01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0.01_MODIFIER_blast_output.txt
+QUERY_RvsJ_Pvalue0_01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0_01_HIGHER.fasta
+QUERY_RvsJ_Pvalue0_01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/RvsJ_Pvalue0_01_MODIFIER.fasta
+QUERY_VvsJ_Pvalue0_01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0_01_HIGHER.fasta
+QUERY_VvsJ_Pvalue0_01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsJ_Pvalue0_01_MODIFIER.fasta
+QUERY_VvsR_Pvalue0_01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0_01_HIGHER.fasta
+QUERY_VvsR_Pvalue0_01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/VvsR_Pvalue0_01_MODIFIER.fasta
+OUT_FILE_RvsJ_Pvalue0_01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0_01_HIGHER_blast_output.txt
+OUT_FILE_RvsJ_Pvalue0_01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/RvsJ_Pvalue0_01_MODIFIER_blast_output.txt
+OUT_FILE_VvsJ_Pvalue0_01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0_01_HIGHER_blast_output.txt
+OUT_FILE_VvsJ_Pvalue0_01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsJ_Pvalue0_01_MODIFIER_blast_output.txt
+OUT_FILE_VvsR_Pvalue0_01_HIGHER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0_01_HIGHER_blast_output.txt
+OUT_FILE_VvsR_Pvalue0_01_MODIFIER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/VvsR_Pvalue0_01_MODIFIER_blast_output.txt
 
+
+
+/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast/
 
 
 
@@ -51,29 +54,13 @@ cp $0 $CB_LOG_FOLDER/$CB_NAME
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0.001_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0.001_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0_001_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0_001_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0.001_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0.001_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
-
-
-
-
-
-
-
-# Lancement de BLAST
-BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0.001_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0.001_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
-
-# Lancement de BLAST
-BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0.001_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0.001_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0_001_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0_001_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 
 
@@ -83,27 +70,13 @@ blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0.001_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0.001_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0_001_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0_001_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0.001_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0.001_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
-
-
-
-
-
-# Lancement de BLAST
-BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0.01_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0.01_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
-
-# Lancement de BLAST
-BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0.01_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0.01_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0_001_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0_001_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 
 
@@ -113,13 +86,27 @@ blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0.01_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0.01_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0_001_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0_001_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0.01_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0.01_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0_001_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0_001_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+
+
+
+
+
+# Lancement de BLAST
+BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
+${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0_01_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0_01_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+
+# Lancement de BLAST
+BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
+${BLAST_PROGRAM} -query "${QUERY_RvsJ_Pvalue0_01_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_RvsJ_Pvalue0_01_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 
 
@@ -129,10 +116,26 @@ blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0.01_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0.01_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0_01_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0_01_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 # Lancement de BLAST
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
-${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0.01_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
-blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0.01_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+${BLAST_PROGRAM} -query "${QUERY_VvsJ_Pvalue0_01_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsJ_Pvalue0_01_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+
+
+
+
+
+
+
+# Lancement de BLAST
+BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
+${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0_01_HIGHER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0_01_HIGHER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+
+# Lancement de BLAST
+BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive.asn1
+${BLAST_PROGRAM} -query "${QUERY_VvsR_Pvalue0_01_MODIFIER}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE_VvsR_Pvalue0_01_MODIFIER} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
