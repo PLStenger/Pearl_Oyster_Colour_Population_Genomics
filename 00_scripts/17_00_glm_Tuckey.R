@@ -7,7 +7,7 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(stringr)
-require(stringr)
+library(multcomp)
 
 # AD: Allelic Depth
 # DP: Read Depth
