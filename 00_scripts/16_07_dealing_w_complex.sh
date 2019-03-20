@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-#PBS -q omp
-#PBS -l walltime=600:00:00
-#PBS -l mem=115g
-#PBS -l ncpus=56
+#PBS -q mpi
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
 
 # Au final on va essayer de dealer avec les complexes, et va tenter de les decomplexifier
 
