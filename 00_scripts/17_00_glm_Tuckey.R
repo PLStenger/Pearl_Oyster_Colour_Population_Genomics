@@ -2,7 +2,6 @@
 
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified/")
 
-
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -133,7 +132,7 @@ AF_pool12EV <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool12EV$AD_pool12EV))
 
 AF <- data.frame(vcf$SNP, AF_pool9KV, AF_pool6GV, AF_pool4GR, AF_pool8KJ, AF_pool2TJ, AF_pool10ER, AF_pool5GJ, AF_pool1TR, AF_pool7KR, AF_pool3TV, AF_pool11EJ, AF_pool12EV) 
 colnames(AF) <- c("SNP", "Katiu_Green", "Gambier_Green", "Gambier_Red", "Katiu_Yellow", "Takapoto_Yellow", "Hatchery_Red", "Gambier_Yellow", 
-                  "Takapoto_Red", "Katiu_Red", "Takapoto_Green", "Hatchery_Yellow", "Hatchery_G") 
+                  "Takapoto_Red", "Katiu_Red", "Takapoto_Green", "Hatchery_Yellow", "Hatchery_Green") 
 
 
 dat <- gather(AF, condition, frequence, -SNP)
@@ -143,11 +142,60 @@ colnames(df) <- c("SNP", "Site", "Color", "Frequence")
 
 
 # Run the model in loop
+
+
+
+ok <- filter(df, df$SNP  == AF$SNP[2])
+mod <- glm(Frequence ~ Color + Site, data = ok, family=quasibinomial)
+summary(mod)
+K1 <- glht(mod, mcp(Color = "Tukey"))$linfct
+summary(K1)
+K2 <- glht(mod, mcp(Site = "Tukey"))$linfct
+pvaleur <- summary(glht(mod, linfct = rbind(K1, K2)))$test$pvalues[1:9]
+
+
 for (i in 1:length(AF$SNP)){
-  ok <- filter(df, df$SNP  == AF$SNP[i])
-  mod <- glm(Frequence ~ Color + Site, data = ok)
-  K1 <- glht(mod, mcp(Color = "Tukey"))$linfct
-  K2 <- glht(mod, mcp(Site = "Tukey"))$linfct
-  print(summary(glht(mod, linfct = rbind(K1, K2)))$test$pvalues[1:9]) }
+sink("OutPutAnalysis.txt", append=TRUE)
+ok <- filter(df, df$SNP  == AF$SNP[i])
+mod <- glm(Frequence ~ Color + Site, data = ok)
+K1 <- glht(mod, mcp(Color = "Tukey"))$linfct
+K2 <- glht(mod, mcp(Site = "Tukey"))$linfct
+pvaleur <- summary(glht(mod, linfct = rbind(K1, K2)))$test$pvalues[1:9]
+#noms_SNP <- append(noms_SNP, as.character(AF$SNP[i]))
+#combine <- c(noms_SNP, pvaleur)
+#matrixOK <- matrix(pvaleur, nrow=1)
+pvaleur <- c(pvaleur)
+print(pvaleur)
+sink()
+sink()
+sink()
+#write.csv(matrixOK, file = "MyData.csv")
+}
+
+for (i in 1:length(AF$SNP)){
+  sink("OutPutAnalysisSNP.txt", append=TRUE)
+  ok <- as.character(AF$SNP[i])
+  print(ok)
+  sink()
+  sink()
+  sink()
+  #write.csv(matrixOK, file = "MyData.csv")
+}
+
+SNP <- read.table("OutPutAnalysisSNP.txt")
+head(SNP)
+
+Pvaleur <- read.table("OutPutAnalysis.txt")
+head(Pvaleur)
+
+dat <- data.frame(SNP$V2, Pvaleur$V2, Pvaleur$V3, Pvaleur$V4, Pvaleur$V5, Pvaleur$V6, Pvaleur$V7, Pvaleur$V8, Pvaleur$V9, Pvaleur$V10)
+colnames(dat) <- c("SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu") 
+
+head(dat)
+write.table(dat, file = "results.csv", sep=";")
+# Delete the unecessary files
+file.remove("OutPutAnalysis.txt", "OutPutAnalysisSNP.txt")
+
+
 
 
