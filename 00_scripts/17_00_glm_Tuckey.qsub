@@ -1,7 +1,8 @@
 #!/bin/bash
-#PBS -q mpi
-#PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=28:mem=115g
+#PBS -q omp
+#PBS -l walltime=180:00:00
+#PBS -l mem=1024g
+#PBS -l ncpus=12
 
 cd $PBS_O_WORKDIR
 
