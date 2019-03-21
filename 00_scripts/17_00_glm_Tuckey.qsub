@@ -14,4 +14,4 @@ source activate /home1/datawork/plstenge/96_env_conda/glm
 
 SCRIPT_WGCNA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_00_glm_Tuckey.R
 
-Rscript --vanilla $SCRIPT_WGCNA
+Rscript --vanilla $SCRIPT_WGCNA >& ${SCRATCH}/fichier2sortie.out
