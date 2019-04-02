@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-#PBS -q sequentiel
-#PBS -l walltime=720:00:00
-#PBS -l mem=1024g
+#PBS -q mpi
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=28:mem=115g
 
 
 # Ce script permet de pouvoir modifier et formater le VCF pour les analyses statistiques suivantes, notament d'enlever le header et d'obtenir un noms de SNP unique en fusion le nom du scaffold avec la position
