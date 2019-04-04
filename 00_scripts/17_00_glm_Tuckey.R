@@ -13,61 +13,16 @@ library(multcomp)
 # Allelic frequencies: AD/DP
 # https://gatkforums.broadinstitute.org/gatk/discussion/6202/vcf-file-and-allele-frequency
 
-# We want to work on the individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header.vcf file
-# But, soemtime, between the pools there is no tabulation, so the number of column are not the same and R don't arrive to upload it.
-# So, with bash, we will delete all the tabulation, and then all the 0/0:, 0/1: and 1/1: and remplace them by a tubulation. So, there will not be anymore the genotyping info but the probleme will desappears.
-system('scp -r /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header.vcf  /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header.txt
-')
+# Used input from 16_08_deleted_header_singleID.sh
+vcf <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt")
 
 
-# We create a other file with just the first column and put it in new file named "only_start.txt"(= only first column)
-system('awk \'{$7=$8=$9=$10=$11=$12=$13=$14=$15=$16=$17=$18=$19=$20=$21=""; print $0}\' individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header.txt > only_start.txt')
-system('awk \'{print $1"_"$2"\t"$1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}\' only_start.txt > only_start2.txt')
-# We create a other file with the 9th first column and put it in new file named "only_end.txt"
-#system('awk \'{$1=$2=$3=$4=$5=$6=$7=$8=$9=""; print $0}\' individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header.txt > only_end.txt')
-system('awk \'{$3=$4=$5=$6=$7=$8=$9=""; print $0}\' individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header.txt > only_end.txt')
-system('awk \'{print $1"_"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12"\t"$13"\t"$14"\t"$15"\t"$16"\t"$17"\t"$18}\' only_end.txt > only_endTest.txt')
 
-# On the only end file, remove all tabulation
-system('sed \'s/\t//\' only_endTest.txt > only_end2.txt')
-# remove all spaces
-system('sed \'s/ //g\' only_end2.txt > only_end3.txt')
-# remove the 0/0:, 0/1: and 1/1: in three step
-system('cat only_end3.txt | awk \'{gsub("0/1:", "\t", $0); print $0}\' > only_end4.txt')
-system('cat only_end4.txt | awk \'{gsub("0/0:", "\t", $0); print $0}\' > only_end5.txt')
-system('cat only_end5.txt | awk \'{gsub("1/1:", "\t", $0); print $0}\' > individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_only_end.txt')
-# Delete the unecessary files
-file.remove("only_end.txt", "only_end2.txt", "only_end3.txt", "only_end4.txt", "only_end5.txt", "only_endTest.txt", "only_start.txt")
-
-# Merge the start and the end together
-system('join -a1 only_start2.txt individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_only_end.txt > join.txt')
-
-# If there is a row with less than 18 column, delete the row:
-system('awk \'NF>=19\' join.txt > individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_only_endOK.txt')
-
-
-file.remove("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_only_end.txt", "only_start2.txt")
-
-vcf <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_only_endOK.txt")
-
-colnames(vcf) <- c("SNP_NAME", "CHROM","POS","ID","REF","ALT","QUAL",
+colnames(vcf) <- c("SNP_NAME", "CHROM","POS","ID","REF","ALT","QUAL", "Nothing", "Decomplexed",
                    "pool9KV","pool6GV","pool4GR","pool8KJ","pool2TJ",
                    "pool10ER","pool5GJ","pool1TR","pool7KR","pool3TV",
                    "pool11EJ","pool12EV")
 
-file.remove("join.txt")
-
-
-#write.csv(vcf, file = "vcf.csv")
-#vcf <- read.csv("vcf.csv")
-
-
-#compute_model <- function(chunk){
-# chunk 
-#  vcf <- read.csv("vcf.csv") 
-# Merge CHROM and POS in order to have unique SNP name
-vcf$SNP <- paste(vcf$CHROM, vcf$POS, sep= "_") 
-# Now we will separate the needed information (split the columns) for the 12 columns:
 
 ############################################################################################################################################
 # pool9KV
@@ -81,6 +36,7 @@ pool4GR <- data.frame(do.call('rbind', strsplit(as.character(vcf$pool4GR),':',fi
 colnames(pool4GR) <- c("DP_pool4GR", "AD_pool4GR", "RO_pool4GR", "QR_pool4GR", "AO_pool4GR", "QA_pool4GR", "GL_pool4GR") 
 # pool8KJ
 pool8KJ <- data.frame(do.call('rbind', strsplit(as.character(vcf$pool8KJ),':',fixed=TRUE))) 
+
 colnames(pool8KJ) <- c("DP_pool8KJ", "AD_pool8KJ", "RO_pool8KJ", "QR_pool8KJ", "AO_pool8KJ", "QA_pool8KJ", "GL_pool8KJ") 
 # pool2TJ
 pool2TJ <- data.frame(do.call('rbind', strsplit(as.character(vcf$pool2TJ),':',fixed=TRUE))) 
@@ -109,21 +65,72 @@ colnames(pool12EV) <- c("DP_pool12EV", "AD_pool12EV", "RO_pool12EV", "QR_pool12E
 
 ############################################################################################################################################
 
+# Now, we want to create a data.frame with the allelic frequencies (AD/DP). 
+# For some AD, there is no juste REF, ALT (eg DP: 20, AD: 11,9) but sometimes there is (multiallelic ?): DP: 20, AD: 1, 9, 10.
+# So, I take the first "AD number" as the REF, and I sum the others as ALT:
+df_pool9KV <- as.data.frame(str_split_fixed(pool9KV$AD_pool9KV, ",", 2))
+df2_pool9KV <- data.frame(pool9KV$DP_pool9KV, df_pool9KV$V1, df_pool9KV$V2)
+df2_pool9KV$df_pool9KV.V2 <- as.character(df2_pool9KV$df_pool9KV.V2)
+# So, this is the AD for ALT:
+#sapply(strsplit(df2_pool9KV$df_pool9KV.V2, ','), function(x) sum(as.numeric(x)))
+# So, AF is AD/DP:
+AF_pool9KV <- ( sapply(strsplit(df2_pool9KV$df_pool9KV.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool9KV$DP_pool9KV)))
 
-# Now, we want to create a data.frame with the allelic frequencies (AD/DP). But, there are commas into some variable, we need to change them by point by this code: as.numeric(gsub(",", ".", gsub("\\.", "", VARIABLE)))
+# Same for the others:
+df_pool6GV <- as.data.frame(str_split_fixed(pool6GV$AD_pool6GV, ",", 2))
+df2_pool6GV <- data.frame(pool6GV$DP_pool6GV, df_pool6GV$V1, df_pool6GV$V2)
+df2_pool6GV$df_pool6GV.V2 <- as.character(df2_pool6GV$df_pool6GV.V2)
+AF_pool6GV <- ( sapply(strsplit(df2_pool6GV$df_pool6GV.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool6GV$DP_pool6GV)))
 
-AF_pool9KV <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool9KV$AD_pool9KV)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool9KV$DP_pool9KV  )))) 
-AF_pool6GV <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool6GV$AD_pool6GV)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool6GV$DP_pool6GV  )))) 
-AF_pool4GR <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool4GR$AD_pool4GR)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool4GR$DP_pool4GR  )))) 
-AF_pool8KJ <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool8KJ$AD_pool8KJ)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool8KJ$DP_pool8KJ  )))) 
-AF_pool2TJ <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool2TJ$AD_pool2TJ)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool2TJ$DP_pool2TJ  )))) 
-AF_pool10ER <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool10ER$AD_pool10ER))))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool10ER$DP_pool10ER)))) 
-AF_pool5GJ <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool5GJ$AD_pool5GJ)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool5GJ$DP_pool5GJ  )))) 
-AF_pool1TR <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool1TR$AD_pool1TR)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool1TR$DP_pool1TR  )))) 
-AF_pool7KR <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool7KR$AD_pool7KR)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool7KR$DP_pool7KR  )))) 
-AF_pool3TV <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool3TV$AD_pool3TV)  )))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool3TV$DP_pool3TV  )))) 
-AF_pool11EJ <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool11EJ$AD_pool11EJ))))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool11EJ$DP_pool11EJ)))) 
-AF_pool12EV <- (as.numeric(gsub(",", ".", gsub("\\.", "", pool12EV$AD_pool12EV))))/(as.numeric(gsub(",", ".", gsub("\\.", "", pool12EV$DP_pool12EV)))) 
+df_pool4GR <- as.data.frame(str_split_fixed(pool4GR$AD_pool4GR, ",", 2))
+df2_pool4GR <- data.frame(pool4GR$DP_pool4GR, df_pool4GR$V1, df_pool4GR$V2)
+df2_pool4GR$df_pool4GR.V2 <- as.character(df2_pool4GR$df_pool4GR.V2)
+AF_pool4GR <- ( sapply(strsplit(df2_pool4GR$df_pool4GR.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool4GR$DP_pool4GR)))
+
+df_pool8KJ <- as.data.frame(str_split_fixed(pool8KJ$AD_pool8KJ, ",", 2))
+df2_pool8KJ <- data.frame(pool8KJ$DP_pool8KJ, df_pool8KJ$V1, df_pool8KJ$V2)
+df2_pool8KJ$df_pool8KJ.V2 <- as.character(df2_pool8KJ$df_pool8KJ.V2)
+AF_pool8KJ <- ( sapply(strsplit(df2_pool8KJ$df_pool8KJ.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool8KJ$DP_pool8KJ)))
+
+df_pool2TJ <- as.data.frame(str_split_fixed(pool2TJ$AD_pool2TJ, ",", 2))
+df2_pool2TJ <- data.frame(pool2TJ$DP_pool2TJ, df_pool2TJ$V1, df_pool2TJ$V2)
+df2_pool2TJ$df_pool2TJ.V2 <- as.character(df2_pool2TJ$df_pool2TJ.V2)
+AF_pool2TJ <- ( sapply(strsplit(df2_pool2TJ$df_pool2TJ.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool2TJ$DP_pool2TJ)))
+
+df_pool10ER <- as.data.frame(str_split_fixed(pool10ER$AD_pool10ER, ",", 2))
+df2_pool10ER <- data.frame(pool10ER$DP_pool10ER, df_pool10ER$V1, df_pool10ER$V2)
+df2_pool10ER$df_pool10ER.V2 <- as.character(df2_pool10ER$df_pool10ER.V2)
+AF_pool10ER <- ( sapply(strsplit(df2_pool10ER$df_pool10ER.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool10ER$DP_pool10ER)))
+
+df_pool5GJ <- as.data.frame(str_split_fixed(pool5GJ$AD_pool5GJ, ",", 2))
+df2_pool5GJ <- data.frame(pool5GJ$DP_pool5GJ, df_pool5GJ$V1, df_pool5GJ$V2)
+df2_pool5GJ$df_pool5GJ.V2 <- as.character(df2_pool5GJ$df_pool5GJ.V2)
+AF_pool5GJ <- ( sapply(strsplit(df2_pool5GJ$df_pool5GJ.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool5GJ$DP_pool5GJ)))
+
+df_pool1TR <- as.data.frame(str_split_fixed(pool1TR$AD_pool1TR, ",", 2))
+df2_pool1TR <- data.frame(pool1TR$DP_pool1TR, df_pool1TR$V1, df_pool1TR$V2)
+df2_pool1TR$df_pool1TR.V2 <- as.character(df2_pool1TR$df_pool1TR.V2)
+AF_pool1TR <- ( sapply(strsplit(df2_pool1TR$df_pool1TR.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool1TR$DP_pool1TR)))
+
+df_pool7KR <- as.data.frame(str_split_fixed(pool7KR$AD_pool7KR, ",", 2))
+df2_pool7KR <- data.frame(pool7KR$DP_pool7KR, df_pool7KR$V1, df_pool7KR$V2)
+df2_pool7KR$df_pool7KR.V2 <- as.character(df2_pool7KR$df_pool7KR.V2)
+AF_pool7KR <- ( sapply(strsplit(df2_pool7KR$df_pool7KR.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool7KR$DP_pool7KR)))
+
+df_pool3TV <- as.data.frame(str_split_fixed(pool3TV$AD_pool3TV, ",", 2))
+df2_pool3TV <- data.frame(pool3TV$DP_pool3TV, df_pool3TV$V1, df_pool3TV$V2)
+df2_pool3TV$df_pool3TV.V2 <- as.character(df2_pool3TV$df_pool3TV.V2)
+AF_pool3TV <- ( sapply(strsplit(df2_pool3TV$df_pool3TV.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool3TV$DP_pool3TV)))
+
+df_pool11EJ <- as.data.frame(str_split_fixed(pool11EJ$AD_pool11EJ, ",", 2))
+df2_pool11EJ <- data.frame(pool11EJ$DP_pool11EJ, df_pool11EJ$V1, df_pool11EJ$V2)
+df2_pool11EJ$df_pool11EJ.V2 <- as.character(df2_pool11EJ$df_pool11EJ.V2)
+AF_pool11EJ <- ( sapply(strsplit(df2_pool11EJ$df_pool11EJ.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool11EJ$DP_pool11EJ)))
+
+df_pool12EV <- as.data.frame(str_split_fixed(pool12EV$AD_pool12EV, ",", 2))
+df2_pool12EV <- data.frame(pool12EV$DP_pool12EV, df_pool12EV$V1, df_pool12EV$V2)
+df2_pool12EV$df_pool12EV.V2 <- as.character(df2_pool12EV$df_pool12EV.V2)
+AF_pool12EV <- ( sapply(strsplit(df2_pool12EV$df_pool12EV.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool12EV$DP_pool12EV)))
 
 
 # Rellstab et al 2013
@@ -142,16 +149,6 @@ colnames(df) <- c("SNP", "Site", "Color", "Frequence")
 
 
 # Run the model in loop
-
-
-
-ok <- filter(df, df$SNP  == AF$SNP[2])
-mod <- glm(Frequence ~ Color + Site, data = ok, family=quasibinomial)
-summary(mod)
-K1 <- glht(mod, mcp(Color = "Tukey"))$linfct
-summary(K1)
-K2 <- glht(mod, mcp(Site = "Tukey"))$linfct
-pvaleur <- summary(glht(mod, linfct = rbind(K1, K2)))$test$pvalues[1:9]
 
 
 for (i in 1:length(AF$SNP)){
@@ -183,18 +180,21 @@ for (i in 1:length(AF$SNP)){
 }
 
 SNP <- read.table("OutPutAnalysisSNP.txt")
-head(SNP)
+#head(SNP)
 
 Pvaleur <- read.table("OutPutAnalysis.txt")
-head(Pvaleur)
+#head(Pvaleur)
 
 dat <- data.frame(SNP$V2, Pvaleur$V2, Pvaleur$V3, Pvaleur$V4, Pvaleur$V5, Pvaleur$V6, Pvaleur$V7, Pvaleur$V8, Pvaleur$V9, Pvaleur$V10)
 colnames(dat) <- c("SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu") 
 
-head(dat)
+#head(dat)
 write.table(dat, file = "results.csv", sep=";")
 # Delete the unecessary files
-file.remove("OutPutAnalysis.txt", "OutPutAnalysisSNP.txt")
+#file.remove("OutPutAnalysis.txt", "OutPutAnalysisSNP.txt")
+
+
+
 
 
 
