@@ -29,24 +29,30 @@ grep "^#" $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decom
 
 # In order to deal with some problems after Freebayes (less columns than usually / fusion of cells) and create a unique SNP name ("Scaffold name" + position)
 awk '{$9=$10=$11=$12=$13=$14=$15=$16=$17=$18=$19=$20=$21=""; print $1"_"$2"\t"$0}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header.vcf > $INDIR/OK.txt
-awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "", $0); print $0}' $INDIR/OK.txt > $INDIR/OK2.txt
 awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "\t.", $0); print $0}' $INDIR/OK.txt > $INDIR/OK2.txt
+rm $INDIR/OK.txt
 awk '{gsub(" \t.", " .", $0); print $0}' $INDIR/OK2.txt > $INDIR/OK2a.txt
+rm $INDIR/OK2.txt 
 awk '{$10=""; print $0}' $INDIR/OK2a.txt > $INDIR/OK2b.txt
+rm $INDIR/OK2a.txt 
 awk '{$3=$4=$4=$6=$7=$8=""; print $1"_"$2"\t"$0}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header.vcf > $INDIR/OK_end1.txt
 awk '{$2=$3=$4=""; print $0}' $INDIR/OK_end1.txt > $INDIR/OK_end1a.txt
-
+rm $INDIR/OK_end1.txt
 
 awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "", $0); print $0}' $INDIR/OK_end1a.txt > $INDIR/OK_end3.txt
-
+rm $INDIR/OK_end1a.txt
 
 # On the only end file, remove all tabulation
 sed -e 's/\t//g' $INDIR/OK_end3.txt > $INDIR/only_end2DC.txt
+rm $INDIR/OK_end3.txt
 
 # remove the 0/0:, 0/1: and 1/1: in three step
 cat $INDIR/only_end2DC.txt | awk '{gsub("0/1:", "\t", $0); print $0}' > $INDIR/only_end3DC.txt
+rm $INDIR/only_end2DC.txt
 cat $INDIR/only_end3DC.txt | awk '{gsub("0/0:", "\t", $0); print $0}' > $INDIR/only_end4DC.txt
+rm $INDIR/only_end3DC.txt
 cat $INDIR/only_end4DC.txt | awk '{gsub("1/1:", "\t", $0); print $0}' > $INDIR/only_end5DC.txt
+rm $INDIR/only_end4DC.txt
 
 
 # Merge the start and the end together
