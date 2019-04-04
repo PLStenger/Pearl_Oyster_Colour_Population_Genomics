@@ -28,7 +28,7 @@ grep "^#" $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decom
 
 
 # In order to deal with some problems after Freebayes (less columns than usually / fusion of cells) and create a unique SNP name ("Scaffold name" + position)
-awk '{$9=$10=$11=$12=$13=$14=$15=$16=$17=$18=$19=$20=$21=""; print $1"_"$2"\t"$0}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header.txt > $INDIR/OK.txt
+awk '{$9=$10=$11=$12=$13=$14=$15=$16=$17=$18=$19=$20=$21=""; print $1"_"$2"\t"$0}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header.vcf > $INDIR/OK.txt
 awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "", $0); print $0}' $INDIR/OK.txt > $INDIR/OK2.txt
 awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "\t.", $0); print $0}' $INDIR/OK.txt > $INDIR/OK2.txt
 awk '{gsub(" \t.", " .", $0); print $0}' $INDIR/OK2.txt > $INDIR/OK2a.txt
