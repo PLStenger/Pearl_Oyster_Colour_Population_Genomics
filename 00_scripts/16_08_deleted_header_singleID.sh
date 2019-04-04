@@ -33,7 +33,7 @@ awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "", $0); print $0}' $INDIR/OK.txt > $INDIR
 awk '{gsub("GT:DP:AD:RO:QR:AO:QA:GL", "\t.", $0); print $0}' $INDIR/OK.txt > $INDIR/OK2.txt
 awk '{gsub(" \t.", " .", $0); print $0}' $INDIR/OK2.txt > $INDIR/OK2a.txt
 awk '{$10=""; print $0}' $INDIR/OK2a.txt > $INDIR/OK2b.txt
-awk '{$3=$4=$4=$6=$7=$8=""; print $1"_"$2"\t"$0}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header.txt > $INDIR/OK_end1.txt
+awk '{$3=$4=$4=$6=$7=$8=""; print $1"_"$2"\t"$0}' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header.vcf > $INDIR/OK_end1.txt
 awk '{$2=$3=$4=""; print $0}' $INDIR/OK_end1.txt > $INDIR/OK_end1a.txt
 
 
