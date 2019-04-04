@@ -132,6 +132,145 @@ df2_pool12EV <- data.frame(pool12EV$DP_pool12EV, df_pool12EV$V1, df_pool12EV$V2)
 df2_pool12EV$df_pool12EV.V2 <- as.character(df2_pool12EV$df_pool12EV.V2)
 AF_pool12EV <- ( sapply(strsplit(df2_pool12EV$df_pool12EV.V2, ','), function(x) sum(as.numeric(x))) ) / (as.numeric(as.character(pool12EV$DP_pool12EV)))
 
+####
+# Now, because the allelic frequencies were calculated from a pool of a different number of individuals, and it's not "statistically correct" to compare frequencies which were calculated from different number of individuals,
+# We do 10 000 "tirages" if there were 20 hypothethycal individuals (here, 40 because it's biallélique)
+# We do that only for pools with less than 20 individuals
+
+for (i in 1:length(AF_pool9KV)){
+  sink("AF_pool9KV_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool9KV[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool9KV_new <- read.table("AF_pool9KV_new.txt")
+AF_pool9KV <- AF_pool9KV_new$V2
+file.remove("AF_pool9KV_new.txt")
+
+for (i in 1:length(AF_pool6GV)){
+  sink("AF_pool6GV_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool6GV[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool6GV_new <- read.table("AF_pool6GV_new.txt")
+AF_pool6GV <- AF_pool6GV_new$V2
+file.remove("AF_pool6GV_new.txt")
+
+for (i in 1:length(AF_pool4GR)){
+  sink("AF_pool4GR_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool4GR[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool4GR_new <- read.table("AF_pool4GR_new.txt")
+AF_pool4GR <- AF_pool4GR_new$V2
+file.remove("AF_pool4GR_new.txt")
+
+for (i in 1:length(AF_pool8KJ)){
+  sink("AF_pool8KJ_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool8KJ[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool8KJ_new <- read.table("AF_pool8KJ_new.txt")
+AF_pool8KJ <- AF_pool8KJ_new$V2
+file.remove("AF_pool8KJ_new.txt")
+
+for (i in 1:length(AF_pool2TJ)){
+  sink("AF_pool2TJ_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool2TJ[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool2TJ_new <- read.table("AF_pool2TJ_new.txt")
+AF_pool2TJ <- AF_pool2TJ_new$V2
+file.remove("AF_pool2TJ_new.txt")
+
+for (i in 1:length(AF_pool10ER)){
+  sink("AF_pool10ER_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool10ER[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool10ER_new <- read.table("AF_pool10ER_new.txt")
+AF_pool10ER <- AF_pool10ER_new$V2
+file.remove("AF_pool10ER_new.txt")
+
+
+for (i in 1:length(AF_pool5GJ )){
+  sink("AF_pool5GJ _new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool5GJ [i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool5GJ_new <- read.table("AF_pool5GJ _new.txt")
+AF_pool5GJ  <- AF_pool5GJ_new$V2
+file.remove("AF_pool5GJ _new.txt")
+
+for (i in 1:length(AF_pool1TR)){
+  sink("AF_pool1TR_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool1TR[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool1TR_new <- read.table("AF_pool1TR_new.txt")
+AF_pool1TR <- AF_pool1TR_new$V2
+file.remove("AF_pool1TR_new.txt")
+
+for (i in 1:length(AF_pool7KR)){
+  sink("AF_pool7KR_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool7KR[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool7KR_new <- read.table("AF_pool7KR_new.txt")
+AF_pool7KR <- AF_pool7KR_new$V2
+file.remove("AF_pool7KR_new.txt")
+
+
+for (i in 1:length(AF_pool3TV)){
+  sink("AF_pool3TV_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool3TV[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool3TV_new <- read.table("AF_pool3TV_new.txt")
+AF_pool3TV <- AF_pool3TV_new$V2
+file.remove("AF_pool3TV_new.txt")
+
+
+for (i in 1:length(AF_pool11EJ)){
+  sink("AF_pool11EJ_new.txt", append=TRUE)
+  print(mean(rbinom(10000,40,AF_pool11EJ[i]))/40)
+  sink()
+  sink()
+  sink()
+}
+
+AF_pool11EJ_new <- read.table("AF_pool11EJ_new.txt")
+AF_pool11EJ <- AF_pool11EJ_new$V2
+file.remove("AF_pool11EJ_new.txt")
 
 # Rellstab et al 2013
 # LES SNP SONT INDEPENDANTS STATISTIQUEMENT MEME SI BIOLOGIQUEMENT ILS LE SONT
