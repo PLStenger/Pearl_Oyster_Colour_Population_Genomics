@@ -14,6 +14,6 @@ split -l 2400000 individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decom
     i=1
     for x in `ls x* | sort`
     do
-        mv $x dindividuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_split_$i.txt
+        mv $x individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_split_$i.txt
         i=$(($i+1))
     done
