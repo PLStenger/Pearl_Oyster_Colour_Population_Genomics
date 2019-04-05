@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-#PBS -q omp
-#PBS -l walltime=720:00:00
-#PBS -l mem=115g
-#PBS -l ncpus=56
+#PBS -q sequentiel
+#PBS -l walltime=150:00:00
+#PBS -l mem=500g
 
 DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
