@@ -4,7 +4,9 @@
 #PBS -l mem=115g
 #PBS -l ncpus=56
 
-cd $PBS_O_WORKDIR
+DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
+
+cd $DATAWORK
 
 #Chargement de conda
 export PATH=$PATH:/appli/anaconda/2.7/bin
