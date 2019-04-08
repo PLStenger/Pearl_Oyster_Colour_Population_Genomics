@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#PBS -q mpi
+PBS -q omp
 #PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=28:mem=115g
+#PBS -l mem=500g
+#PBS -l ncpus=120
 
 DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
@@ -15,4 +16,4 @@ source activate /home1/datawork/plstenge/96_env_conda/glm
 
 SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_00_00_preparation_glm_Tuckey.R
 
-Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/fichier2sortie.out
+Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/fichier2sortie_preparation.out
