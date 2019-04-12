@@ -29,6 +29,7 @@ AF <- data.frame(vcf$SNP, AF_pool9KV, AF_pool6GV, AF_pool4GR, AF_pool8KJ, AF_poo
 colnames(AF) <- c("SNP", "Katiu_Green", "Gambier_Green", "Gambier_Red", "Katiu_Yellow", "Takapoto_Yellow", "Hatchery_Red", "Gambier_Yellow", 
                   "Takapoto_Red", "Katiu_Red", "Takapoto_Green", "Hatchery_Yellow", "Hatchery_Green") 
 
+write.table(AF, file ="input_glm_tuckey_without_iteration_before_gather.txt")
 
 dat <- gather(AF, condition, frequence, -SNP)
 condition <- data.frame(str_split_fixed(dat$condition, "_", 2))
