@@ -1,1 +1,4 @@
-bouh
+scaffold1|size567472_230095
+scaffold1|size567472_230170
+scaffold1|size567472_230205
+
