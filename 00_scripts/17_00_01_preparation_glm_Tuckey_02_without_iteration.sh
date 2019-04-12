@@ -13,6 +13,6 @@ export PATH=$PATH:/appli/anaconda/2.7/bin
 #Chargement de votre environnement
 source activate /home1/datawork/plstenge/96_env_conda/glm
 
-SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_00_00_preparation_glm_Tuckey_02_without_iteration.R
+SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_00_01_preparation_glm_Tuckey_02_without_iteration.R
 
-Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/out_17_00_00_preparation_glm_Tuckey_02_without_iteration.out
+Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/out_17_00_01_preparation_glm_Tuckey_02_without_iteration.out
