@@ -1,3 +1,5 @@
 *~
 *.fastq.gz
 *.gz
+*.out
+*.o*
