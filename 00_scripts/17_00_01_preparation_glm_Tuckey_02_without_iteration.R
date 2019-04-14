@@ -10,6 +10,10 @@ library(multcomp)
 
 
 vcf <- read.table("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt")
+colnames(vcf) <- c("SNP", "CHROM","POS","ID","REF","ALT","QUAL", "Nothing", "Decomplexed",
+                   "pool9KV","pool6GV","pool4GR","pool8KJ","pool2TJ",
+                   "pool10ER","pool5GJ","pool1TR","pool7KR","pool3TV",
+                   "pool11EJ","pool12EV")
 
 AF_pool9KV  <- read.table("AF_pool9KV.txt")
 AF_pool6GV  <- read.table("AF_pool6GV.txt")
