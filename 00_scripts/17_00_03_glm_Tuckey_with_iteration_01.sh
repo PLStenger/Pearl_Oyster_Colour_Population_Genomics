@@ -2,7 +2,7 @@
 #PBS -q omp
 #PBS -l walltime=180:00:00
 #PBS -l mem=1024g
-#PBS -l ncpus=6
+#PBS -l ncpus=12
 
 DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
