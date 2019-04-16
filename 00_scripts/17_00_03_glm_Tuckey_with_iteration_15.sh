@@ -3,7 +3,6 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
-
 DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
 cd $DATAWORK
