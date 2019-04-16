@@ -14,7 +14,7 @@ df <- read.table("input_glm_split_with_iteration_10", header=F)
 colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
-registerDoParallel()
+registerDoParallel() 
 
   foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
     sink("input_glm_split_with_iteration_results_10.txt", append=TRUE)
