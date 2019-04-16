@@ -5,7 +5,7 @@
 
 DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
-cd $DATAWORK
+cd $DATAWORK 
 
 #Chargement de conda
 export PATH=$PATH:/appli/anaconda/2.7/bin
