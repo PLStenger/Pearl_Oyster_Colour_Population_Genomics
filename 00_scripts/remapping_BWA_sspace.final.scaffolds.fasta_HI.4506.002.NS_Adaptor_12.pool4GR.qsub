@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l walltime=180:00:00
+#PBS -l mem=120g
+#PBS -l ncpus=12
+# Mapping BWA
+. /appli/bioinfo/bwa/latest/env.sh
+time bwa mem -t 12 -M /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.002.NS_Adaptor_12.pool4GR_R1.paired.fastq.gz /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.002.NS_Adaptor_12.pool4GR_R2.paired.fastq.gz > /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4506.002.NS_Adaptor_12.pool4GR.sam
+# Sam To Bam
+. /appli/bioinfo/samtools/latest/env.sh
+samtools view -b  /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4506.002.NS_Adaptor_12.pool4GR.sam  >  /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4506.002.NS_Adaptor_12.pool4GR.bam
+# Copy bam file from scratch to datawork_rmpf
+cp /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4506.002.NS_Adaptor_12.pool4GR.bam /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+# Flagstat
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+. /appli/bioinfo/samtools/latest/env.sh
+samtools flagstat /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_flagstat_bam.txt
+# Filtering
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+. /appli/bioinfo/samtools/latest/env.sh
+samtools view -F 4 -F 256 -q 5 -f2 -b /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered.bam
+# Flagstat for filtered files
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+. /appli/bioinfo/samtools/latest/env.sh
+samtools flagstat /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered_flagstat.txt
+# Sorting
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+. /appli/bioinfo/samtools/latest/env.sh
+samtools sort /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered_sorted.bam
+# Flagstat for sort files
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+. /appli/bioinfo/samtools/latest/env.sh
+samtools flagstat /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4506.002.NS_Adaptor_12.pool4GR_filtered_sorted_flagstat.txt

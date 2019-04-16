@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l walltime=180:00:00
+#PBS -l mem=120g
+#PBS -l ncpus=12
+# Mapping BWA
+. /appli/bioinfo/bwa/latest/env.sh
+time bwa mem -t 12 -M /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.008.NS_Adaptor_14.pool6GV_R1.paired.fastq.gz /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4499.008.NS_Adaptor_14.pool6GV_R2.paired.fastq.gz > /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.008.NS_Adaptor_14.pool6GV.sam
+# Sam To Bam
+. /appli/bioinfo/samtools/latest/env.sh
+samtools view -b  /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.008.NS_Adaptor_14.pool6GV.sam  >  /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.008.NS_Adaptor_14.pool6GV.bam
+# Delete Sam file
+rm -r /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.008.NS_Adaptor_14.pool6GV.sam
+# Copy bam file from scratch to datawork_rmpf
+cp /home1/scratch/plstenge/BWA/mapping_BWA_sspace.final.scaffolds.fasta/HI.4499.008.NS_Adaptor_14.pool6GV.bam /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+# Flagstat
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+samtools flagstat /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_flagstat_bam.txt
+# Filtering
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+samtools view -F 4 -F 256 -q 5 -f2 -b /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered.bam
+# Flagstat for filtered files
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+samtools flagstat /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered_flagstat.txt
+# Sorting
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+samtools view sort /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered_sorted.bam
+# Flagstat for sort files
+cd /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped
+samtools flagstat /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered.bam > /home/datawork-rmpf/p_margaritifera/pl-pwgs/03_mapped/HI.4499.008.NS_Adaptor_14.pool6GV_filtered_sorted_flagstat.txt

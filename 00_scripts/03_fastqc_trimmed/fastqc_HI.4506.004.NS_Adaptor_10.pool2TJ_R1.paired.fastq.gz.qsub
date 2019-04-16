@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l ncpus=1
+#PBS -l mem=60gb
+#PBS -l walltime=24:00:00
+cd /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
+. /appli/bioinfo/fastqc/latest/env.sh
+fastqc /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed/HI.4506.004.NS_Adaptor_10.pool2TJ_R1.paired.fastq.gz -o /home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/04_fastqc_trimmed
