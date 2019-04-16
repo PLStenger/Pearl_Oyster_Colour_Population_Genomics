@@ -16,7 +16,7 @@ head(df)
 
 #registerDoParallel()
 
-  for (i in 1:length(unique(df$SNP)){
+  for (i in 1:length(unique(df$SNP))){
     sink("input_glm_split_with_iteration_results_29_split_01_for.txt", append=TRUE)
     SNP_name <- as.character(unique(df$SNP)[i])
     ok <- filter(df, df$SNP  == unique(df$SNP)[i])
