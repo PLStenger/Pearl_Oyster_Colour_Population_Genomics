@@ -14,6 +14,7 @@ df <- read.table("input_glm_split_with_iteration_11", header=F)
 colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
+
 registerDoParallel()
 
   foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
