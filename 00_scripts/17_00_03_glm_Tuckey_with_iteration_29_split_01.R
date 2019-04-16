@@ -7,17 +7,17 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(multcomp)
-library(foreach)
-library(doParallel)
+#library(foreach)
+#library(doParallel)
 
-df <- read.table("input_glm_split_with_iteration_29_split_01_bis", header=F)
+df <- read.table("input_glm_split_with_iteration_29_split_01", header=F)
 colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
-registerDoParallel()
+#registerDoParallel()
 
-  foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
-    sink("input_glm_split_with_iteration_results_29_split_01_bis.txt", append=TRUE)
+  for (i in 1:length(unique(df$SNP)){
+    sink("input_glm_split_with_iteration_results_29_split_01_for.txt", append=TRUE)
     SNP_name <- as.character(unique(df$SNP)[i])
     ok <- filter(df, df$SNP  == unique(df$SNP)[i])
     mod <- glm(Frequence ~ Color + Site, data = ok)
@@ -35,4 +35,4 @@ registerDoParallel()
 
 
 
-registerDoSEQ()
+#registerDoSEQ()
