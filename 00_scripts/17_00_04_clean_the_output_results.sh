@@ -9,31 +9,61 @@ cd $DATAWORK
 
 # Clean the output results from the glm
 # Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_02.txt > input_glm_split_with_iteration_results_02_without_dbsp.txt
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_00.txt > input_glm_split_with_iteration_results_00_without_dbsp.txt
 
 # Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_02_without_dbsp.txt > input_glm_split_with_iteration_results_02_without_dbsp_no_rt.txt
+tr -d '\n' < input_glm_split_with_iteration_results_00_without_dbsp.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt.txt
 
 # Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_02_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp.txt
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_00_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp.txt
 
 # Si pas 10 block, met la ligne dans un autre fichier:
 
 # Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
 
 # Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
 
 # Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+paste input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
 
 # If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_02_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_00_ok.txt
 
 # If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_02_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_02_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_00_not_ok.txt
+
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_01.txt > input_glm_split_with_iteration_results_01_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_01_without_dbsp.txt > input_glm_split_with_iteration_results_01_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_01_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_01_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_01_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_01_not_ok.txt
+
 
 
 
@@ -97,94 +127,6 @@ awk '$1!="10"' input_glm_split_with_iteration_results_11_without_dbsp_no_rt_scaf
 
 
 
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_00.txt > input_glm_split_with_iteration_results_00_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_00_without_dbsp.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_00_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_00_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_00_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_00_not_ok.txt
-
-
-
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_23.txt > input_glm_split_with_iteration_results_23_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_23_without_dbsp.txt > input_glm_split_with_iteration_results_23_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_23_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_23_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_23_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_23_not_ok.txt
-
-
-
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_26.txt > input_glm_split_with_iteration_results_26_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_26_without_dbsp.txt > input_glm_split_with_iteration_results_26_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_26_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_26_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_26_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_26_not_ok.txt
-
 
 # Clean the output results from the glm
 # Delete the double spaces
@@ -216,65 +158,6 @@ awk '$1!="10"' input_glm_split_with_iteration_results_18_without_dbsp_no_rt_scaf
 
 
 
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_25.txt > input_glm_split_with_iteration_results_25_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_25_without_dbsp.txt > input_glm_split_with_iteration_results_25_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_25_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_25_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_25_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_25_not_ok.txt
-
-
-
-
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_21.txt > input_glm_split_with_iteration_results_21_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_21_without_dbsp.txt > input_glm_split_with_iteration_results_21_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_21_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_21_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_21_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_21_not_ok.txt
-
 
 
 # Clean the output results from the glm
@@ -304,66 +187,6 @@ awk '$1=="10"' input_glm_split_with_iteration_results_17_without_dbsp_no_rt_scaf
 
 # If not 10 put in output_not_ok.txt
 awk '$1!="10"' input_glm_split_with_iteration_results_17_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_17_not_ok.txt
-
-
-
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_24.txt > input_glm_split_with_iteration_results_24_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_24_without_dbsp.txt > input_glm_split_with_iteration_results_24_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_24_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_24_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_24_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_24_not_ok.txt
-
-
-
-# Clean the output results from the glm
-# Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_20.txt > input_glm_split_with_iteration_results_20_without_dbsp.txt
-
-# Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_20_without_dbsp.txt > input_glm_split_with_iteration_results_20_without_dbsp_no_rt.txt
-
-# Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_20_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp.txt
-
-# Si pas 10 block, met la ligne dans un autre fichier:
-
-# Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
-
-# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
-
-# Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
-
-# If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_20_ok.txt
-
-# If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_20_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_20_not_ok.txt
 
 
 
@@ -551,31 +374,199 @@ awk '$1=="10"' input_glm_split_with_iteration_results_19_without_dbsp_no_rt_scaf
 awk '$1!="10"' input_glm_split_with_iteration_results_19_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_19_not_ok.txt
 
 
-
 # Clean the output results from the glm
 # Delete the double spaces
-sed -e 's/\ \ //g' input_glm_split_with_iteration_results_22.txt > input_glm_split_with_iteration_results_22_without_dbsp.txt
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_04.txt > input_glm_split_with_iteration_results_04_without_dbsp.txt
 
 # Delete return to the line
-tr -d '\n' < input_glm_split_with_iteration_results_22_without_dbsp.txt > input_glm_split_with_iteration_results_22_without_dbsp_no_rt.txt
+tr -d '\n' < input_glm_split_with_iteration_results_04_without_dbsp.txt > input_glm_split_with_iteration_results_04_without_dbsp_no_rt.txt
 
 # Create return to the line if "scaffold" pattern
-sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_22_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf.txt
-sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp.txt
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_04_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp.txt
 
 # Si pas 10 block, met la ligne dans un autre fichier:
 
 # Compte le nombre de "mots" par ligne
-awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
 
 # Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
-awk '{$1=""; print $2}' input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
 
 # Merge the 2 files (nb of lines with the output)
-paste input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+paste input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
 
 # If 10 put in output_ok.txt
-awk '$1=="10"' input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_22_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_04_ok.txt
 
 # If not 10 put in output_not_ok.txt
-awk '$1!="10"' input_glm_split_with_iteration_results_22_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_22_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_04_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_04_not_ok.txt
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_05.txt > input_glm_split_with_iteration_results_05_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_05_without_dbsp.txt > input_glm_split_with_iteration_results_05_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_05_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_05_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_05_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_05_not_ok.txt
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_06.txt > input_glm_split_with_iteration_results_06_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_06_without_dbsp.txt > input_glm_split_with_iteration_results_06_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_06_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_06_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_06_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_06_not_ok.txt
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_07.txt > input_glm_split_with_iteration_results_07_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_07_without_dbsp.txt > input_glm_split_with_iteration_results_07_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_07_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_07_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_07_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_07_not_ok.txt
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_08.txt > input_glm_split_with_iteration_results_08_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_08_without_dbsp.txt > input_glm_split_with_iteration_results_08_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_08_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_08_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_08_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_08_not_ok.txt
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_09.txt > input_glm_split_with_iteration_results_09_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_09_without_dbsp.txt > input_glm_split_with_iteration_results_09_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_09_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_09_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_09_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_09_not_ok.txt
+
+# Clean the output results from the glm
+# Delete the double spaces
+sed -e 's/\ \ //g' input_glm_split_with_iteration_results_10.txt > input_glm_split_with_iteration_results_10_without_dbsp.txt
+
+# Delete return to the line
+tr -d '\n' < input_glm_split_with_iteration_results_10_without_dbsp.txt > input_glm_split_with_iteration_results_10_without_dbsp_no_rt.txt
+
+# Create return to the line if "scaffold" pattern
+sed $'s/scaffold/\\\nscaffold/g' input_glm_split_with_iteration_results_10_without_dbsp_no_rt.txt > input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf.txt
+sed -e 's/\ \ /\ /g' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf.txt > input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp.txt
+
+# Si pas 10 block, met la ligne dans un autre fichier:
+
+# Compte le nombre de "mots" par ligne
+awk '$0="line"NR": "NF' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_line_nb.txt
+
+# Enlever "lineX:" pour n'avoir que la valeur du nombre de mots
+awk '{$1=""; print $2}' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_line_nb.txt > input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt
+
+# Merge the 2 files (nb of lines with the output)
+paste input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_line_nb_clean.txt input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp.txt > input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt
+
+# If 10 put in output_ok.txt
+awk '$1=="10"' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_10_ok.txt
+
+# If not 10 put in output_not_ok.txt
+awk '$1!="10"' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_10_not_ok.txt
+
