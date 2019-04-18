@@ -570,3 +570,8 @@ awk '$1=="10"' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf
 # If not 10 put in output_not_ok.txt
 awk '$1!="10"' input_glm_split_with_iteration_results_10_without_dbsp_no_rt_scaf_dbsp_nb_line_merged.txt > input_glm_split_with_iteration_results_10_not_ok.txt
 
+
+
+
+
+rm *_without_dbsp*
