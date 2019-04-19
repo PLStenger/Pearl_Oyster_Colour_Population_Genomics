@@ -17,7 +17,7 @@ head(df)
 registerDoParallel()
 
   foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
-    sink("input_glm_split_with_iteration_for_rerun_00.txt", append=TRUE)
+    sink("input_glm_split_with_iteration_for_rerun_02.txt", append=TRUE)
     SNP_name <- as.character(unique(df$SNP)[i])
     ok <- filter(df, df$SNP  == unique(df$SNP)[i])
     mod <- glm(Frequence ~ Color + Site, data = ok)
