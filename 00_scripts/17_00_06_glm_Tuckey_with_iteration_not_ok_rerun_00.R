@@ -10,18 +10,16 @@ library(multcomp)
 library(foreach)
 library(doParallel)
 
-df_of_not_ok <- read.table("input_glm_split_with_iteration_results_all_not_ok_now_ok.txt", header=F)
-colnames(df_of_not_ok) <- c("SNP")
-
-df <- read.table("input_glm_split_with_iteration_all", header=F)
+df <- read.table("input_glm_split_with_iteration_for_rerun_00", header=F)
 colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
+head(df)
 
 registerDoParallel()
 
-  foreach(i=1:length(unique(df_of_not_ok$SNP)), .combine=c) %dopar% {
-    sink("input_glm_split_with_iteration_results_all_not_ok.txt", append=TRUE)
-    SNP_name <- as.character(unique(df_of_not_ok$SNP)[i])
-    ok <- filter(df, df$SNP  == unique(df_of_not_ok$SNP)[i])
+  foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
+    sink("input_glm_split_with_iteration_for_rerun_00.txt", append=TRUE)
+    SNP_name <- as.character(unique(df$SNP)[i])
+    ok <- filter(df, df$SNP  == unique(df$SNP)[i])
     mod <- glm(Frequence ~ Color + Site, data = ok)
     K1 <- glht(mod, mcp(Color = "Tukey"))$linfct
     K2 <- glht(mod, mcp(Site = "Tukey"))$linfct
