@@ -10,7 +10,7 @@ library(multcomp)
 library(foreach)
 library(doParallel)
 
-df <- read.table("input_glm_split_with_iteration_for_rerun_00", header=F)
+df <- read.table("input_glm_split_with_iteration_for_rerun_01", header=F)
 colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
