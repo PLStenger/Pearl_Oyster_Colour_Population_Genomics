@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified")
+
 for_rerun <- read.table("for_rerun.txt", header=T)
 head(for_rerun)
 
