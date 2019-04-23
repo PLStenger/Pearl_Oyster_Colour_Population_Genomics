@@ -10,7 +10,7 @@ library(multcomp)
 library(foreach)
 library(doParallel)
 
-df <- read.table("for_rererun.txt", header=F)
+df <- read.table("for_rererun.txt", header=T)
 colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
