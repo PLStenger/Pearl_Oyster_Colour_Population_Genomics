@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -q mpi
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
+
+DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
+
+cd $DATAWORK
+
+# Cat all problematics scaffold to find them and rerun the glm
+cat input_glm_split_with_iteration_for_rerun_01_not_ok.txt input_glm_split_with_iteration_for_rerun_02_not_ok.txt input_glm_split_with_iteration_for_rerun_03_not_ok.txt input_glm_split_with_iteration_for_rerun_04_not_ok.txt input_glm_split_with_iteration_for_rerun_05_not_ok.txt input_glm_split_with_iteration_for_rerun_06_not_ok.txt > input_glm_split_with_iteration_results_for_rerun_01_02_03_04_05_06_not_ok.txt 
+
+# Cat all ok scaffold that have already be run by the glm, in order not rerun them
+cat input_glm_split_with_iteration_for_rerun_01_ok.txt input_glm_split_with_iteration_for_rerun_02_ok.txt input_glm_split_with_iteration_for_rerun_03_ok.txt input_glm_split_with_iteration_for_rerun_04_ok.txt input_glm_split_with_iteration_for_rerun_05_ok.txt input_glm_split_with_iteration_for_rerun_06_ok.txt > input_glm_split_with_iteration_results_for_rerun_01_02_03_04_05_06_ok.txt 
+
+
