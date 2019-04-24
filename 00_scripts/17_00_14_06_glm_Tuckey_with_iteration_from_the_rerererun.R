@@ -11,7 +11,7 @@ library(foreach)
 library(doParallel)
 
 df <- read.table("input_glm_split_with_iteration_for_rerererun_06", header=F)
-colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
+colnames(df) <- c("nb", "nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
 registerDoParallel()
