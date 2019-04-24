@@ -7,4 +7,5 @@ DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_
 
 cd $DATAWORK
 
+sed -i '1d' for_rerererun.txt
 split -d -l 3743652 $DATAWORK/for_rerererun.txt $DATAWORK/input_glm_split_with_iteration_for_rerererun_
