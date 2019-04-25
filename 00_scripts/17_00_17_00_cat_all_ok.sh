@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#PBS -q mpi
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
+
+DATAWORK=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
+
+cd $DATAWORK
+
+cat input_glm_split_with_iteration_results_from_rerererun_00_01_02_03_04_05_06_07_08_09_10_11_ok.txt input_glm_split_with_iteration_results_for_rerun_01_02_03_04_05_06_19_ok.txt input_glm_split_with_iteration_results_00_01_02_03_04_05_06_07_08_09_10_11_12_13_14_15_16_17_18_ok.txt input_glm_split_with_iteration_for_rererun_ok.txt > all_results_ok_from_glm_with_iteration.txt
