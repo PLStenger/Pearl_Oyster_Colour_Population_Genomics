@@ -14,6 +14,6 @@ export PATH=$PATH:/appli/anaconda/2.7/bin
 #Chargement de votre environnement
 source activate /home1/datawork/plstenge/96_env_conda/glm
 
-SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_00_17_find_the_rererererun.R
+SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_00_17_01_obtain_all_SNP_name_OK.R
 
-Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/17_00_17_find_the_rererererun.out
+Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/17_00_17_01_obtain_all_SNP_name_OK.out
