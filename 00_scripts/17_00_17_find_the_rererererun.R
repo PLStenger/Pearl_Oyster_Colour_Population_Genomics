@@ -2,7 +2,7 @@
 
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified")
 
-for_rerererun <- read.table("for_rerererun.txt", header=T)
+for_rerererun <- read.table("for_rerererun.txt", header=F)
 head(for_rerererun)
 
 ok <- read.table("input_glm_split_with_iteration_results_from_rerererun_00_01_02_03_04_05_06_07_08_09_10_11_ok.txt", header=F)
