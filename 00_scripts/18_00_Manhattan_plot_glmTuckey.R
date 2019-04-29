@@ -7,7 +7,7 @@ library(dplyr)
 library(gridExtra)
 
 dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final.txt", header=T)
-colnames(dat) <- c("Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu") 
+colnames(dat) <- c("nb", "Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu") 
 dat <- dat[order(dat$SNP),]
 head(dat)
 
