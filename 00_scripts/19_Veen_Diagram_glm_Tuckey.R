@@ -33,6 +33,12 @@ length(dat$TakapotoVsKatiu)
 
 ######################################################################################################
 ## Check the max
+print("head(dat$RedVsGreen)")
+head(dat$RedVsGreen)
+print("head(as.numeric(dat$RedVsGreen))")
+head(as.numeric(dat$RedVsGreen))
+print("max(as.numeric(dat$RedVsGreen))")
+max(as.numeric(dat$RedVsGreen))
 print("max of RedVsGreen")
 max(dat$RedVsGreen)
 print("max of YellowVsGreen")
