@@ -5,6 +5,16 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_glm_t
 dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final.txt", header=T)
 head(dat)
 
+dat$RedVsGreen <- as.numeric(dat$RedVsGreen)
+dat$YellowVsGreen <- as.numeric(dat$YellowVsGreen)
+dat$YellowVsRed <- as.numeric(dat$YellowVsRed)
+dat$HatcheryVsGambier <- as.numeric(dat$HatcheryVsGambier)
+dat$KatiuVsGambier <- as.numeric(dat$KatiuVsGambier)
+dat$TakapotoVsGambier <- as.numeric(dat$TakapotoVsGambier)
+dat$KatiuVsHatchery <- as.numeric(dat$KatiuVsHatchery)
+dat$TakapotoVsHatchery <- as.numeric(dat$TakapotoVsHatchery)
+dat$TakapotoVsKatiu <- as.numeric(dat$TakapotoVsKatiu)
+
 
 ######################################################################################################
 ## RedVsGreen
