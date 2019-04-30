@@ -34,6 +34,8 @@ RedVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(title = "Red vs Green")
 
 
+ggsave("Manhattan_plots_glm_tuckey_RedVsGreen.pdf")
+
 P = as.numeric(dat$YellowVsGreen)
 # partially transparent points by setting `alpha = 0.5`
 YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
@@ -48,6 +50,9 @@ YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(x = "Ordered by position", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Green")
+
+ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen.pdf")
+
 
 P = as.numeric(dat$YellowVsRed)
 # partially transparent points by setting `alpha = 0.5`
@@ -64,6 +69,9 @@ YellowVsRed <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Red")
 
+ggsave("Manhattan_plots_glm_tuckey_YellowVsRed.pdf")
+
+
 P = as.numeric(dat$HatcheryVsGambier)
 # partially transparent points by setting `alpha = 0.5`
 HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
@@ -78,6 +86,8 @@ HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(x = "Ordered by position", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Hatchery Vs Gambier")
+
+ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier.pdf")
 
 
 P = as.numeric(dat$KatiuVsGambier)
@@ -95,6 +105,8 @@ KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Katiu Vs Gambier")
 
+ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier.pdf")
+
 
 P = as.numeric(dat$TakapotoVsGambier)
 # partially transparent points by setting `alpha = 0.5`
@@ -110,6 +122,9 @@ TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(x = "Ordered by position", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Gambier")
+
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier.pdf")
+
 
 
 P = as.numeric(dat$KatiuVsHatchery)
@@ -127,6 +142,8 @@ KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "KatiuVsHatchery")
 
+ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery.pdf")
+
 
 P = as.numeric(dat$TakapotoVsHatchery)
 # partially transparent points by setting `alpha = 0.5`
@@ -143,6 +160,8 @@ TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Hatchery")
 
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery.pdf")
+
 
 P = as.numeric(dat$TakapotoVsKatiu)
 # partially transparent points by setting `alpha = 0.5`
@@ -158,6 +177,8 @@ TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   labs(x = "Ordered by position", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "TakapotoVsKatiu")
+
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsKatiu.pdf")
 
 
 
