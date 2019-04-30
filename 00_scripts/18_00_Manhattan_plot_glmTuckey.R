@@ -17,10 +17,10 @@ fillcolors <- c("#9D6C06", "#077DAA", "#026D4E")
 
 
 CHR = dat$SNP
-P = as.numeric(dat$RedVsGreen)
+P = dat$RedVsGreen
 str(P)
 # partially transparent points by setting `alpha = 0.5`
-RedVsGreen <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+RedVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -36,9 +36,9 @@ RedVsGreen <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 
 ggsave("Manhattan_plots_glm_tuckey_RedVsGreen.png", width = 30, height = 10)
 
-P = as.numeric(dat$YellowVsGreen)
+P = dat$YellowVsGreen
 # partially transparent points by setting `alpha = 0.5`
-YellowVsGreen <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -54,9 +54,9 @@ YellowVsGreen <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen.png", width = 30, height = 10)
 
 
-P = as.numeric(dat$YellowVsRed)
+P = dat$YellowVsRed
 # partially transparent points by setting `alpha = 0.5`
-YellowVsRed <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+YellowVsRed <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -72,9 +72,9 @@ YellowVsRed <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 ggsave("Manhattan_plots_glm_tuckey_YellowVsRed.png", width = 30, height = 10)
 
 
-P = as.numeric(dat$HatcheryVsGambier)
+P = dat$HatcheryVsGambier
 # partially transparent points by setting `alpha = 0.5`
-HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -90,9 +90,9 @@ HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier.png", width = 30, height = 10)
 
 
-P = as.numeric(dat$KatiuVsGambier)
+P = dat$KatiuVsGambier
 # partially transparent points by setting `alpha = 0.5`
-KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -108,9 +108,9 @@ KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier.png", width = 30, height = 10)
 
 
-P = as.numeric(dat$TakapotoVsGambier)
+P = dat$TakapotoVsGambier
 # partially transparent points by setting `alpha = 0.5`
-TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -127,9 +127,9 @@ ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier.png", width = 30, height = 
 
 
 
-P = as.numeric(dat$KatiuVsHatchery)
+P = dat$KatiuVsHatchery
 # partially transparent points by setting `alpha = 0.5`
-KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -145,9 +145,9 @@ KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery.png", width = 30, height = 10)
 
 
-P = as.numeric(dat$TakapotoVsHatchery)
+P = dat$TakapotoVsHatchery
 # partially transparent points by setting `alpha = 0.5`
-TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -163,9 +163,9 @@ TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=log10(P))) +
 ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery.png", width = 30, height = 10)
 
 
-P = as.numeric(dat$TakapotoVsKatiu)
+P = dat$TakapotoVsKatiu
 # partially transparent points by setting `alpha = 0.5`
-TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=log10(P))) +
+TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
