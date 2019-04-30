@@ -34,7 +34,7 @@ RedVsGreen <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(title = "Red vs Green")
 
 
-ggsave("Manhattan_plots_glm_tuckey_RedVsGreen.png")
+ggsave("Manhattan_plots_glm_tuckey_RedVsGreen.png", width = 30, height = 10)
 
 P = as.numeric(dat$YellowVsGreen)
 # partially transparent points by setting `alpha = 0.5`
@@ -51,7 +51,7 @@ YellowVsGreen <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Green")
 
-ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen.png")
+ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen.png", width = 30, height = 10)
 
 
 P = as.numeric(dat$YellowVsRed)
@@ -69,7 +69,7 @@ YellowVsRed <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Red")
 
-ggsave("Manhattan_plots_glm_tuckey_YellowVsRed.png")
+ggsave("Manhattan_plots_glm_tuckey_YellowVsRed.png", width = 30, height = 10)
 
 
 P = as.numeric(dat$HatcheryVsGambier)
@@ -87,7 +87,7 @@ HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Hatchery Vs Gambier")
 
-ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier.png")
+ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier.png", width = 30, height = 10)
 
 
 P = as.numeric(dat$KatiuVsGambier)
@@ -105,7 +105,7 @@ KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Katiu Vs Gambier")
 
-ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier.png")
+ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier.png", width = 30, height = 10)
 
 
 P = as.numeric(dat$TakapotoVsGambier)
@@ -123,7 +123,7 @@ TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Gambier")
 
-ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier.png")
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier.png", width = 30, height = 10)
 
 
 
@@ -142,7 +142,7 @@ KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "KatiuVsHatchery")
 
-ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery.png")
+ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery.png", width = 30, height = 10)
 
 
 P = as.numeric(dat$TakapotoVsHatchery)
@@ -160,7 +160,7 @@ TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Hatchery")
 
-ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery.png")
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery.png", width = 30, height = 10)
 
 
 P = as.numeric(dat$TakapotoVsKatiu)
@@ -178,7 +178,7 @@ TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=log10(P))) +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "TakapotoVsKatiu")
 
-ggsave("Manhattan_plots_glm_tuckey_TakapotoVsKatiu.png")
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsKatiu.png", width = 30, height = 10)
 
 
 
@@ -187,7 +187,7 @@ ggsave("Manhattan_plots_glm_tuckey_TakapotoVsKatiu.png")
 
 ggsave(filename = "Manhattan_plots_glm_tuckey.pdf", grid.arrange(RedVsGreen, YellowVsGreen, YellowVsRed, HatcheryVsGambier, KatiuVsGambier, TakapotoVsGambier, KatiuVsHatchery,TakapotoVsHatchery, TakapotoVsKatiu,
                                              ncol=2),
-       width = 10, height = 20, dpi = 3000, units = "in", device='png')
+       width = 10, height = 20, dpi = 300, units = "in", device='png')
 
 #ggsave("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.logitR_ORIGIN_ggplot2.png")
 
