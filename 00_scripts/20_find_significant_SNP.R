@@ -5,20 +5,28 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_glm_t
 dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final.txt", header=T)
 head(dat)
 
-dat$RedVsGreen <- as.numeric(dat$RedVsGreen)
-dat$YellowVsGreen <- as.numeric(dat$YellowVsGreen)
-dat$YellowVsRed <- as.numeric(dat$YellowVsRed)
-dat$HatcheryVsGambier <- as.numeric(dat$HatcheryVsGambier)
-dat$KatiuVsGambier <- as.numeric(dat$KatiuVsGambier)
-dat$TakapotoVsGambier <- as.numeric(dat$TakapotoVsGambier)
-dat$KatiuVsHatchery <- as.numeric(dat$KatiuVsHatchery)
-dat$TakapotoVsHatchery <- as.numeric(dat$TakapotoVsHatchery)
-dat$TakapotoVsKatiu <- as.numeric(dat$TakapotoVsKatiu)
+attach(dat)
+
+#dat$RedVsGreen <- as.numeric(dat$RedVsGreen)
+#dat$YellowVsGreen <- as.numeric(dat$YellowVsGreen)
+#dat$YellowVsRed <- as.numeric(dat$YellowVsRed)
+#dat$HatcheryVsGambier <- as.numeric(dat$HatcheryVsGambier)
+#dat$KatiuVsGambier <- as.numeric(dat$KatiuVsGambier)
+#dat$TakapotoVsGambier <- as.numeric(dat$TakapotoVsGambier)
+#dat$KatiuVsHatchery <- as.numeric(dat$KatiuVsHatchery)
+#dat$TakapotoVsHatchery <- as.numeric(dat$TakapotoVsHatchery)
+#dat$TakapotoVsKatiu <- as.numeric(dat$TakapotoVsKatiu)
 
 
 ######################################################################################################
 ## RedVsGreen
+print("head(dat$RedVsGreen)")
+head(dat$RedVsGreen)
+print("head(RedVsGreen)")
+head(RedVsGreen)
 datRedVsGreen <- subset(dat, RedVsGreen<0.000001)
+print("head(datRedVsGreen)")
+head(datRedVsGreen)
 write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_000001.txt")
 datRedVsGreen <- subset(dat, RedVsGreen<0.001)
 write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_001.txt")
