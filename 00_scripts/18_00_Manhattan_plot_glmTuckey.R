@@ -6,7 +6,7 @@ library(ggplot2)
 library(dplyr)
 library(gridExtra)
 
-dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final_no_header.txt", header=F)
+dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final_no_header_1000.txt", header=F)
 colnames(dat) <- c("nb", "Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu") 
 dat <- dat[order(dat$SNP),]
 head(dat)
