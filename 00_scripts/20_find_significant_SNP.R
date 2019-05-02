@@ -2,7 +2,7 @@
 
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_glm_tuckey")
 
-dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final.txt", header=T)
+dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final_1000.txt", header=T)
 head(dat)
 
 attach(dat)
