@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_glm_tuckey")
+setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified")
 
 dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final_1000.txt", header=T)
 head(dat)
