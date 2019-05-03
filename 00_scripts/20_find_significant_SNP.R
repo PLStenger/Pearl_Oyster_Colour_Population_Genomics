@@ -27,8 +27,8 @@ head(dat$RedVsGreen)
 print("max(dat$RedVsGreen)")
 max(dat$RedVsGreen)
 
-print("datRedVsGreen <- subset(dat, dat$RedVsGreen<0.000001)")
-datRedVsGreen <- subset(dat, dat$RedVsGreen<0.000001)
+print("datRedVsGreen <- subset(dat, dat$RedVsGreen<0.1)")
+datRedVsGreen <- subset(dat, dat$RedVsGreen<0.1)
 print("head(datRedVsGreen)")
 head(datRedVsGreen)
 
