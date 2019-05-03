@@ -16,4 +16,4 @@ source activate /home1/datawork/plstenge/96_env_conda/glm
 
 SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/20_find_significant_SNP.R
 
-Rscript --vanilla $SCRIPT_R >& ${SCRATCH}/20_find_significant_SNP.out
+Rscript --vanilla $SCRIPT_R 2>&1 ${SCRATCH}/20_find_significant_SNP.out
