@@ -7,7 +7,8 @@ head(dat)
 
 attach(dat)
 
-#dat$RedVsGreen <- as.numeric(dat$RedVsGreen)
+print("dat$RedVsGreen <- as.numeric(dat$RedVsGreen)")
+dat$RedVsGreen <- as.numeric(dat$RedVsGreen)
 #dat$YellowVsGreen <- as.numeric(dat$YellowVsGreen)
 #dat$YellowVsRed <- as.numeric(dat$YellowVsRed)
 #dat$HatcheryVsGambier <- as.numeric(dat$HatcheryVsGambier)
@@ -22,16 +23,21 @@ attach(dat)
 ## RedVsGreen
 print("head(dat$RedVsGreen)")
 head(dat$RedVsGreen)
-print("head(RedVsGreen)")
-head(RedVsGreen)
-datRedVsGreen <- subset(dat, as.numeric(dat$RedVsGreen)<0.000001)
+
+print("max(dat$RedVsGreen)")
+max(dat$RedVsGreen)
+
+print("datRedVsGreen <- subset(dat, dat$RedVsGreen<0.000001)")
+datRedVsGreen <- subset(dat, dat$RedVsGreen<0.000001)
 print("head(datRedVsGreen)")
 head(datRedVsGreen)
+
+
 write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_000001.txt")
-datRedVsGreen <- subset(dat, dat$RedVsGreen<0.001)
-write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_001.txt")
-datRedVsGreen <- subset(dat, dat$RedVsGreen<0.01)
-write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_01.txt")
+#datRedVsGreen <- subset(dat, dat$RedVsGreen<0.001)
+#write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_001.txt")
+#datRedVsGreen <- subset(dat, dat$RedVsGreen<0.01)
+#write.table(datRedVsGreen$SNP, "RedVsGreen_P_0_01.txt")
 
 #######################################################################################################
 ### YellowVsGreen
