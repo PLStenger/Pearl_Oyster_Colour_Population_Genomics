@@ -21,10 +21,12 @@ cd $INDIR
 awk '{print $4}' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt
 
 # Deleted the '"'
-sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt
+sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP3.txt
+
 
 #awk 'NR==FNR{a[$0];next} $NF in a' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
-awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
 
 
