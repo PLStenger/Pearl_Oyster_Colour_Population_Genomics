@@ -9,7 +9,7 @@
 # On va créer un VCF par comparaison de couleur basé sur les p-values 10-6 (pvalue < 0.000001) pour chaque comparaison
 
 
-INDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/008_input_pvalued_with_iteration
+INDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_input_pvalued_with_iteration
 PATH_VCF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
 cd $INDIR
