@@ -19,7 +19,7 @@ cd $INDIR
 
 # on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
 
-awk 'FNR==NR {a[$4]=$0; next}; $1 in a {print a[$4]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
+awk 'FNR==NR {a[$0]=$4; next}; $1 in a {print a[$0]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
 
 
