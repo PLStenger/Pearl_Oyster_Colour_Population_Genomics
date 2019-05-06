@@ -14,6 +14,7 @@ PATH_VCF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_
 
 cd $INDIR
 
+
 # VCF file with SNP unique name and no header
 # individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
 
@@ -25,11 +26,9 @@ sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt > $INDIR/To
 sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP3.txt
 
 
-#awk 'NR==FNR{a[$0];next} $NF in a' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
-#Deleted second colum
-#awk '{$2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
 awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
@@ -39,11 +38,604 @@ wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decompose
 wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
 
-# ici le vcf est bon, mais il y a la colonne supplémentaire que l'on a rajouté (scaffold_position) à la fin qui nous gène, et il n'y a toujours pas le headerfunction .
-# Donc, on va enlever la première colonne dans le individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_snp.vcf
-# sed -re 's/^[ ]//g' pour enlever l'espace en trop qui va apparaitre juste devant le nom unique du snp
-# sed -re 's/ /\t/g'  car pour remplacer les espaces par des tabulations entre les différentes colonnes.
 
-#cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
-#awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_no_header_vcf_significant_pval_RvsJ_Bonf_Pvalue0.001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v_noComplex_snpEff_input_RvsJ_Pvalue0.001.vcf
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001_SNP.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01_SNP.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_KatiuVsGambier_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001_SNP.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_KatiuVsGambier_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01_SNP.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_KatiuVsGambier_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001_SNP.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01_SNP.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_KatiuVsHatchery_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_RedVsGreen_OK_dat_P_0_000001.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_RedVsGreen_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_RedVsGreen_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_RedVsGreen_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_RedVsGreen_OK_dat_P_0_001.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_RedVsGreen_OK_dat_P_0_001_SNP.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_RedVsGreen_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_RedVsGreen_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_RedVsGreen_OK_dat_P_0_01.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_RedVsGreen_OK_dat_P_0_01_SNP.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_RedVsGreen_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_RedVsGreen_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_RedVsGreen_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001_SNP.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01_SNP.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsGambier_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001_SNP.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01_SNP.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsHatchery_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001_SNP.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01_SNP.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_TakapotoVsKatiu_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_YellowVsGreen_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_YellowVsGreen_OK_dat_P_0_001.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_YellowVsGreen_OK_dat_P_0_001_SNP.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_YellowVsGreen_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_YellowVsGreen_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_YellowVsGreen_OK_dat_P_0_01.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_YellowVsGreen_OK_dat_P_0_01_SNP.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_YellowVsGreen_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_YellowVsGreen_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_YellowVsGreen_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_YellowVsRed_OK_dat_P_0_000001.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_000001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_YellowVsRed_OK_dat_P_0_000001_SNP.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_000001_SNP2.txt
+sed 's/"//' $INDIR/Total_YellowVsRed_OK_dat_P_0_000001_SNP2.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_000001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_YellowVsRed_OK_dat_P_0_000001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_YellowVsRed_OK_dat_P_0_001.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_001_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_YellowVsRed_OK_dat_P_0_001_SNP.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_001_SNP2.txt
+sed 's/"//' $INDIR/Total_YellowVsRed_OK_dat_P_0_001_SNP2.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_001_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_YellowVsRed_OK_dat_P_0_001_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf
+
+
+# VCF file with SNP unique name and no header
+# individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
+
+# on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
+awk '{print $4}' $INDIR/Total_YellowVsRed_OK_dat_P_0_01.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_01_SNP.txt
+
+# Deleted the '"'
+sed 's/"//' $INDIR/Total_YellowVsRed_OK_dat_P_0_01_SNP.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_01_SNP2.txt
+sed 's/"//' $INDIR/Total_YellowVsRed_OK_dat_P_0_01_SNP2.txt > $INDIR/Total_YellowVsRed_OK_dat_P_0_01_SNP3.txt
+
+
+awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt $INDIR/Total_YellowVsRed_OK_dat_P_0_01_SNP3.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
+
+#Deleted second colum and paste the header, deleted unnecessary spaces or tab
+
+awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
+
+
+# On va vérifier le nombre de SNPs:
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
+wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
+
+
+
