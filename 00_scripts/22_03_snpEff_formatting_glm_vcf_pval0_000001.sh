@@ -20,7 +20,8 @@ cd $INDIR
 # on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
 awk '{print $4}' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001.txt > $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt
 
-awk 'NR==FNR{a[$0];next} $NF in a' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
+#awk 'NR==FNR{a[$0];next} $NF in a' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
+awk 'NR==FNR{vals[$1];next} ($1) in vals' $INDIR/Total_HatcheryVsGambier_OK_dat_P_0_000001_SNP.txt $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
 
 
