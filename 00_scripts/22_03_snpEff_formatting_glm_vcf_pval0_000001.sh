@@ -30,7 +30,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -55,7 +55,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -78,7 +78,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_HatcheryVsGambier_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -101,7 +101,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -124,7 +124,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -147,7 +147,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsGambier_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -170,7 +170,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -193,7 +193,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -216,7 +216,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_KatiuVsHatchery_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -239,7 +239,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -262,7 +262,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -285,7 +285,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_RedVsGreen_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -308,7 +308,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -331,7 +331,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -354,7 +354,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsGambier_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -377,7 +377,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -400,7 +400,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -423,7 +423,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsHatchery_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -446,7 +446,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -469,7 +469,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -492,7 +492,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_TakapotoVsKatiu_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -515,7 +515,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -538,7 +538,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -561,7 +561,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsGreen_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -584,7 +584,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_000001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -607,7 +607,7 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_001.vcf
 
 
 # On va vérifier le nombre de SNPs:
@@ -630,12 +630,14 @@ awk 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $PATH_VCF/individuals.vcf_
 
 #Deleted second colum and paste the header, deleted unnecessary spaces or tab
 
-awk '{ $2=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
+awk '{ $1=""; print $0 }' $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf | sed -re 's/^[ ]//g' | sed -re 's/ /\t/g' | cat $PATH_VCF/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header.vcf - > $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
 
 
 # On va vérifier le nombre de SNPs:
 wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
 wc -l $INDIR/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_inputRL_PL_YellowVsRed_OK_dat_P_0_01.vcf
+
+rm *_SNP2.txt
 
 
 
