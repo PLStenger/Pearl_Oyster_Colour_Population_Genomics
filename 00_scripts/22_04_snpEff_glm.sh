@@ -44,85 +44,85 @@ YellowVsRed_OK_dat_P_0_01=/home1/datawork/plstenge/Pearl_Oyster_Colour_Populatio
 
 cd $SNPEFF
 
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$HatcheryVsGambier_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $HatcheryVsGambier_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$HatcheryVsGambier_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $HatcheryVsGambier_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$HatcheryVsGambier_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $HatcheryVsGambier_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/HatcheryVsGambier_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$KatiuVsGambier_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $KatiuVsGambier_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$KatiuVsGambier_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $KatiuVsGambier_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$KatiuVsGambier_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $KatiuVsGambier_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/KatiuVsGambier_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$KatiuVsHatchery_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $KatiuVsHatchery_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$KatiuVsHatchery_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $KatiuVsHatchery_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$KatiuVsHatchery_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $KatiuVsHatchery_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/KatiuVsHatchery_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$RedVsGreen_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $RedVsGreen_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$RedVsGreen_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $RedVsGreen_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$RedVsGreen_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $RedVsGreen_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/RedVsGreen_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsGambier_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsGambier_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsGambier_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsGambier_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsGambier_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsGambier_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsGambier_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsHatchery_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsHatchery_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsHatchery_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsHatchery_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsHatchery_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsHatchery_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsHatchery_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsKatiu_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsKatiu_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsKatiu_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsKatiu_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$TakapotoVsKatiu_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $TakapotoVsKatiu_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/TakapotoVsKatiu_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$YellowVsGreen_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $YellowVsGreen_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$YellowVsGreen_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $YellowVsGreen_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$YellowVsGreen_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $YellowVsGreen_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/YellowVsGreen_OK_dat_P_0_01_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$YellowVsRed_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_000001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $YellowVsRed_OK_dat_P_0_000001 > $WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_000001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_000001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_000001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$YellowVsRed_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_001_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $YellowVsRed_OK_dat_P_0_001 > $WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_001_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_001_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_001_genes_summary.txt
-java-Xmx115G-jar$SNPEFF/snpEff.jar$DBNAME$YellowVsRed_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_01_SNPEff.vcf&&
+java -Xmx115G -jar $SNPEFF/snpEff.jar $DBNAME $YellowVsRed_OK_dat_P_0_01 > $WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_01_SNPEff.vcf&&
 mvsnpEff_summary.html$WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_01_report.html
 mvsnpEff_genes.txt$WORKDIR/$OUTDIR/YellowVsRed_OK_dat_P_0_01_genes_summary.txt
 
