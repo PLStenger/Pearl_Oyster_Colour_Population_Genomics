@@ -10,6 +10,26 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_glm_t
 dat <- read.table("all_results_ok_from_glm_with_iteration_unique_final.txt", header=T)
 head(dat)
 
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen ))
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen ))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen ))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen ))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed ))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed ))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier ))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier ))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier ))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier ))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier ))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier ))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery ))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery ))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery ))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery ))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu ))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu ))
+dat$RedVsGreen <- as.numeric(dat$RedVsGreen)
+
 ######################################################################################################
 ## Check the length
 print("length of RedVsGreen")
