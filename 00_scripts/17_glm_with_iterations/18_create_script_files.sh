@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #!/usr/bin/env bash
 #PBS -q mpi
 #PBS -l walltime=48:00:00
@@ -9,6 +11,11 @@ DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/0
 #DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_fastqc_raw_data
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_glm_with_iterations
 #HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
+SNP=$SNP
+linfct=$linfct
+test=$test
+pvalues=$pvalues
+
 
 
 for FILE in $(ls $DATADIRECTORY/input_glm_tuckey_without_iteration_order_split_*)
@@ -30,7 +37,7 @@ head(df)
 
 registerDoParallel()
 
-  foreach(i=1:length(unique(df${SNP})), .combine=c) %dopar% {
+  foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
     sink("${FILE##*/}_results_00.txt", append=TRUE)
     SNP_name <- as.character(unique(df$SNP)[i])
     ok <- filter(df, df$SNP  == unique(df$SNP)[i])
@@ -52,3 +59,5 @@ registerDoParallel()
 registerDoSEQ()"  >> $SCRIPT/script_loop_${FILE##*/}.R ;
 
 done ;
+
+
