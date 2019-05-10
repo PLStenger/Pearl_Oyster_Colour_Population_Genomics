@@ -57,14 +57,13 @@ TakapotoVsGambier_OK_dat_P_0_000001 <- import_annoted_files2("TakapotoVsGambier_
 YellowVsRed_OK_dat_P_0_01 <- import_annoted_files2("YellowVsRed_OK_dat_P_0_01_SNPEff_SnpSift.txt")
 
 head(TakapotoVsGambier_OK_dat_P_0_001)
+head(TakapotoVsGambier_OK_dat_P_0_001$pos)
+head(TakapotoVsGambier_OK_dat_P_0_001$POS)
 
-         TakapotoVsGambier_OK_dat_P_0_0012 <- data.frame(paste(
-         TakapotoVsGambier_OK_dat_P_0_001$pos, 
-         TakapotoVsGambier_OK_dat_P_0_001$POS, sep="_"), 
-         TakapotoVsGambier_OK_dat_P_0_001$REF, 
-         TakapotoVsGambier_OK_dat_P_0_001$ALT, 
-         TakapotoVsGambier_OK_dat_P_0_001$`ANN[0].EFFECT`)
+         TakapotoVsGambier_OK_dat_P_0_0012 <- data.frame(paste(TakapotoVsGambier_OK_dat_P_0_001$pos,TakapotoVsGambier_OK_dat_P_0_001$POS, sep="_"), TakapotoVsGambier_OK_dat_P_0_001$REF, TakapotoVsGambier_OK_dat_P_0_001$ALT, TakapotoVsGambier_OK_dat_P_0_001$`ANN[0].EFFECT`)
 colnames(TakapotoVsGambier_OK_dat_P_0_0012) <- c("SNP", "REF", "ALT", "Effect")
+head(TakapotoVsGambier_OK_dat_P_0_0012)
+
          HatcheryVsGambier_OK_dat_P_0_0000012 <- data.frame(paste(
          HatcheryVsGambier_OK_dat_P_0_000001$pos, 
          HatcheryVsGambier_OK_dat_P_0_000001$POS, sep="_"), 
