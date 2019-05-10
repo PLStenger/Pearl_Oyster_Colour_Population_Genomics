@@ -56,6 +56,7 @@ YellowVsRed_OK_dat_P_0_001 <- import_annoted_files2("YellowVsRed_OK_dat_P_0_001_
 TakapotoVsGambier_OK_dat_P_0_000001 <- import_annoted_files2("TakapotoVsGambier_OK_dat_P_0_000001_SNPEff_SnpSift.txt")
 YellowVsRed_OK_dat_P_0_01 <- import_annoted_files2("YellowVsRed_OK_dat_P_0_01_SNPEff_SnpSift.txt")
 
+head(TakapotoVsGambier_OK_dat_P_0_001)
 
          TakapotoVsGambier_OK_dat_P_0_0012 <- data.frame(paste(
          TakapotoVsGambier_OK_dat_P_0_001$pos, 
