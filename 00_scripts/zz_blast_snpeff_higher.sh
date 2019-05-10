@@ -34,7 +34,7 @@ OUT_FILE9=YellowVsRed_OK_dat_P_0_000001_genes_summary.txt_higher_fasta.fasta
 
 CB_NAME=$(basename $PBS_JOBNAME)
 CB_TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
-CB_LOG_FOLDER=$DATAWORK/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast_with_iteration/"$CB_TIMESTAMP"_"$CB_NAME"
+CB_LOG_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast_with_iteration/"$CB_TIMESTAMP"_"$CB_NAME"
 mkdir -p $CB_LOG_FOLDER
 cp $0 $CB_LOG_FOLDER/$CB_NAME
 
