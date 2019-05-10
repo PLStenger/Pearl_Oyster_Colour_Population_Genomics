@@ -60,7 +60,14 @@ head(TakapotoVsGambier_OK_dat_P_0_001)
 head(TakapotoVsGambier_OK_dat_P_0_001$pos)
 head(TakapotoVsGambier_OK_dat_P_0_001$POS)
 
-         TakapotoVsGambier_OK_dat_P_0_0012 <- data.frame(paste(TakapotoVsGambier_OK_dat_P_0_001$pos,TakapotoVsGambier_OK_dat_P_0_001$POS, sep="_"), TakapotoVsGambier_OK_dat_P_0_001$REF, TakapotoVsGambier_OK_dat_P_0_001$ALT, TakapotoVsGambier_OK_dat_P_0_001$`ANN[0].EFFECT`)
+length(TakapotoVsGambier_OK_dat_P_0_001$pos)
+length(TakapotoVsGambier_OK_dat_P_0_001$POS)
+
+print("head a")
+a <- paste(TakapotoVsGambier_OK_dat_P_0_001$pos,TakapotoVsGambier_OK_dat_P_0_001$POS, sep="_")
+head(a)
+
+         TakapotoVsGambier_OK_dat_P_0_0012 <- data.frame(a, TakapotoVsGambier_OK_dat_P_0_001$REF, TakapotoVsGambier_OK_dat_P_0_001$ALT, TakapotoVsGambier_OK_dat_P_0_001$`ANN[0].EFFECT`)
 colnames(TakapotoVsGambier_OK_dat_P_0_0012) <- c("SNP", "REF", "ALT", "Effect")
 head(TakapotoVsGambier_OK_dat_P_0_0012)
 
