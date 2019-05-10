@@ -11,10 +11,7 @@ DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/0
 #DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_fastqc_raw_data
 SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_glm_with_iterations
 #HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
-SNP=$SNP
-linfct=$linfct
-test=$test
-pvalues=$pvalues
+
 
 
 
@@ -35,16 +32,16 @@ library(doParallel)" >> $SCRIPT/script_loop_${FILE##*/}.R ;
         echo "colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
-registerDoParallel()"  >> $SCRIPT/script_loop_${FILE##*/}.R ;
+registerDoParallel()
 
-  echo "foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {" | grep '\$'  >> $SCRIPT/script_loop_${FILE##*/}.R ;
-    echo "sink("${FILE##*/}_results_00.txt", append=TRUE)
-    SNP_name <- as.character(unique(df$SNP)[i])
-    ok <- filter(df, df$SNP  == unique(df$SNP)[i])
+foreach(i=1:length(unique(df\$SNP)), .combine=c) %dopar% {
+    sink("${FILE##*/}_results_00.txt", append=TRUE)
+    SNP_name <- as.character(unique(df\$SNP)[i])
+    ok <- filter(df, df\$SNP  == unique(df\$SNP)[i])
     mod <- glm(Frequence ~ Color + Site, data = ok)
-    K1 <- glht(mod, mcp(Color = "Tukey"))$linfct
-    K2 <- glht(mod, mcp(Site = "Tukey"))$linfct
-    pvaleur <- summary(glht(mod, linfct = rbind(K1, K2)))$test$pvalues[1:9]
+    K1 <- glht(mod, mcp(Color = "Tukey"))\$linfct
+    K2 <- glht(mod, mcp(Site = "Tukey"))\$linfct
+    pvaleur <- summary(glht(mod, linfct = rbind(K1, K2)))\$test\$pvalues[1:9]
     pvaleur <- c(pvaleur)
     test <- c(SNP_name, pvaleur)
     test2 <- data.frame(as.list(test))
