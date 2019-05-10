@@ -39,8 +39,8 @@ foreach(i=1:length(unique(df\$SNP)), .combine=c) %dopar% {
     SNP_name <- as.character(unique(df\$SNP)[i])
     ok <- filter(df, df\$SNP  == unique(df\$SNP)[i])
     mod <- glm(Frequence ~ Color + Site, data = ok)
-    K1 <- glht(mod, mcp(Color = "Tukey"))\$linfct
-    K2 <- glht(mod, mcp(Site = "Tukey"))\$linfct
+    K1 <- glht(mod, mcp(Color = \"Tukey\"))\$linfct
+    K2 <- glht(mod, mcp(Site = \"Tukey\"))\$linfct
     pvaleur <- summary(glht(mod, linfct = rbind(K1, K2)))\$test\$pvalues[1:9]
     pvaleur <- c(pvaleur)
     test <- c(SNP_name, pvaleur)
