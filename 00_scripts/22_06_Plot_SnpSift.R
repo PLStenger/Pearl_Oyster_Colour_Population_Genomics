@@ -7,7 +7,7 @@ import_annoted_files2 <- function(path_file) {
   #AF9_ann<- import_annoted_files(paste0(basePath,"output/AF9_SNP_ann_clean.txt"))
   tableau <- read.table(path_file, header = FALSE, dec = ".", sep = "\t", stringsAsFactors=F, fill =TRUE)
   if (ncol(tableau)>6) {
-    tableau <- tableau[,-c(5:ncol(tableau))]
+    tableau <- tableau[,-c(7:ncol(tableau))]
     colnames(tableau) <- tableau[1,]
     tableau <- tableau[-c(1,2),]
     if ( length(which(tableau$ALT == "") ) !=0) {
