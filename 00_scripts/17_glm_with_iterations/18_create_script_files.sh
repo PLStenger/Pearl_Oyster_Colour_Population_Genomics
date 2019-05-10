@@ -35,10 +35,10 @@ library(doParallel)" >> $SCRIPT/script_loop_${FILE##*/}.R ;
         echo "colnames(df) <- c("nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
-registerDoParallel()
+registerDoParallel()"  >> $SCRIPT/script_loop_${FILE##*/}.R ;
 
-  foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
-    sink("${FILE##*/}_results_00.txt", append=TRUE)
+  echo "foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {" | grep '\$'  >> $SCRIPT/script_loop_${FILE##*/}.R ;
+    echo "sink("${FILE##*/}_results_00.txt", append=TRUE)
     SNP_name <- as.character(unique(df$SNP)[i])
     ok <- filter(df, df$SNP  == unique(df$SNP)[i])
     mod <- glm(Frequence ~ Color + Site, data = ok)
