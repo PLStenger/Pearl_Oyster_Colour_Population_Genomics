@@ -285,82 +285,82 @@ TakapotoVsGambier_OK_dat_P_0_0000012$SNP <- factor(TakapotoVsGambier_OK_dat_P_0_
 YellowVsRed_OK_dat_P_0_012$SNP <- factor(YellowVsRed_OK_dat_P_0_012$SNP, levels = YellowVsRed_OK_dat_P_0_012$SNP[order(YellowVsRed_OK_dat_P_0_012$Effect)])
 
 gg_TakapotoVsGambier_OK_dat_P_0_0012 <- ggplot( TakapotoVsGambier_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsGambier_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsGambier_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsGambier_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_HatcheryVsGambier_OK_dat_P_0_0000012 <- ggplot( HatcheryVsGambier_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("HatcheryVsGambier_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_HatcheryVsGambier_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_HatcheryVsGambier_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_TakapotoVsGambier_OK_dat_P_0_012 <- ggplot( TakapotoVsGambier_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsGambier_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsGambier_OK_dat_P_0_012.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsGambier_OK_dat_P_0_012.png", width = 10, height = 30)
 
 gg_HatcheryVsGambier_OK_dat_P_0_0012 <- ggplot( HatcheryVsGambier_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("HatcheryVsGambier_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_HatcheryVsGambier_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_HatcheryVsGambier_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_TakapotoVsHatchery_OK_dat_P_0_0000012 <- ggplot( TakapotoVsHatchery_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsHatchery_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsHatchery_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsHatchery_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_HatcheryVsGambier_OK_dat_P_0_012 <- ggplot( HatcheryVsGambier_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("HatcheryVsGambier_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_HatcheryVsGambier_OK_dat_P_0_012.png", width = 20, height = 60)
+ggsave("snpSift_gg_HatcheryVsGambier_OK_dat_P_0_012.png", width = 10, height = 30)
 
 gg_TakapotoVsHatchery_OK_dat_P_0_0012 <- ggplot( TakapotoVsHatchery_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsHatchery_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsHatchery_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsHatchery_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_KatiuVsGambier_OK_dat_P_0_0000012 <- ggplot( KatiuVsGambier_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("KatiuVsGambier_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_KatiuVsGambier_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_KatiuVsGambier_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_TakapotoVsHatchery_OK_dat_P_0_012 <- ggplot( TakapotoVsHatchery_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsHatchery_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsHatchery_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsHatchery_OK_dat_P_0_01.png", width = 10, height = 30)
 
 gg_KatiuVsGambier_OK_dat_P_0_0012 <- ggplot( KatiuVsGambier_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("KatiuVsGambier_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_KatiuVsGambier_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_KatiuVsGambier_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_TakapotoVsKatiu_OK_dat_P_0_0000012 <- ggplot( TakapotoVsKatiu_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsKatiu_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsKatiu_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsKatiu_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_KatiuVsGambier_OK_dat_P_0_012 <- ggplot( KatiuVsGambier_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("KatiuVsGambier_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_KatiuVsGambier_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_KatiuVsGambier_OK_dat_P_0_01.png", width = 10, height = 30)
 
 gg_TakapotoVsKatiu_OK_dat_P_0_0012 <- ggplot( TakapotoVsKatiu_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsKatiu_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsKatiu_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsKatiu_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_KatiuVsHatchery_OK_dat_P_0_0000012 <- ggplot( KatiuVsHatchery_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("KatiuVsHatchery_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_KatiuVsHatchery_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_KatiuVsHatchery_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_TakapotoVsKatiu_OK_dat_P_0_012 <- ggplot( TakapotoVsKatiu_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsKatiu_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsKatiu_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsKatiu_OK_dat_P_0_01.png", width = 10, height = 30)
 
 gg_KatiuVsHatchery_OK_dat_P_0_0012 <- ggplot( KatiuVsHatchery_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("KatiuVsHatchery_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_KatiuVsHatchery_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_KatiuVsHatchery_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_YellowVsGreen_OK_dat_P_0_0000012 <- ggplot( YellowVsGreen_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("YellowVsGreen_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_YellowVsGreen_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_YellowVsGreen_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_KatiuVsHatchery_OK_dat_P_0_012 <- ggplot( KatiuVsHatchery_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("KatiuVsHatchery_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_KatiuVsHatchery_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_KatiuVsHatchery_OK_dat_P_0_01.png", width = 10, height = 30)
 
 gg_YellowVsGreen_OK_dat_P_0_0012 <- ggplot( YellowVsGreen_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("YellowVsGreen_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_YellowVsGreen_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_YellowVsGreen_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_RedVsGreen_OK_dat_P_0_0000012 <- ggplot( RedVsGreen_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("RedVsGreen_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_RedVsGreen_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_RedVsGreen_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_YellowVsGreen_OK_dat_P_0_012 <- ggplot( YellowVsGreen_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("YellowVsGreen_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_YellowVsGreen_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_YellowVsGreen_OK_dat_P_0_01.png", width = 10, height = 30)
 
 gg_RedVsGreen_OK_dat_P_0_0012 <- ggplot( RedVsGreen_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("RedVsGreen_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_RedVsGreen_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_RedVsGreen_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_YellowVsRed_OK_dat_P_0_0000012 <- ggplot( YellowVsRed_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("YellowVsRed_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_YellowVsRed_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_YellowVsRed_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_RedVsGreen_OK_dat_P_0_012 <- ggplot( RedVsGreen_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("RedVsGreen_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_RedVsGreen_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_RedVsGreen_OK_dat_P_0_01.png", width = 10, height = 30)
 
 gg_YellowVsRed_OK_dat_P_0_0012 <- ggplot( YellowVsRed_OK_dat_P_0_0012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("YellowVsRed_OK_dat_P_0_0012") + coord_flip() 
-ggsave("snpSift_gg_YellowVsRed_OK_dat_P_0_001.png", width = 20, height = 60)
+ggsave("snpSift_gg_YellowVsRed_OK_dat_P_0_001.png", width = 10, height = 30)
 
 gg_TakapotoVsGambier_OK_dat_P_0_0000012 <- ggplot( TakapotoVsGambier_OK_dat_P_0_0000012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("TakapotoVsGambier_OK_dat_P_0_0000012") + coord_flip() 
-ggsave("snpSift_gg_TakapotoVsGambier_OK_dat_P_0_000001.png", width = 20, height = 60)
+ggsave("snpSift_gg_TakapotoVsGambier_OK_dat_P_0_000001.png", width = 10, height = 30)
 
 gg_YellowVsRed_OK_dat_P_0_012 <- ggplot( YellowVsRed_OK_dat_P_0_012, aes(x=SNP,fill=Effect)) + stat_count() + theme_minimal() + theme(legend.position="top", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + ggtitle("YellowVsRed_OK_dat_P_0_012") + coord_flip() 
-ggsave("snpSift_gg_YellowVsRed_OK_dat_P_0_01.png", width = 20, height = 60)
+ggsave("snpSift_gg_YellowVsRed_OK_dat_P_0_01.png", width = 10, height = 30)
