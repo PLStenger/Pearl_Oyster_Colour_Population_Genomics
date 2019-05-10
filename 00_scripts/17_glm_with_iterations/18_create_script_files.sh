@@ -7,7 +7,7 @@
 
 DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 #DATAOUTPUT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_fastqc_raw_data
-SCRIPT=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_glm_with_iterations
+SCRIPT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_glm_with_iterations
 #HEADER=/home1/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 
 
