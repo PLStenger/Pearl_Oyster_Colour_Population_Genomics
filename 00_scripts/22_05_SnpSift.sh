@@ -15,11 +15,11 @@ WORKDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpE
 
 
 java -jar $SNPEFF/SnpSift.jar  \
-   extractFields $DATADIRECTORY/RedVsGreen_OK_dat_P_0_000001_SNPEff.vcf  \
+   extractFields $DATADIRECTORY/YellowVsGreen_OK_dat_P_0_000001_SNPEff.vcf  \
    CHROM \
     POS \
    REF \
    ALT \
  "ANN[0].EFFECT" \
     "ANN[*].HGVS" \
-    > $DATADIRECTORY/RedVsGreen_OK_dat_P_0_000001_SNPEff_SnpSift.txt
+    > $DATADIRECTORY/YellowVsGreen_OK_dat_P_0_000001_SNPEff_SnpSift.txt
