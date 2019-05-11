@@ -390,7 +390,7 @@ p1 <- grid.arrange(arrangeGrob(
                                nrow=3),
                    mylegend, nrow=2,heights=c(10, 1))
 
-ggsave("snpSift_P_0_01.png", width = 30, height = 90)			    
+ggsave("snpSift_P_0_01.png", width = 20, height = 30)			    
 			    
 p2 <- grid.arrange(arrangeGrob(
 						 gg_TakapotoVsGambier_OK_dat_P_0_0012 + theme(legend.position="none"),
@@ -406,7 +406,7 @@ p2 <- grid.arrange(arrangeGrob(
                    mylegend, nrow=2,heights=c(10, 1))
 			    
 			    
-ggsave("snpSift_P_0_001.png", width = 30, height = 90)			    
+ggsave("snpSift_P_0_001.png", width = 20, height = 30)			    
 			    
 p3 <- grid.arrange(arrangeGrob(
 						 gg_HatcheryVsGambier_OK_dat_P_0_0000012 + theme(legend.position="none"),
@@ -422,4 +422,4 @@ p3 <- grid.arrange(arrangeGrob(
                    mylegend, nrow=2,heights=c(10, 1))
 			    
 			    
-ggsave("snpSift_P_0_000001.png", width = 30, height = 90)
+ggsave("snpSift_P_0_000001.png", width = 20, height = 30)
