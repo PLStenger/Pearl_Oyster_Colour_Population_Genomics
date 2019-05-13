@@ -9,6 +9,7 @@
 
 DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified
 
+cd $DATADIRECTORY
 
 for FILE in $(ls $DATADIRECTORY/*_results_00.txt)
 do
