@@ -7,17 +7,16 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(multcomp)
-library(foreach)
-library(doParallel)
+
 
 
 df <- read.table("input_glm_tuckey_without_iteration_order_for_third_round.txt", header=F, skip=1)
 colnames(df) <- c("nb", "nb2", "nothing", "SNP", "Site", "Color", "Frequence")
 head(df)
 
-registerDoParallel()
 
-  foreach(i=1:length(unique(df$SNP)), .combine=c) %dopar% {
+
+  for (i in 1:length(unique(df$SNP))){
     sink("input_glm_tuckey_without_iteration_order_for_third_round_results_02.txt", append=TRUE)
     SNP_name <- as.character(unique(df$SNP)[i])
     ok <- filter(df, df$SNP  == unique(df$SNP)[i])
@@ -31,11 +30,10 @@ registerDoParallel()
     names(test2) <- NULL
     print(test2, row.names=FALSE)
     sink()
-  }
+sink()
+sink()
+#write.csv(matrixOK, file = "MyData.csv")
+}
 
-
-
-
-registerDoSEQ()
 
 
