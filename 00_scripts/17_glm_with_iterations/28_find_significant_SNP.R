@@ -3,7 +3,7 @@
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_02_input_pvalued_without_iteration")
 
 dat <- read.table("all_glm_tuckey_without_iteration_results.txt", header=F, fill=TRUE)
-colnames(dat) <- c("nb", "Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu")
+colnames(dat) <- c("Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu")
 dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen ))
 dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen ))
 dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen ))
