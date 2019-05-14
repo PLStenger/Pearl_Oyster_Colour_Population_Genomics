@@ -7,5 +7,5 @@ head(ok)
 all <- read.table("input_glm_tuckey_without_iteration_order_for_second_round.txt", header=F, skip=1)
 head(all)
 
-for_rererererun <- all[!all$V2 %in% ok$V2, , drop = FALSE]
+for_rererererun <- all[!all$V3 %in% ok$V2, , drop = FALSE]
 write.table(for_rererererun, "input_glm_tuckey_without_iteration_order_for_third_round.txt")
