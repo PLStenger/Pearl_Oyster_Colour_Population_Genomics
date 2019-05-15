@@ -10,7 +10,7 @@ SNPEFFENV=". /appli/bioinfo/snpeff/latest/env.sh"
 # il faut d'abord mettre sur le fichier config la configuration du génome
 
 
-SNPEFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/snpEff #/Path/to/snpEff/Folder
+SNPEFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/SNPEff_2/snpEff #/Path/to/snpEff/Folder
 DBNAME=sspace.final.scaffolds.fasta
 WORKDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
 
