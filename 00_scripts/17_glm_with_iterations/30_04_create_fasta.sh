@@ -21,7 +21,7 @@ sed '1d' $FILE > ${FILE##*/}foooooo.txt
 ############################################################################
 #### For Higher
 # Print only column name and higher one
-awk '{print $1"\t"$5}' ${FILE##*/}foooooo.txt > ${FILE##*/}foooooo2.txt
+awk '{print $3"\t"$5}' ${FILE##*/}foooooo.txt > ${FILE##*/}foooooo2.txt
 
 # delete row with "0"
 awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}foooooo3.txt
