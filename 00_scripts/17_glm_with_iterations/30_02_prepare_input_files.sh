@@ -42,5 +42,7 @@ wc -l $DATADIRECTORY/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_d
 # Delete the unecessary files:
 rm *_SNP.txt
 rm *_SNP2.txt
+rm *_SNP3.txt
+rm *_no_header_*
 
 done ; 
