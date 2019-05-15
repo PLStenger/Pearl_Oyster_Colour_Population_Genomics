@@ -28,7 +28,7 @@ awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}fo
 
 
 # Add ">" before trinity name
-#sed 'N;s/TRI/>TRI/g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
+sed 'N;s/TRI/>TRI/g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
 
 # RechercheV (vlookup) from transcriptome T41K the corresponding sequences
 
@@ -38,7 +38,7 @@ awk '
 }
 ($1 in a) {
     print
-}' ${FILE##*/}foooooo3.txt $DATA_BASE > ${FILE##*/}foooooo6.txt
+}' ${FILE##*/}foooooo4.txt $DATA_BASE > ${FILE##*/}foooooo6.txt
 
 
 # Change tab into function CR 
