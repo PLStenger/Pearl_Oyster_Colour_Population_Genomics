@@ -21,7 +21,7 @@ do
 # individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_no_header_inputRL_PL.txt
 
 # on va chercher a avoir donc un vcf avec uniquement les snp qui nous interesse pour chaque comparaison
-awk '{print $2}' $DATADIRECTORY/${FILE##*/} > $DATADIRECTORY/${FILE##*/}_SNP.txt
+awk '{print $3}' $DATADIRECTORY/${FILE##*/} > $DATADIRECTORY/${FILE##*/}_SNP.txt
 
 # Deleted the '"'
 sed 's/"//' $DATADIRECTORY/${FILE##*/}_SNP.txt > $DATADIRECTORY/${FILE##*/}_SNP2.txt
