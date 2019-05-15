@@ -13,7 +13,7 @@ PATH_VCF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_
 
 cd $DATADIRECTORY
 
-for FILE in $(ls $DATADIRECTORY/*.txt)
+for FILE in $(ls $DATADIRECTORY/*1.txt)
 do
 
 
@@ -41,6 +41,6 @@ wc -l $DATADIRECTORY/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_d
 
 # Delete the unecessary files:
 rm *_SNP.txt
-rm *decomposed_complex_no_header_inputRL_PL*
+rm *_SNP2.txt
 
 done ; 
