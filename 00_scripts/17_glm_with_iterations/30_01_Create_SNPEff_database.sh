@@ -4,7 +4,7 @@
 #PBS -l select=1:ncpus=28:mem=115g
 
 SNPEFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/SNPEff_2/snpEff #/Path/to/snpEff/Folder
-GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/54408_2.gff3 # 01_info_files/your_genome.gff3
+GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.gff3 # 01_info_files/your_genome.gff3
 FASTA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # 01_info_files/your_genome.fasta
 DBNAME=sspace.final.scaffolds.fasta
 #WORKDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration #/your/path/to/WGS_pipeline
