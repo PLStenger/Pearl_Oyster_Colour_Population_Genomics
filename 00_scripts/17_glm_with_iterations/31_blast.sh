@@ -7,8 +7,8 @@ BLAST_PROGRAM=blastp
 ALIGNMENTS=3
 BLAST_PARAM="-evalue 1e-3"
 #BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
-BANK=/home/ref-bioinfo/beedeem/p/Uniprot_SwissProt/current/Uniprot_SwissProt
-#BANK=/home/ref-bioinfo/beedeem/p/PDB_proteins/current/PDB_proteins/PDB_proteins
+#BANK=/home/ref-bioinfo/beedeem/p/Uniprot_SwissProt/current/Uniprot_SwissProt
+BANK=/home/ref-bioinfo/beedeem/p/PDB_proteins/current/PDB_proteins/PDB_proteins
 
 
 QUERY1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_RedVsGreen_dat_P_0_01.txt.vcf_SNPEff_genes_summary.txt_higher_fasta.txt
