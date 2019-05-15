@@ -28,7 +28,7 @@ awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}fo
 
 
 # Add ">" before trinity name
-sed 'N;s/TRI/>TRI/g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
+sed 'N;s/evm/>evm/g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
 
 # RechercheV (vlookup) from transcriptome T41K the corresponding sequences
 
