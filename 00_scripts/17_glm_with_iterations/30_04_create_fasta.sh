@@ -45,42 +45,42 @@ awk '
 awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo6.txt > ${FILE##*/}foooooo7.txt
 sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_higher_fasta.txt
 
-rm $DATA_DIRECTORY/*foooooo*
+#rm $DATA_DIRECTORY/*foooooo*
 
 ############################################################################
 #### For Modifier
 
-# delete first unecessary line
-sed '1d' $FILE > ${FILE##*/}foooooo.txt
-
-# Print only column name and modifier one
-awk '{print $1"\t"$8}' ${FILE##*/}foooooo.txt > ${FILE##*/}foooooo2.txt
-
-# delete row with "0"
-awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}foooooo3.txt
-
-
-# Add ">" before trinity name
-#sed 'N;s/TRI/>TRI/g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
-
-# RechercheV (vlookup) from transcriptome T41K the corresponding sequences
-
-awk '
-    NR==FNR{a[$1]
-    next
-}
-($1 in a) {
-    print
-}' ${FILE##*/}foooooo3.txt $DATA_BASE > ${FILE##*/}foooooo6.txt
-
-
-# Change tab into function CR 
-awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo6.txt > ${FILE##*/}foooooo7.txt
-sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_modifier_fasta.txt
-
-rm $DATA_DIRECTORY/*foooooo*
+## delete first unecessary line
+#sed '1d' $FILE > ${FILE##*/}foooooo.txt
+#
+## Print only column name and modifier one
+#awk '{print $1"\t"$8}' ${FILE##*/}foooooo.txt > ${FILE##*/}foooooo2.txt
+#
+## delete row with "0"
+#awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}foooooo3.txt
+#
+#
+## Add ">" before trinity name
+##sed 'N;s/TRI/>TRI/g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
+#
+## RechercheV (vlookup) from transcriptome T41K the corresponding sequences
+#
+#awk '
+#    NR==FNR{a[$1]
+#    next
+#}
+#($1 in a) {
+#    print
+#}' ${FILE##*/}foooooo3.txt $DATA_BASE > ${FILE##*/}foooooo6.txt
+#
+#
+## Change tab into function CR 
+#awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo6.txt > ${FILE##*/}foooooo7.txt
+#sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_modifier_fasta.txt
+#
+#rm $DATA_DIRECTORY/*foooooo*
 
 done;
 
 
-rm $DATA_DIRECTORY/*foooooo*
+#rm $DATA_DIRECTORY/*foooooo*
