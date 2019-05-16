@@ -8,7 +8,7 @@
 # Put here all gene summary from SNPeff AND the transcriptome file
 DATA_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
 DATA_BASE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/evm_out_masked_PasaExo_database_amino_acid.txt
-POSITION=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/position_2.txt
+POSITION=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/position.txt
 
 cd $DATA_DIRECTORY
 
@@ -35,7 +35,9 @@ sed 's/evm.model.//g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
 sed 'N;s/scaff/>scaff/g' ${FILE##*/}foooooo4.txt > ${FILE##*/}foooooo5.txt
 
 
-paste ${FILE##*/}foooooo5.txt $POSITION | awk '{print $0}' > ${FILE##*/}foooooo6.txt
+#paste ${FILE##*/}foooooo5.txt $POSITION | awk '{print $0}' > ${FILE##*/}foooooo6.txt
+
+awk 'NR==FNR {h[$1] = $2; next} {print $1,$2,h[$1]}' $POSITION  ${FILE##*/}foooooo5.txt > ${FILE##*/}foooooo6.txt
 
 
 # RechercheV (vlookup) from transcriptome T41K the corresponding sequences
