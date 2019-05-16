@@ -7,7 +7,7 @@
 
 # Put here all gene summary from SNPeff AND the transcriptome file
 DATA_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
-DATA_BASE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/evm_out_masked_PasaExo_database_amino_acid.txt
+DATA_BASE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds_54K.fasta # nucleotid database for the 54k genes
 POSITION=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/position_2.txt
 
 cd $DATA_DIRECTORY
@@ -39,6 +39,9 @@ sed 'N;s/scaff/>scaff/g' ${FILE##*/}foooooo4.txt > ${FILE##*/}foooooo5.txt
 
 awk 'NR==FNR {h[$1] = $2; next} {print $1"\t"$2"\t"h[$1]}' $POSITION  ${FILE##*/}foooooo5.txt > ${FILE##*/}foooooo6.txt
 
+# Change order
+awk '{print $3"\t"$1"\t"$2}' ${FILE##*/}foooooo6.txt > ${FILE##*/}foooooo666.txt
+
 
 # RechercheV (vlookup) from transcriptome T41K the corresponding sequences
 
@@ -48,7 +51,7 @@ awk '
 }
 ($1 in a) {
     print
-}' ${FILE##*/}foooooo6.txt $DATA_BASE > ${FILE##*/}foooooo66.txt
+}' ${FILE##*/}foooooo666.txt $DATA_BASE > ${FILE##*/}foooooo66.txt
 
 
 # Change tab into function CR 
