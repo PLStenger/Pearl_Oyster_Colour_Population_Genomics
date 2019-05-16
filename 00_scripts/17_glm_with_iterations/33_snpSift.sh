@@ -14,5 +14,7 @@ do
 
 java -jar $SNPEFF/SnpSift.jar extractFields $DATADIRECTORY/${FILE##*/} CHROM POS REF ALT "ANN[0].EFFECT" "ANN[*].HGVS" > $DATADIRECTORY/${FILE##*/}_SnpSift.txt
 
+awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5}' $DATADIRECTORY/${FILE##*/}_SnpSift.txt > $DATADIRECTORY/${FILE##*/}_SnpSift_OK.txt
+
 done ;
 
