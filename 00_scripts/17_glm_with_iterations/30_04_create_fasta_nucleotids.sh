@@ -8,7 +8,7 @@
 # Put here all gene summary from SNPeff AND the transcriptome file
 DATA_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
 DATA_BASE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/evm_out_masked_PasaExo_database_amino_acid.txt
-POSITION=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/position.txt
+POSITION=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/position_2.txt
 
 cd $DATA_DIRECTORY
 
