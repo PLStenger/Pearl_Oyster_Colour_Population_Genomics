@@ -87,6 +87,8 @@ head(TakapotoVsGambier_OK_dat_P_0_0012)
          HatcheryVsGambier_OK_dat_P_0_000001$ALT, 
          HatcheryVsGambier_OK_dat_P_0_000001$`ANN[0].EFFECT`)
 colnames(HatcheryVsGambier_OK_dat_P_0_0000012) <- c("SNP", "REF", "ALT", "Effect")
+
+print("after colnames HatcheryvsGambier")
          TakapotoVsGambier_OK_dat_P_0_012 <- data.frame(paste(
          TakapotoVsGambier_OK_dat_P_0_01$pos, 
          TakapotoVsGambier_OK_dat_P_0_01$POS, sep="_"), 
@@ -263,6 +265,8 @@ colnames(TakapotoVsGambier_OK_dat_P_0_0000012) <- c("SNP", "REF", "ALT", "Effect
          YellowVsRed_OK_dat_P_0_01$`ANN[0].EFFECT`)
 colnames(YellowVsRed_OK_dat_P_0_012) <- c("SNP", "REF", "ALT", "Effect")
 
+print("after last colnames of first")
+
          TakapotoVsHatchery_OK_dat_P_0_0000000012 <- data.frame(paste(
          TakapotoVsHatchery_OK_dat_P_0_000000001$pos, 
          TakapotoVsHatchery_OK_dat_P_0_000000001$POS, sep="_"), 
@@ -336,7 +340,7 @@ colnames(YellowVsGreen_OK_dat_P_0_0000000012) <- c("SNP", "REF", "ALT", "Effect"
 colnames(YellowVsRed_OK_dat_P_0_0000000012) <- c("SNP", "REF", "ALT", "Effect")
 
 
-
+print("after last colnames tout court")
 
 
 TakapotoVsGambier_OK_dat_P_0_0012$SNP <- factor(TakapotoVsGambier_OK_dat_P_0_0012$SNP, levels = TakapotoVsGambier_OK_dat_P_0_0012$SNP[order(TakapotoVsGambier_OK_dat_P_0_0012$Effect)])
