@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #PBS -q mpi
-#PBS -l select=1:ncpus=28:mpiprocs=28:mem=60gb
 #PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=28:mem=115g
 
 #BLAST_PROGRAM=blastp
 BLAST_PROGRAM=blastx
@@ -12,7 +12,7 @@ BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 #BANK=/home/ref-bioinfo/beedeem/p/PDB_proteins/current/PDB_proteins/PDB_proteins
 
 
-QUERY1=individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_RedVsGreen_dat_P_0_001.txt.vcf_SNPEff_genes_summary.txt_higher_fasta_nucleotids.txt
+QUERY1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_RedVsGreen_dat_P_0_001.txt.vcf_SNPEff_genes_summary.txt_higher_fasta_nucleotids.txt
 
 OUT_FILE1=individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_RedVsGreen_dat_P_0_001.txt.vcf_SNPEff_genes_summary.txt_higher_fasta_nucleotids_result_blast.txt
 
