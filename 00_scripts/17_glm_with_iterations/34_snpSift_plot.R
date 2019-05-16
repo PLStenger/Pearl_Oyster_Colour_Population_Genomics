@@ -361,7 +361,7 @@ TakapotoVsKatiu_OK_dat_P_0_0000012$SNP <- factor(TakapotoVsKatiu_OK_dat_P_0_0000
 KatiuVsGambier_OK_dat_P_0_012$SNP <- factor(KatiuVsGambier_OK_dat_P_0_012$SNP, levels = unique(KatiuVsGambier_OK_dat_P_0_012$SNP[order(KatiuVsGambier_OK_dat_P_0_012$Effect)]))
 TakapotoVsKatiu_OK_dat_P_0_0012$SNP <- factor(TakapotoVsKatiu_OK_dat_P_0_0012$SNP, levels = unique(TakapotoVsKatiu_OK_dat_P_0_0012$SNP[order(TakapotoVsKatiu_OK_dat_P_0_0012$Effect)]))
 KatiuVsHatchery_OK_dat_P_0_0000012$SNP <- factor(KatiuVsHatchery_OK_dat_P_0_0000012$SNP, levels = unique(KatiuVsHatchery_OK_dat_P_0_0000012$SNP[order(KatiuVsHatchery_OK_dat_P_0_0000012$Effect)]))
-TakapotoVsKatiu_OK_dat_P_0_012$SNP <- factor(TakapotoVsKatiu_OK_dat_P_0_012$SNP, levels = unique(TakapotoVsKatiu_OK_dat_P_0_012$SNP[order(TakapotoVsKatiu_OK_dat_P_0_012$Effect)])))
+TakapotoVsKatiu_OK_dat_P_0_012$SNP <- factor(TakapotoVsKatiu_OK_dat_P_0_012$SNP, levels = unique(TakapotoVsKatiu_OK_dat_P_0_012$SNP[order(TakapotoVsKatiu_OK_dat_P_0_012$Effect)]))
 KatiuVsHatchery_OK_dat_P_0_0012$SNP <- factor(KatiuVsHatchery_OK_dat_P_0_0012$SNP, levels = unique(KatiuVsHatchery_OK_dat_P_0_0012$SNP[order(KatiuVsHatchery_OK_dat_P_0_0012$Effect)]))
 YellowVsGreen_OK_dat_P_0_0000012$SNP <- factor(YellowVsGreen_OK_dat_P_0_0000012$SNP, levels = unique(YellowVsGreen_OK_dat_P_0_0000012$SNP[order(YellowVsGreen_OK_dat_P_0_0000012$Effect)]))
 KatiuVsHatchery_OK_dat_P_0_012$SNP <- factor(KatiuVsHatchery_OK_dat_P_0_012$SNP, levels = unique(KatiuVsHatchery_OK_dat_P_0_012$SNP[order(KatiuVsHatchery_OK_dat_P_0_012$Effect)]))
