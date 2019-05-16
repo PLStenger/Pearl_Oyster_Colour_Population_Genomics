@@ -343,7 +343,7 @@ colnames(YellowVsRed_OK_dat_P_0_0000000012) <- c("SNP", "REF", "ALT", "Effect")
 print("after last colnames tout court")
 
 
-TakapotoVsGambier_OK_dat_P_0_0012$SNP <- factor(TakapotoVsGambier_OK_dat_P_0_0012$SNP, levels = TakapotoVsGambier_OK_dat_P_0_0012$SNP[order(TakapotoVsGambier_OK_dat_P_0_0012$Effect)])
+TakapotoVsGambier_OK_dat_P_0_0012$SNP <- factor(TakapotoVsGambier_OK_dat_P_0_0012$SNP, levels = unique(TakapotoVsGambier_OK_dat_P_0_0012$SNP[order(TakapotoVsGambier_OK_dat_P_0_0012$Effect)]))
 print("str(TakapotoVsGambier_OK_dat_P_0_0012$SNP)")
 str(TakapotoVsGambier_OK_dat_P_0_0012$SNP)
 
