@@ -37,7 +37,7 @@ sed 'N;s/scaff/>scaff/g' ${FILE##*/}foooooo4.txt > ${FILE##*/}foooooo5.txt
 
 #paste ${FILE##*/}foooooo5.txt $POSITION | awk '{print $0}' > ${FILE##*/}foooooo6.txt
 
-awk 'NR==FNR {h[$1] = $2; next} {print $1,$2,h[$1]}' $POSITION  ${FILE##*/}foooooo5.txt > ${FILE##*/}foooooo6.txt
+awk 'NR==FNR {h[$1] = $2; next} {print $1"\t"$2"\t"h[$1]}' $POSITION  ${FILE##*/}foooooo5.txt > ${FILE##*/}foooooo6.txt
 
 
 # RechercheV (vlookup) from transcriptome T41K the corresponding sequences
