@@ -7,7 +7,7 @@
 
 # Put here all gene summary from SNPeff AND the transcriptome file
 DATA_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
-DATA_BASE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds_54K.fasta # nucleotid database for the 54k genes
+DATA_BASE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds_54K_2.fasta # nucleotid database for the 54k genes
 POSITION=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/position_7.txt
 
 cd $DATA_DIRECTORY
