@@ -3,7 +3,7 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
-DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration/
+DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
 BLAST_PROGRAM=blastx
 ALIGNMENTS=3
 BLAST_PARAM="-evalue 1e-3"
