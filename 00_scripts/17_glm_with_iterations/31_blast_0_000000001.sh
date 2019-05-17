@@ -13,7 +13,8 @@ BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 # Activation de l'environnement BLAST+ 2.6.0
 . /appli/bioinfo/blast/2.6.0/env.sh
 
-for FILE in $(ls $DATADIRECTORY/*.P_0_000000001.txt.vcf_SNPEff_genes_summary.txt_higher_fasta_nucleotids.txt)
+for FILE in $(ls $DATADIRECTORY/*P_0_000000001.txt.vcf_SNPEff_genes_summary.txt_higher_fasta_nucleotids.txt)
+
 
 do
 
