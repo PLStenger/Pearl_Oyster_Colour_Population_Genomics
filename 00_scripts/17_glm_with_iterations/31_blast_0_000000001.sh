@@ -26,7 +26,7 @@ cp $0 $CB_LOG_FOLDER/$CB_NAME
 OUT_FILE=${FILE##*/}_result.txt
 
 BLAST_ARCHIVE=${CB_LOG_FOLDER}/results-archive1.asn1
-${BLAST_PROGRAM} -query "${FILE##*/}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
+${BLAST_PROGRAM} -query "$DATADIRECTORY/${FILE##*/}" -db "${BANK}" -out ${BLAST_ARCHIVE} -outfmt 11 -max_target_seqs $ALIGNMENTS ${BLAST_PARAM} -num_threads $NCPUS
 blast_formatter -archive ${BLAST_ARCHIVE} -out ${CB_LOG_FOLDER}/${OUT_FILE} -outfmt "6 stitle qseqid sacc pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 done ;
