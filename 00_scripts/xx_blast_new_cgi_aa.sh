@@ -7,7 +7,7 @@ BLAST_PROGRAM=tblastn
 #BLAST_PROGRAM=blastx
 ALIGNMENTS=3
 BLAST_PARAM="-evalue 1e-3"
-BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
+BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr
 #BANK=/home/ref-bioinfo/beedeem/p/Uniprot_SwissProt/current/Uniprot_SwissProt
 #BANK=/home/ref-bioinfo/beedeem/p/PDB_proteins/current/PDB_proteins/PDB_proteins
 
