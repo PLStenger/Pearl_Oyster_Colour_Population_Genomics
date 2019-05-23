@@ -28,7 +28,7 @@ print("#######################################################")
 print("head(HatcheryVsGambier)")
 head(HatcheryVsGambier)
 
-commun<-intersect(HatcheryVsGambier, KatiuVsGambier)
+commun<-intersect(HatcheryVsGambier$RedVsGreen, KatiuVsGambier$RedVsGreen)
 print("head(commun)")
 head(commun)
 
@@ -37,7 +37,7 @@ print("commun$RedVsGreen")
 head(commun$RedVsGreen)
 
 print(paste0("HatcheryVsGambier, KatiuVsGambier	:", res))
-commun<-intersect(HatcheryVsGambier, KatiuVsHatchery)
+commun<-intersect(HatcheryVsGambier$RedVsGreen, KatiuVsHatchery$RedVsGreen)
 res <- length(commun$RedVsGreen)
 print(paste0("HatcheryVsGambier, KatiuVsHatchery	:", res))
 commun<-intersect(HatcheryVsGambier, RedVsGreen)
