@@ -25,8 +25,17 @@ print("#######################################################")
 print("P_0_000000001")
 print("#######################################################")
 
+print("head(HatcheryVsGambier)")
+head(HatcheryVsGambier)
+
 commun<-intersect(HatcheryVsGambier, KatiuVsGambier)
+print("head(commun)")
+head(commun)
+
 res <- length(commun$RedVsGreen)
+print("commun$RedVsGreen")
+head(commun$RedVsGreen)
+
 print(paste0("HatcheryVsGambier, KatiuVsGambier	:", res))
 commun<-intersect(HatcheryVsGambier, KatiuVsHatchery)
 res <- length(commun$RedVsGreen)
