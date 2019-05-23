@@ -32,9 +32,9 @@ commun<-intersect(HatcheryVsGambier$RedVsGreen, KatiuVsGambier$RedVsGreen)
 print("head(commun)")
 head(commun)
 
-res <- length(commun$RedVsGreen)
-print("commun$RedVsGreen")
-head(commun$RedVsGreen)
+res <- length(commun)
+print("res <- length(commun)")
+res
 
 print(paste0("HatcheryVsGambier, KatiuVsGambier	:", res))
 commun<-intersect(HatcheryVsGambier$RedVsGreen, KatiuVsHatchery$RedVsGreen)
