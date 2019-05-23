@@ -14,7 +14,7 @@ BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 
 QUERY1=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/97_tests/new_cgi.fasta
 
-OUT_FILE1=new_cgi_result_blast.txt
+OUT_FILE1=new_cgi_result_blast_25.txt
 
 
 # Activation de l'environnement BLAST+ 2.6.0
