@@ -15,4 +15,6 @@ $BEDTOOLS_ENV
 
 cd $DATADIRECTORY
 
-bedtools getfasta -fi $GENOME_FASTA -bed $GFF > $DATADIRECTORY/oyster_v9_AMP_enriched_ok.fasta
+#bedtools getfasta -fi $GENOME_FASTA -bed $GFF > $DATADIRECTORY/oyster_v9_AMP_enriched_ok.fasta
+bedtools getfasta -fi $GENOME_FASTA -bed $GFF -split > $DATADIRECTORY/oyster_v9_AMP_enriched_ok.fasta
+
