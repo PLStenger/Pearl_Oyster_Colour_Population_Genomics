@@ -6,7 +6,7 @@
 DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data
 GENOME_FASTA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta
 #GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.gff3
-GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds_mRNA.gff3
+GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/space.final.scaffolds_54K_CDS_3.gff3
 
 # https://bedtools.readthedocs.io/en/latest/content/tools/getfasta.html
 
@@ -16,5 +16,5 @@ $BEDTOOLS_ENV
 
 cd $DATADIRECTORY
 
-bedtools getfasta -fi $GENOME_FASTA -bed $GFF > $DATADIRECTORY/sspace.final.scaffolds_54K_mRNA.fasta
+bedtools getfasta -fi $GENOME_FASTA -bed $GFF > $DATADIRECTORY/sspace.final.scaffolds_54K_CDS.fasta
 
