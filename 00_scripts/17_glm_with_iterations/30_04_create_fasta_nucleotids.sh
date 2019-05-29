@@ -58,7 +58,7 @@ awk '
 awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo66.txt > ${FILE##*/}foooooo7.txt
 sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_higher_fasta_nucleotids.txt
 
-rm $DATA_DIRECTORY/*foooooo*
+#rm $DATA_DIRECTORY/*foooooo*
 
 
 done;
