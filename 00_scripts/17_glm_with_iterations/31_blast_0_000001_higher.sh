@@ -20,7 +20,7 @@ do
 
 CB_NAME=${FILE##*/}
 CB_TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
-CB_LOG_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast_without_iteration/"$CB_TIMESTAMP"_"$CB_NAME"
+CB_LOG_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast_without_iteration/higher/"$CB_TIMESTAMP"_"$CB_NAME"
 mkdir -p $CB_LOG_FOLDER
 cp $0 $CB_LOG_FOLDER/$CB_NAME
 OUT_FILE=${FILE##*/}_result.txt
