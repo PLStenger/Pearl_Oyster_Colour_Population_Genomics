@@ -58,8 +58,98 @@ awk '
 awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo66.txt > ${FILE##*/}foooooo7.txt
 sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_higher_fasta_nucleotids.txt
 
-#rm $DATA_DIRECTORY/*foooooo*
+rm $DATA_DIRECTORY/*foooooo*
 
+############################################################################
+#### For modifier
+
+# delete first unecessary line
+sed '1d' $FILE > ${FILE##*/}foooooo.txt
+
+# Print only column name and higher one
+awk '{print $3"\t"$8}' ${FILE##*/}foooooo.txt > ${FILE##*/}foooooo2.txt
+
+# delete row with "0"
+awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}foooooo3.txt
+
+# Delete "evm.model." pattern
+sed 's/evm.model.//g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
+
+
+# Add ">" before scaffold name
+sed 'N;s/scaff/>scaff/g' ${FILE##*/}foooooo4.txt > ${FILE##*/}foooooo5.txt
+
+
+#paste ${FILE##*/}foooooo5.txt $POSITION | awk '{print $0}' > ${FILE##*/}foooooo6.txt
+
+#awk 'NR==FNR {h[$1] = $2; next} {print $1"\t"$2"\t"h[$1]}' $POSITION  ${FILE##*/}foooooo5.txt > ${FILE##*/}foooooo6.txt
+
+# Change order
+#awk '{print $3"\t"$1"\t"$2}' ${FILE##*/}foooooo6.txt > ${FILE##*/}foooooo666.txt
+
+
+# RechercheV (vlookup) from transcriptome T41K the corresponding sequences
+
+awk '
+    NR==FNR{a[$1]
+    next
+}
+($1 in a) {
+    print
+}' ${FILE##*/}foooooo5.txt $DATA_BASE > ${FILE##*/}foooooo66.txt
+
+
+# Change tab into function CR 
+awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo66.txt > ${FILE##*/}foooooo7.txt
+sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_modifier_fasta_nucleotids.txt
+
+rm $DATA_DIRECTORY/*foooooo*
+
+
+############################################################################
+#### For moderate
+
+# delete first unecessary line
+sed '1d' $FILE > ${FILE##*/}foooooo.txt
+
+# Print only column name and higher one
+awk '{print $3"\t"$7}' ${FILE##*/}foooooo.txt > ${FILE##*/}foooooo2.txt
+
+# delete row with "0"
+awk '{ if ( $2 != "0" ) { print $0; } }' ${FILE##*/}foooooo2.txt > ${FILE##*/}foooooo3.txt
+
+# Delete "evm.model." pattern
+sed 's/evm.model.//g' ${FILE##*/}foooooo3.txt > ${FILE##*/}foooooo4.txt
+
+
+# Add ">" before scaffold name
+sed 'N;s/scaff/>scaff/g' ${FILE##*/}foooooo4.txt > ${FILE##*/}foooooo5.txt
+
+
+#paste ${FILE##*/}foooooo5.txt $POSITION | awk '{print $0}' > ${FILE##*/}foooooo6.txt
+
+#awk 'NR==FNR {h[$1] = $2; next} {print $1"\t"$2"\t"h[$1]}' $POSITION  ${FILE##*/}foooooo5.txt > ${FILE##*/}foooooo6.txt
+
+# Change order
+#awk '{print $3"\t"$1"\t"$2}' ${FILE##*/}foooooo6.txt > ${FILE##*/}foooooo666.txt
+
+
+# RechercheV (vlookup) from transcriptome T41K the corresponding sequences
+
+awk '
+    NR==FNR{a[$1]
+    next
+}
+($1 in a) {
+    print
+}' ${FILE##*/}foooooo5.txt $DATA_BASE > ${FILE##*/}foooooo66.txt
+
+
+# Change tab into function CR 
+awk '{gsub("\t","\n"); print}' ${FILE##*/}foooooo66.txt > ${FILE##*/}foooooo7.txt
+sed 's/<CR>//g' ${FILE##*/}foooooo7.txt > ${FILE##*/}_moderate_fasta_nucleotids.txt
+
+rm $DATA_DIRECTORY/*foooooo*
 
 done;
 
