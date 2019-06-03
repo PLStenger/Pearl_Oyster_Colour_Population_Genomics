@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#PBS -q mpi
-#PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=28:mem=115g
+#PBS -q omp
+#PBS -l walltime=180:00:00
+#PBS -l mem=1024g
+#PBS -l ncpus=12
 
 DATADIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff_glm_without_iteration
 BLAST_PROGRAM=blastx
