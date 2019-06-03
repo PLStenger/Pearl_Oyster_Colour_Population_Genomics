@@ -26,6 +26,8 @@ print("P_0_000000001")
 print("#######################################################")
 
 commun<-intersect(HatcheryVsGambier$RedVsGreen, KatiuVsGambier$RedVsGreen)
+head(commun)
+str(commun)
 res <- length(commun)
 write.table(commun, file = "P_0_000000001_HatcheryVsGambierVSKatiuVsGambier.txt")
 print(paste0("HatcheryVsGambier, KatiuVsGambier	:", res))
