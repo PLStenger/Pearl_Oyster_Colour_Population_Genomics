@@ -13,14 +13,14 @@ BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 # Activation de l'environnement BLAST+ 2.6.0
 . /appli/bioinfo/blast/2.6.0/env.sh
 
-for FILE in $(ls $DATADIRECTORY/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_YellowVsRed_dat_P_0_000000001.txt.vcf_SNPEff_genes_summary.txt_modifier_fasta_nucleotids.txt)
+for FILE in $(ls $DATADIRECTORY/individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_YellowVsRed_dat_P_0_01.txt.vcf_SNPEff_genes_summary.txt_modifier_fasta_nucleotids_split*)
 
 
 do
 
 CB_NAME=${FILE##*/}
 CB_TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
-CB_LOG_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast_without_iteration/moderate/"$CB_TIMESTAMP"_"$CB_NAME"
+CB_LOG_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/11_blast_without_iteration/modifier_YellowVsRed/"$CB_TIMESTAMP"_"$CB_NAME"
 mkdir -p $CB_LOG_FOLDER
 cp $0 $CB_LOG_FOLDER/$CB_NAME
 OUT_FILE=${FILE##*/}_result.txt
