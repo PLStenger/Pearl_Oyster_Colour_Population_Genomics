@@ -28,6 +28,44 @@ dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
 dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
 dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
 
+dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
+dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
+dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
+dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
+dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
+dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
+dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
+dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
+dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
+dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
+dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
+dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
+dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
+dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
+
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+
 dat <- dat[order(dat$SNP),]
 head(dat)
 
@@ -45,6 +83,7 @@ RedVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -63,6 +102,7 @@ YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -81,6 +121,7 @@ YellowVsRed <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -99,6 +140,7 @@ HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -117,6 +159,7 @@ KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -135,6 +178,7 @@ TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -154,6 +198,7 @@ KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -172,6 +217,7 @@ TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -190,6 +236,7 @@ TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
