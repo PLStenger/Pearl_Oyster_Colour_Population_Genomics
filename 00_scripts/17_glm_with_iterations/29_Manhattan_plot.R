@@ -83,7 +83,8 @@ RedVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -93,7 +94,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(title = "Red vs Green")
 
 
-ggsave("Manhattan_plots_glm_tuckey_RedVsGreen.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_RedVsGreen_2.png", width = 30, height = 10)
 
 P = dat$YellowVsGreen
 # partially transparent points by setting `alpha = 0.5`
@@ -102,7 +103,8 @@ YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -111,7 +113,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Green")
 
-ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen_2.png", width = 30, height = 10)
 
 
 P = dat$YellowVsRed
@@ -121,7 +123,8 @@ YellowVsRed <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -130,7 +133,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Red")
 
-ggsave("Manhattan_plots_glm_tuckey_YellowVsRed.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_YellowVsRed_2.png", width = 30, height = 10)
 
 
 P = dat$HatcheryVsGambier
@@ -140,7 +143,8 @@ HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -149,7 +153,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Hatchery Vs Gambier")
 
-ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier_2.png", width = 30, height = 10)
 
 
 P = dat$KatiuVsGambier
@@ -159,7 +163,8 @@ KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -168,7 +173,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Katiu Vs Gambier")
 
-ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier_2.png", width = 30, height = 10)
 
 
 P = dat$TakapotoVsGambier
@@ -178,7 +183,8 @@ TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -187,7 +193,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Gambier")
 
-ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier_2.png", width = 30, height = 10)
 
 
 
@@ -198,7 +204,8 @@ KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -207,7 +214,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "KatiuVsHatchery")
 
-ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery_2.png", width = 30, height = 10)
 
 
 P = dat$TakapotoVsHatchery
@@ -217,7 +224,8 @@ TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -226,7 +234,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Hatchery")
 
-ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery_2.png", width = 30, height = 10)
 
 
 P = dat$TakapotoVsKatiu
@@ -236,7 +244,8 @@ TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") +
+ # scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
@@ -245,16 +254,16 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "TakapotoVsKatiu")
 
-ggsave("Manhattan_plots_glm_tuckey_TakapotoVsKatiu.png", width = 30, height = 10)
+ggsave("Manhattan_plots_glm_tuckey_TakapotoVsKatiu_2.png", width = 30, height = 10)
 
 
 
 #grid.arrange(RedVsGreen, YellowVsGreen, YellowVsRed, HatcheryVsGambier, KatiuVsGambier, TakapotoVsGambier, KatiuVsHatchery,TakapotoVsHatchery, TakapotoVsKatiu,
  #            ncol=2)
 
-#ggsave(filename = "Manhattan_plots_glm_tuckey.png", grid.arrange(RedVsGreen, YellowVsGreen, YellowVsRed, HatcheryVsGambier, KatiuVsGambier, TakapotoVsGambier, KatiuVsHatchery,TakapotoVsHatchery, TakapotoVsKatiu,
+#ggsave(filename = "Manhattan_plots_glm_tuckey_2.png", grid.arrange(RedVsGreen, YellowVsGreen, YellowVsRed, HatcheryVsGambier, KatiuVsGambier, TakapotoVsGambier, KatiuVsHatchery,TakapotoVsHatchery, TakapotoVsKatiu,
 #                                             ncol=2),
 #       width = 10, height = 20, dpi = 300, units = "in", device='png')
 
-#ggsave("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.logitR_ORIGIN_ggplot2.png")
+#ggsave("individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf.copy.logitR_ORIGIN_ggplot2_2.png")
 
