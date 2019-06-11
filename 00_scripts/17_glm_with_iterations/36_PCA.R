@@ -123,16 +123,16 @@ head(dat2)
 
 group <- as.factor(c("Hatchery_Red", "Hatchery_Yellow", "Hatchery_Green", "Takapoto_Red", "Takapoto_Yellow", "Takapoto_Green", "Gambier_Red", "Gambier_Yellow", "Gambier_Green", "Katiu_Red", "Katiu_Yellow", "Katiu_Green"))
 
-palette <- c("firebrick1", "gold1", "chartreuse1","firebrick2", "gold2", "chartreuse2","firebrick3", "gold3", "chartreuse3","firebrick4", "gold4", "chartreuse4")
-
+#palette <- c("firebrick1", "gold1", "chartreuse1","firebrick2", "gold2", "chartreuse2","firebrick3", "gold3", "chartreuse3","firebrick4", "gold4", "chartreuse4")
+palette <- c("darkorange2", "darkorchid3", "darkseagreen", "darkslateblue", "gray", "gray7", "deeppink1", "lightpink", "steelblue1", "firebrick4", "gold4", "chartreuse4")
 
 pca <- prcomp(dat2, center=TRUE, scale=TRUE)
 
-pdf("plot_percent_var.pdf")
+pdf("plot_percent_var2.pdf")
 plot_percent_var(pca, 3)
 dev.off()
 
-pdf("plot_pca.pdf")
+pdf("plot_pca2.pdf")
 plot_pca(
   pca=pca, 
   pc=2, 
