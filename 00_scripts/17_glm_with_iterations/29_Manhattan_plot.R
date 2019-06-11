@@ -83,12 +83,12 @@ RedVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Red vs Green")
 
@@ -102,12 +102,12 @@ YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Green")
 
@@ -121,12 +121,12 @@ YellowVsRed <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Red")
 
@@ -140,12 +140,12 @@ HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Hatchery Vs Gambier")
 
@@ -159,12 +159,12 @@ KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Katiu Vs Gambier")
 
@@ -178,12 +178,12 @@ TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Gambier")
 
@@ -198,12 +198,12 @@ KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "KatiuVsHatchery")
 
@@ -217,12 +217,12 @@ TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Hatchery")
 
@@ -236,12 +236,12 @@ TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
   scale_fill_manual(values=fillcolors) + # For overlap
-geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10() + annotation_logticks(sides = "l") +
+geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(yintercept=6), color="orange", linetype="dashed")  + geom_hline(aes(yintercept=3), color="darkgoldenrod3", linetype="dashed") + scale_y_log10(limits = c(1, 1e+3)) + annotation_logticks(sides = "l") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by position", y="-Log10Pvalue") +
+  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "TakapotoVsKatiu")
 
