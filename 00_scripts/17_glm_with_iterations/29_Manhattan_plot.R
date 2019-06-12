@@ -75,10 +75,50 @@ fillcolors <- c("#9D6C06", "#077DAA", "#026D4E")
 
 
 CHR = dat$SNP
+position <- c()
+
+for (i in 1:length(as.character(CHR))) {
+    
+    ww <- as.character(CHR[i])
+    
+#test <- "scaffold1021|size251611_1995"
+# Le but est de reprendre le numéro du scaffold et de mettre ensuite la position
+
+# last scaffold : scaffold19136 --> 5 characters pour 19136
+z <- gsub("scaffold", "", ww)
+z <- as.character(z)
+y <- unlist(strsplit(z,split='|size', fixed=TRUE))
+w <- data.frame(y)
+ncharacter_taille_scaffold <- nchar(as.character(w[1,]))
+nb_zero_taille_scaffold <- rep(0, each=5-ncharacter_taille_scaffold)
+v <- paste0(paste(nb_zero_taille_scaffold, collapse = ""))
+u <- paste0("scaffold_",v,w[1,])
+#u
+
+#a <- gsub("scaffold", "", test)
+b <- unlist(strsplit(ww,split='|size', fixed=TRUE))
+#b <- as.character(i)
+c <- unlist(strsplit(b,split='_', fixed=TRUE))
+d <- data.frame(c)
+#ncharacter <- nchar(as.character(d[2,]))-nchar(as.character(d[3,]))
+ncharacter2 <- nchar(as.character(d[3,]))
+# 567472 # size of longest scaffold (in nucleotids) (= 6 character) donc on va mettre 7 zéro max
+nb_zero <- rep(0, each=((7-ncharacter2)))
+f <- paste0(paste(nb_zero, collapse = ""),as.numeric(as.character(d[3,])))
+#g <- paste0(d[1,],"_",f)
+#g <- paste0(u,"_",f)
+g <- paste0(u,f)
+h <- gsub("scaffold_", "", g)
+options("scipen"=100, "digits"=4)
+h <- as.numeric(h)
+position <- append(position, h)
+}
+
+
 P = dat$RedVsGreen
 str(P)
 # partially transparent points by setting `alpha = 0.5`
-RedVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+RedVsGreen <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -89,7 +129,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Red vs Green")
 
@@ -98,7 +138,7 @@ ggsave("Manhattan_plots_glm_tuckey_RedVsGreen_2.png", width = 30, height = 10)
 
 P = dat$YellowVsGreen
 # partially transparent points by setting `alpha = 0.5`
-YellowVsGreen <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+YellowVsGreen <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -109,7 +149,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Green")
 
@@ -118,7 +158,7 @@ ggsave("Manhattan_plots_glm_tuckey_YellowVsGreen_2.png", width = 30, height = 10
 
 P = dat$YellowVsRed
 # partially transparent points by setting `alpha = 0.5`
-YellowVsRed <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+YellowVsRed <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -129,7 +169,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Yellow Vs Red")
 
@@ -138,7 +178,7 @@ ggsave("Manhattan_plots_glm_tuckey_YellowVsRed_2.png", width = 30, height = 10)
 
 P = dat$HatcheryVsGambier
 # partially transparent points by setting `alpha = 0.5`
-HatcheryVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+HatcheryVsGambier <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -149,7 +189,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Hatchery Vs Gambier")
 
@@ -158,7 +198,7 @@ ggsave("Manhattan_plots_glm_tuckey_HatcheryVsGambier_2.png", width = 30, height 
 
 P = dat$KatiuVsGambier
 # partially transparent points by setting `alpha = 0.5`
-KatiuVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+KatiuVsGambier <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -169,7 +209,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Katiu Vs Gambier")
 
@@ -178,7 +218,7 @@ ggsave("Manhattan_plots_glm_tuckey_KatiuVsGambier_2.png", width = 30, height = 1
 
 P = dat$TakapotoVsGambier
 # partially transparent points by setting `alpha = 0.5`
-TakapotoVsGambier <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+TakapotoVsGambier <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -189,7 +229,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Gambier")
 
@@ -199,7 +239,7 @@ ggsave("Manhattan_plots_glm_tuckey_TakapotoVsGambier_2.png", width = 30, height 
 
 P = dat$KatiuVsHatchery
 # partially transparent points by setting `alpha = 0.5`
-KatiuVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+KatiuVsHatchery <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -210,7 +250,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "KatiuVsHatchery")
 
@@ -219,7 +259,7 @@ ggsave("Manhattan_plots_glm_tuckey_KatiuVsHatchery_2.png", width = 30, height = 
 
 P = dat$TakapotoVsHatchery
 # partially transparent points by setting `alpha = 0.5`
-TakapotoVsHatchery <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+TakapotoVsHatchery <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -230,7 +270,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "Takapoto Vs Hatchery")
 
@@ -239,7 +279,7 @@ ggsave("Manhattan_plots_glm_tuckey_TakapotoVsHatchery_2.png", width = 30, height
 
 P = dat$TakapotoVsKatiu
 # partially transparent points by setting `alpha = 0.5`
-TakapotoVsKatiu <- ggplot(dat, aes(x=CHR, y=-log10(P))) +
+TakapotoVsKatiu <- ggplot(dat, aes(x=position, y=-log10(P))) +
   geom_point(position=position_jitter(h=0.1, w=0.1), #  or overlap
              shape = 20, alpha = 0.5, size = 3) + #  If you want smaller point, change the size by 2 or 1
   scale_color_manual(values=linecolors) + # For overlap
@@ -250,7 +290,7 @@ geom_hline(aes(yintercept=9), color="red", linetype="dashed") + geom_hline(aes(y
         panel.background = element_blank(), axis.line = element_line(colour = "black"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) + # remove grid, background color and top and right borders
-  labs(x = "Ordered by SNP", y="-Log10Pvalue") +
+  labs(x = "Ordered by position in genome (in bp)", y="-Log10Pvalue") +
   labs(subtitle = "-Log10Pvalue by position of all scaffolds")+
   labs(title = "TakapotoVsKatiu")
 
