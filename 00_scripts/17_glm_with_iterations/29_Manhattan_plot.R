@@ -102,6 +102,7 @@ c <- unlist(strsplit(b,split='_', fixed=TRUE))
 d <- data.frame(c)
 #ncharacter <- nchar(as.character(d[2,]))-nchar(as.character(d[3,]))
 ncharacter2 <- nchar(as.character(d[3,]))
+ncharacter2 <- as.numeric(ncharacter2)
 # 567472 # size of longest scaffold (in nucleotids) (= 6 character) donc on va mettre 7 zéro max
 nb_zero <- rep(0, each=((7-ncharacter2)))
 f <- paste0(paste(nb_zero, collapse = ""),as.numeric(as.character(d[3,])))
