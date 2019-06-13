@@ -9,62 +9,62 @@ library(gridExtra)
 dat <- read.table("all_glm_tuckey_without_iteration_results.txt", header=F, fill=TRUE)
 colnames(dat) <- c("Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu")
 
-dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
-dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
-
-dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
-dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
-dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
-dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
-dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
-dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
-dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
-dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
-dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
-dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
-dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
-dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
-dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
-dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
-dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
-dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
-dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
-dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
-
-dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
-dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+#
+#dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
+#dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
+#dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
+#dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
+#dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
+#dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
+#dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
+#dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
+#dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
+#dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
+#dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
+#dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
+#dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
+#dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
+#dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
+#dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
+#dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
+#dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
+#
+#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
 
 dat <- dat[order(dat$SNP),]
 head(dat)
@@ -103,8 +103,10 @@ d <- data.frame(c)
 #ncharacter <- nchar(as.character(d[2,]))-nchar(as.character(d[3,]))
 ncharacter2 <- nchar(as.character(d[3,]))
 ncharacter2 <- as.numeric(ncharacter2)
+print(ncharacter2)
 # 567472 # size of longest scaffold (in nucleotids) (= 6 character) donc on va mettre 7 zéro max
 nb_zero <- rep(0, each=((7-ncharacter2)))
+print(nb_zero)
 f <- paste0(paste(nb_zero, collapse = ""),as.numeric(as.character(d[3,])))
 #g <- paste0(d[1,],"_",f)
 #g <- paste0(u,"_",f)
