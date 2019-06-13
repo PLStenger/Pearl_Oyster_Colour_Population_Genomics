@@ -9,62 +9,62 @@ library(gridExtra)
 dat <- read.table("all_glm_tuckey_without_iteration_results.txt", header=F, fill=TRUE)
 colnames(dat) <- c("Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu")
 
-#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
-#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
-#
-#dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
-#dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
-#dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
-#dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
-#dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
-#dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
-#dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
-#dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
-#dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
-#dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
-#dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
-#dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
-#dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
-#dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
-#dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
-#dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
-#dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
-#dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
-#
-#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
-#dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
-#dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
-#dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
-#dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
-#dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
-#dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
-#dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
-#dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
-#dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+
+dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
+dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
+dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
+dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
+dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
+dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
+dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
+dat$RedVsGreen[dat$RedVsGreen == "0"] <- "1e-323"
+dat$YellowVsGreen[dat$YellowVsGreen == "0"] <- "1e-323"
+dat$YellowVsRed[dat$YellowVsRed == "0"] <- "1e-323"
+dat$HatcheryVsGambier[dat$HatcheryVsGambier == "0"] <- "1e-323"
+dat$KatiuVsGambier[dat$KatiuVsGambier == "0"] <- "1e-323"
+dat$TakapotoVsGambier[dat$TakapotoVsGambier == "0"] <- "1e-323"
+dat$KatiuVsHatchery[dat$KatiuVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsHatchery[dat$TakapotoVsHatchery == "0"] <- "1e-323"
+dat$TakapotoVsKatiu[dat$TakapotoVsKatiu == "0"] <- "1e-323"
+
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
+dat$RedVsGreen <- as.numeric(as.character(dat$RedVsGreen))
+dat$YellowVsGreen <- as.numeric(as.character(dat$YellowVsGreen))
+dat$YellowVsRed <- as.numeric(as.character(dat$YellowVsRed))
+dat$HatcheryVsGambier <- as.numeric(as.character(dat$HatcheryVsGambier))
+dat$KatiuVsGambier <- as.numeric(as.character(dat$KatiuVsGambier))
+dat$TakapotoVsGambier <- as.numeric(as.character(dat$TakapotoVsGambier))
+dat$KatiuVsHatchery <- as.numeric(as.character(dat$KatiuVsHatchery))
+dat$TakapotoVsHatchery <- as.numeric(as.character(dat$TakapotoVsHatchery))
+dat$TakapotoVsKatiu <- as.numeric(as.character(dat$TakapotoVsKatiu))
 
 dat <- dat[order(dat$SNP),]
 head(dat)
@@ -78,43 +78,52 @@ CHR = dat$SNP
 position <- c()
 
 for (i in 1:length(as.character(CHR))) {
-    
-    ww <- as.character(CHR[i])
-    
-#test <- "scaffold1021|size251611_1995"
-# Le but est de reprendre le numéro du scaffold et de mettre ensuite la position
+  
+  ww <- as.character(CHR[i])
+  
+ # test <- "scaffold1021|size251611_1995"
+  # Le but est de reprendre le numéro du scaffold et de mettre ensuite la position
+  
+  # last scaffold : scaffold19136 --> 5 characters pour 19136
+  z <- gsub("scaffold", "", ww)
+  z <- as.character(z)
+  y <- unlist(strsplit(z,split='|size', fixed=TRUE))
+  w <- data.frame(y)
+  ncharacter_taille_scaffold <- nchar(as.character(w[1,]))
+  nb_zero_taille_scaffold <- rep(0, each=5-ncharacter_taille_scaffold)
+  v <- paste0(paste(nb_zero_taille_scaffold, collapse = ""))
+  u <- paste0("scaffold_",v,w[1,])
+  #u
+  
+  #a <- gsub("scaffold", "", test)
+  b <- unlist(strsplit(ww,split='|size', fixed=TRUE))
+  #b <- as.character(i)
+  c <- unlist(strsplit(b,split='_', fixed=TRUE))
+  d <- data.frame(c)
+  #ncharacter <- nchar(as.character(d[2,]))-nchar(as.character(d[3,]))
+  ncharacter2 <- nchar(as.character(d[3,]))
+  ncharacter2 <- as.numeric(ncharacter2)
 
-# last scaffold : scaffold19136 --> 5 characters pour 19136
-z <- gsub("scaffold", "", ww)
-z <- as.character(z)
-y <- unlist(strsplit(z,split='|size', fixed=TRUE))
-w <- data.frame(y)
-ncharacter_taille_scaffold <- nchar(as.character(w[1,]))
-nb_zero_taille_scaffold <- rep(0, each=5-ncharacter_taille_scaffold)
-v <- paste0(paste(nb_zero_taille_scaffold, collapse = ""))
-u <- paste0("scaffold_",v,w[1,])
-#u
+  if (ncharacter2>=7){
+    
+    nb_zero <- 8
 
-#a <- gsub("scaffold", "", test)
-b <- unlist(strsplit(ww,split='|size', fixed=TRUE))
-#b <- as.character(i)
-c <- unlist(strsplit(b,split='_', fixed=TRUE))
-d <- data.frame(c)
-#ncharacter <- nchar(as.character(d[2,]))-nchar(as.character(d[3,]))
-ncharacter2 <- nchar(as.character(d[3,]))
-ncharacter2 <- as.numeric(ncharacter2)
-print(ncharacter2)
-# 567472 # size of longest scaffold (in nucleotids) (= 6 character) donc on va mettre 7 zéro max
-nb_zero <- rep(0, each=((7-ncharacter2)))
-print(nb_zero)
-f <- paste0(paste(nb_zero, collapse = ""),as.numeric(as.character(d[3,])))
-#g <- paste0(d[1,],"_",f)
-#g <- paste0(u,"_",f)
-g <- paste0(u,f)
-h <- gsub("scaffold_", "", g)
-options("scipen"=100, "digits"=4)
-h <- as.numeric(h)
-position <- append(position, h)
+    
+  }else{
+    
+    nb_zero <- rep(0, each=((7-ncharacter2)))
+    
+  }
+
+  # 567472 # size of longest scaffold (in nucleotids) (= 6 character) donc on va mettre 7 zéro max
+  f <- paste0(paste(nb_zero, collapse = ""),as.numeric(as.character(d[3,])))
+  #g <- paste0(d[1,],"_",f)
+  #g <- paste0(u,"_",f)
+  g <- paste0(u,f)
+  h <- gsub("scaffold_", "", g)
+  options("scipen"=100, "digits"=4)
+  h <- as.numeric(h)
+  position <- append(position, h)
 }
 
 
