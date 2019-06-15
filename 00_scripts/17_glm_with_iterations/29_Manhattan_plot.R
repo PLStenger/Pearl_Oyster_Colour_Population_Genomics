@@ -83,6 +83,8 @@ fillcolors <- c("#9D6C06", "#077DAA", "#026D4E")
 
 CHR = dat$SNP
 
+save(dat, file = "dat_for_manhattan_plot.rda")
+
 registerDoParallel()
 
 position <- c()
