@@ -5,6 +5,13 @@ setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/08_02_in
 library(ggplot2)
 library(dplyr)
 library(gridExtra)
+library(readr)
+library(tidyr)
+library(stringr)
+library(multcomp)
+library(foreach)
+library(doParallel)
+
 
 dat <- read.table("all_glm_tuckey_without_iteration_results.txt", header=F, fill=TRUE)
 colnames(dat) <- c("Ten", "SNP", "RedVsGreen", "YellowVsGreen", "YellowVsRed", "HatcheryVsGambier", "KatiuVsGambier", "TakapotoVsGambier", "KatiuVsHatchery","TakapotoVsHatchery", "TakapotoVsKatiu")
@@ -75,10 +82,15 @@ fillcolors <- c("#9D6C06", "#077DAA", "#026D4E")
 
 
 CHR = dat$SNP
+
+registerDoParallel()
+
 position <- c()
 
-for (i in 1:length(as.character(CHR))) {
-  
+#for (i in 1:length(as.character(CHR))) {
+foreach(i=1:length(as.character(CHR)), .combine=c) %dopar% { 
+
+
   ww <- as.character(CHR[i])
   
  # test <- "scaffold1021|size251611_1995"
@@ -126,6 +138,7 @@ for (i in 1:length(as.character(CHR))) {
   position <- append(position, h)
 }
 
+registerDoSEQ()
 
 P = dat$RedVsGreen
 str(P)
