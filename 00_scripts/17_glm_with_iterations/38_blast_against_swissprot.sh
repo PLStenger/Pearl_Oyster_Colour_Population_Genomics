@@ -14,7 +14,8 @@ source activate /home1/datawork/plstenge/96_env_conda/freebayes
 SEQUENCE_FILE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/03_sequences/analyzed_genes.fasta
 SWISSPROT_RESULT=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/04_blast_results/analyzed_genes.swissprot
 SWISSPROT_HITS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/04_blast_results/analyzed_genes.hits
-SWISSPROT_DB=/home/ref-bioinfo/beedeem/p/Uniprot_SwissProt
+SWISSPROT_DB=/home/ref-bioinfo/beedeem/p/Uniprot_SwissProt/current/Uniprot_SwissProt
+#BANK=/home/ref-bioinfo/beedeem/p/NCBI_nr/current/NCBI_nr/NCBI_nr
 
 # Blast all sequences against swissprot (must be installed locally)
 # WARNING use `-j N` if you need to limit the number of CPUs used to N <integer>
