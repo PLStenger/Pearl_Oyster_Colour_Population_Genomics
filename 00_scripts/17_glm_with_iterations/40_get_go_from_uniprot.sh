@@ -7,4 +7,7 @@ WORKING_DIRECTORY=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomi
 
 cd $WORKING_DIRECTORY
 
-wget -q -O - http://www.uniprot.org/uniprot/CATK_CANLF.txt > CATK_CANLF.txt
+#wget -q -O - http://www.uniprot.org/uniprot/CATK_CANLF.txt > CATK_CANLF.txt
+wget -qO- http://www.uniprot.org/uniprot/CATK_CANLF.txt | sed -e 's/<[^>]*>//g' > CATK_CANLF.txt
+
+
