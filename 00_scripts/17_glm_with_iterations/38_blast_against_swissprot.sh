@@ -3,8 +3,12 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
+# activate parallel
 export PATH=$PATH:/appli/anaconda/2.7/bin
 source activate /home1/datawork/plstenge/96_env_conda/freebayes
+
+# Activation de l'environnement BLAST+ 2.6.0
+. /appli/bioinfo/blast/2.6.0/env.sh
 
 # Global variables
 SEQUENCE_FILE=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/03_sequences/analyzed_genes.fasta
