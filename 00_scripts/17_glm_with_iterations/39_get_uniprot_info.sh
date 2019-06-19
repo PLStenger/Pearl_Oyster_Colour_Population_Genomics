@@ -3,10 +3,14 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
+# activate parallel
+export PATH=$PATH:/appli/anaconda/2.7/bin
+source activate /home1/datawork/plstenge/96_env_conda/freebayes
+
 # Global variables
-SWISSPROT_HITS=04_blast_results/analyzed_genes.hits
-ANNOTATION_FOLDER=05_annotations
-FISHER_FOLDER=06_fisher_tests
+SWISSPROT_HITS=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/04_blast_results/analyzed_genes.hits
+ANNOTATION_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/05_annotations
+FISHER_FOLDER=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/10_00_annotation_go/go_enrichment-master/06_fisher_tests
 
 # Get info from uniprot for each hit in parallel
 echo "Prepare uniprot sequences for retrieval"
