@@ -214,34 +214,29 @@ plot_pca_PL <- function(pca=pca, pc=pc, conditions_color=conditions_color, condi
       p1 <- ggplot(scores, aes_string(x=combination[1], y=combination[2])) +
         # Dessine des points avec une bordure de 0.5 remplis avec une couleur
        # geom_point(shape = 21, size = 2.5, stroke=0.5, aes(colour=cond_color, shape=cond_shape, fill=cond_color)) + 
-        geom_point(size = 2.5,  aes(colour=cond_color, shape=cond_shape, fill=cond_fill)) + # geom_point(size = 2.5,  aes(colour=cond_color, shape=cond_shape, fill=cond_color)) + 
+        geom_point(size = 2.5, stroke=0.7,  aes(colour=cond_color, shape=cond_shape, fill=cond_fill)) + #  geom_point(size = 2.5, stroke=1,  aes(colour=cond_color, shape=cond_shape, fill=cond_fill)) +
         # Utilise le thème "black and white"
         theme_bw() +
         # Spécifie la palette de couleur et donne un titre vide à la légende
-        scale_colour_manual(values=colours, name="") + # scale_colour_manual(values=c("forestgreen","firebrick","goldenrod1"))+
-        scale_fill_manual(values=fills, name="") +
+        scale_colour_manual(values=colours, name="Phenotypes") + # scale_colour_manual(values=c("forestgreen","firebrick","goldenrod1"))+
+        scale_fill_manual(values=fills, name="Phenotypes") +
         #scale_shape_manual(values=c(25,22,23,21)) +
-        scale_shape_manual(values=shapes, name="") +
+        scale_shape_manual(values=shapes, name="Sites") +
         # Renomme le titre des axes des abscisses et des ordonnées en "PCx (pourcentage de variance)" avec 3 chiffres après la virgule
         xlab(paste(combination[1], " (",round(percent_var_explained[as.numeric(gsub("PC", "", combination[1]))], digit=3),"%)", sep=""))+
         ylab(paste(combination[2], " (",round(percent_var_explained[as.numeric(gsub("PC", "", combination[2]))], digit=3),"%)", sep=""))+
         # Titre du graphique
-        ggtitle("PCA") 
+        ggtitle("Principal Component Analysis of allelic frequencies") +
         # Option de taille des éléments texte
-        theme(
-         axis.text=element_text(size=16),
-         axis.title=element_text(size=16),
-          legend.text = element_text(size =16),
-          legend.title = element_text(size =16 ,face="bold"),
-          plot.title = element_text(size=18, face="bold", hjust = 0.5),
-          # Astuce pour garder un graphique carré
-          aspect.ratio=1
-        )
+          theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                panel.background = element_blank(), axis.line = element_line(colour = "black"),
+                legend.key = element_rect(fill = "transparent", colour = "transparent"))
       # Affiche le graphique
       print(p1)
     }
   )
 }
+
 
 pca <- prcomp(dat2, center=TRUE, scale=TRUE)
 
@@ -256,7 +251,7 @@ plot_pca_PL(
   conditions_shape=site,
   conditions_fill=phenotype,
   colours=palette, 
-  shapes=c(0,1,2,3),
+  shapes=c(21,22,23,24),
   fills=palette
 )
 
