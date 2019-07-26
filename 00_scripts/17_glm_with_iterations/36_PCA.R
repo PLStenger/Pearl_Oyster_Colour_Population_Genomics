@@ -144,20 +144,120 @@ head(dat2)
 #
 #
 
-site <- c("Hatchery", "Hatchery", "Hatchery", "Takapoto", "Takapoto", "Takapoto", "Gambier", "Gambier", "Gambier", "Katiu", "Katiu", "Katiu")
-phenotype <- c("Red", "Yellow", "Green", "Red", "Yellow", "Green", "Red", "Yellow", "Green", "Red", "Yellow", "Green")
+#site <- c("Hatchery", "Hatchery", "Hatchery", "Takapoto", "Takapoto", "Takapoto", "Gambier", "Gambier", "Gambier", "Katiu", "Katiu", "Katiu")
+#phenotype <- c("Red", "Yellow", "Green", "Red", "Yellow", "Green", "Red", "Yellow", "Green", "Red", "Yellow", "Green")
+#
+#dat3 <- data.frame(dat2, site, phenotype)
+#str(dat3)
+#
+#df <- dat3[c(1:49)]
+#
+#autoplot(prcomp(df), data = dat3, colour="phenotype", shape="site", fill="phenotype")+
+#  scale_colour_manual(values=c("forestgreen","firebrick","goldenrod1"))+
+#  scale_fill_manual(values=c("forestgreen","firebrick","goldenrod1"))+
+#  scale_shape_manual(values=c(25,22,23,21)) + 
+#  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+#        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+#        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+#
 
-dat3 <- data.frame(dat2, site, phenotype)
-str(dat3)
+plot_pca_PL <- function(pca=pca, pc=pc, conditions_color=conditions_color, conditions_fill=conditions_fill, conditions_shape=conditions_shape, colours=colours, shapes=shapes, fills=fills){
+  # Transforme le nombre de PC en argument en nom de PC 
+  PCs <- paste("PC",1:pc, sep="")
+  # Calcule le pourcentage de variance par PC
+  percent_var_explained <- (pca$sdev^2 / sum(pca$sdev^2))*100
+  
+  
+  # Transforme le vecteur de conditions en un facteur
+  cond_color <- factor(conditions_color)
+  # Crée un autre facteur avec les conditions
+  col <- factor(conditions_color)
+  # Change les niveaux du facteur avec la palette de couleur pour attribuer
+  # à chaque condition une couleur
+  levels(col) <- colours
+  # Re-transforme le facteur en vecteur
+  col <- as.vector(col)
+  
+  
+  # Transforme le vecteur de conditions en un facteur
+  cond_shape <- factor(conditions_shape)
+  # Crée un autre facteur avec les conditions
+  sha <- factor(conditions_shape)
+  # Change les niveaux du facteur avec la palette de forme pour attribuer
+  # à chaque condition une forme
+  levels(sha) <- shapes
+  # Re-transforme le facteur en vecteur
+  sha <- as.vector(sha)
+  
+  
+  # Transforme le vecteur de conditions en un facteur
+  cond_fill <- factor(conditions_fill)
+  # Crée un autre facteur avec les conditions
+  fil <- factor(conditions_fill)
+  # Change les niveaux du facteur avec la palette de forme pour attribuer
+  # à chaque condition une forme
+  levels(fil) <- fills
+  # Re-transforme le facteur en vecteur
+  fil <- as.vector(fil)
+  
+  # Récupère les scores pour le graphique
+  scores <- as.data.frame(pca$x)
+  # Génère toutes les combinaisons possibles de PC 
+  PCs.combinations <- combn(PCs,2)
+  # Génère un graphique pour chaque combinaison
+  # avec une boucle apply
+  g <- apply(
+    PCs.combinations,
+    2,
+    function(combination)
+    {
+      p1 <- ggplot(scores, aes_string(x=combination[1], y=combination[2])) +
+        # Dessine des points avec une bordure de 0.5 remplis avec une couleur
+       # geom_point(shape = 21, size = 2.5, stroke=0.5, aes(colour=cond_color, shape=cond_shape, fill=cond_color)) + 
+        geom_point(size = 2.5,  aes(colour=cond_color, shape=cond_shape, fill=cond_fill)) + # geom_point(size = 2.5,  aes(colour=cond_color, shape=cond_shape, fill=cond_color)) + 
+        # Utilise le thème "black and white"
+        theme_bw() +
+        # Spécifie la palette de couleur et donne un titre vide à la légende
+        scale_colour_manual(values=colours, name="") + # scale_colour_manual(values=c("forestgreen","firebrick","goldenrod1"))+
+        scale_fill_manual(values=fills, name="") +
+        #scale_shape_manual(values=c(25,22,23,21)) +
+        scale_shape_manual(values=shapes, name="") +
+        # Renomme le titre des axes des abscisses et des ordonnées en "PCx (pourcentage de variance)" avec 3 chiffres après la virgule
+        xlab(paste(combination[1], " (",round(percent_var_explained[as.numeric(gsub("PC", "", combination[1]))], digit=3),"%)", sep=""))+
+        ylab(paste(combination[2], " (",round(percent_var_explained[as.numeric(gsub("PC", "", combination[2]))], digit=3),"%)", sep=""))+
+        # Titre du graphique
+        ggtitle("PCA") 
+        # Option de taille des éléments texte
+        theme(
+         axis.text=element_text(size=16),
+         axis.title=element_text(size=16),
+          legend.text = element_text(size =16),
+          legend.title = element_text(size =16 ,face="bold"),
+          plot.title = element_text(size=18, face="bold", hjust = 0.5),
+          # Astuce pour garder un graphique carré
+          aspect.ratio=1
+        )
+      # Affiche le graphique
+      print(p1)
+    }
+  )
+}
 
-df <- dat3[c(1:49)]
+pca <- prcomp(dat2, center=TRUE, scale=TRUE)
 
-autoplot(prcomp(df), data = dat3, colour="phenotype", shape="site", fill="phenotype")+
-  scale_colour_manual(values=c("forestgreen","firebrick","goldenrod1"))+
-  scale_fill_manual(values=c("forestgreen","firebrick","goldenrod1"))+
-  scale_shape_manual(values=c(25,22,23,21)) + 
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_blank(), axis.line = element_line(colour = "black"),
-        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+site <- as.factor(c("Hatchery", "Hatchery", "Hatchery", "Takapoto", "Takapoto", "Takapoto", "Gambier", "Gambier", "Gambier", "Katiu", "Katiu", "Katiu"))
+phenotype <- as.factor(c("Red", "Yellow", "Green", "Red", "Yellow", "Green", "Red", "Yellow", "Green", "Red", "Yellow", "Green"))
+palette <- c("forestgreen","firebrick","goldenrod1")
 
-ggsave("PCA_autoplot.png", width = 5.5, height = 4.5)
+plot_pca_PL(
+  pca=pca, 
+  pc=2, 
+  conditions_color=phenotype,
+  conditions_shape=site,
+  conditions_fill=phenotype,
+  colours=palette, 
+  shapes=c(0,1,2,3),
+  fills=palette
+)
+
+ggsave("PCA_plot_2.png", width = 5.5, height = 4.5)
