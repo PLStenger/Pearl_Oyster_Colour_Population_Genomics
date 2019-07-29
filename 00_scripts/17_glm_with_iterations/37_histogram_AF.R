@@ -36,14 +36,16 @@ AF_Hatchery_Red_ok <- subset(dat, AF_Hatchery_Red <=1)
 
   
 gg_AF_Hatchery_Red <-  ggplot(AF_Hatchery_Red_ok, aes(x=AF_Hatchery_Red)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
   #ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Hatchery for the red phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Hatchery_Red), " SNPs"))
-
+                 "Total: ", length(dat$AF_Hatchery_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Hatchery_Red.png", width = 15, height = 10)
 
 
@@ -51,14 +53,16 @@ ggsave("gg_AF_Hatchery_Red.png", width = 15, height = 10)
 AF_Takapoto_Red_ok <- subset(dat, AF_Takapoto_Red <=1)
 
 gg_AF_Takapoto_Red <- ggplot(AF_Takapoto_Red_ok, aes(x=AF_Takapoto_Red)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Takapoto for the red phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Takapoto_Red), " SNPs"))
-
+                 "Total: ", length(dat$AF_Takapoto_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 
 ggsave("gg_AF_Takapoto_Red.png", width = 15, height = 10)
 
@@ -66,28 +70,32 @@ ggsave("gg_AF_Takapoto_Red.png", width = 15, height = 10)
 AF_Katiu_Red_ok <- subset(dat, AF_Katiu_Red <=1)
 
 gg_AF_Katiu_Red <- ggplot(AF_Katiu_Red_ok, aes(x=AF_Katiu_Red)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Katiu for the red phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Katiu_Red), " SNPs"))
-
+                 "Total: ", length(dat$AF_Katiu_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Katiu_Red.png", width = 15, height = 10)
 
 
 AF_Gambier_Red_ok <- subset(dat, AF_Gambier_Red <=1)
 
 gg_AF_Gambier_Red <- ggplot(AF_Gambier_Red_ok, aes(x=AF_Gambier_Red)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Gambier for the red phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Gambier_Red), " SNPs"))
-
+                 "Total: ", length(dat$AF_Gambier_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Gambier_Red.png", width = 15, height = 10)
 
 #########################################################
@@ -96,53 +104,61 @@ ggsave("gg_AF_Gambier_Red.png", width = 15, height = 10)
 AF_Hatchery_Yellow_ok <- subset(dat, AF_Hatchery_Yellow <=1)
 
 gg_AF_Hatchery_Yellow <- ggplot(AF_Hatchery_Yellow_ok, aes(x=AF_Hatchery_Yellow)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Hatchery for the yellow phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Hatchery_Yellow), " SNPs"))
-
+                 "Total: ", length(dat$AF_Hatchery_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Hatchery_Yellow.png", width = 15, height = 10)
 
 AF_Takapoto_Yellow_ok <- subset(dat, AF_Takapoto_Yellow <=1)
 
 gg_AF_Takapoto_Yellow <- ggplot(AF_Takapoto_Yellow_ok, aes(x=AF_Takapoto_Yellow)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
 #  ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Takapoto for the yellow phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Takapoto_Yellow), " SNPs"))
-
+                 "Total: ", length(dat$AF_Takapoto_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Takapoto_Yellow.png", width = 15, height = 10)
 
 AF_Katiu_Yellow_ok <- subset(dat, AF_Katiu_Yellow <=1)
 
 gg_AF_Katiu_Yellow <- ggplot(AF_Katiu_Yellow_ok, aes(x=AF_Katiu_Yellow)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
 #  ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Katiu for the yellow phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Katiu_Yellow), " SNPs"))
-
+                 "Total: ", length(dat$AF_Katiu_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Katiu_Yellow.png", width = 15, height = 10)
 
 AF_Gambier_Yellow_ok <- subset(dat, AF_Gambier_Yellow <=1)
 
 gg_AF_Gambier_Yellow <- ggplot(AF_Gambier_Yellow_ok, aes(x=AF_Gambier_Yellow)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
 #  ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Gambier for the yellow phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Gambier_Yellow), " SNPs"))
-
+                 "Total: ", length(dat$AF_Gambier_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Gambier_Yellow.png", width = 15, height = 10)
 
 #########################################################
@@ -151,66 +167,322 @@ ggsave("gg_AF_Gambier_Yellow.png", width = 15, height = 10)
 AF_Hatchery_Green_ok <- subset(dat, AF_Hatchery_Green <=1)
 
 gg_AF_Hatchery_Green <- ggplot(AF_Hatchery_Green_ok, aes(x=AF_Hatchery_Green)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Hatchery for the green phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Hatchery_Green), " SNPs"))
-
+                 "Total: ", length(dat$AF_Hatchery_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Hatchery_Green.png", width = 15, height = 10)
 
 
 AF_Takapoto_Green_ok <- subset(dat, AF_Takapoto_Green <=1)
 
 gg_AF_Takapoto_Green <- ggplot(AF_Takapoto_Green_ok, aes(x=AF_Takapoto_Green)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Takapoto for the green phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Takapoto_Green), " SNPs"))
-
+                 "Total: ", length(dat$AF_Takapoto_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Takapoto_Green.png", width = 15, height = 10)
 
 
 AF_Katiu_Green_ok <- subset(dat, AF_Katiu_Green <=1)
 
 gg_AF_Katiu_Green <- ggplot(AF_Katiu_Green_ok, aes(x=AF_Katiu_Green)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
 #  ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Katiu for the green phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Katiu_Green), " SNPs"))
-
+                 "Total: ", length(dat$AF_Katiu_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Katiu_Green.png", width = 15, height = 10)
 
 AF_Gambier_Green_ok <- subset(dat, AF_Gambier_Green <=1)
 
 gg_AF_Gambier_Green <- ggplot(AF_Gambier_Green_ok, aes(x=AF_Gambier_Green)) + 
-  geom_histogram(color="black", fill="deepskyblue3") +
-  xlab("Allelic frequencies") +
+  geom_histogram(bins = 30, color="black", fill="deepskyblue3") +
+  
   theme(plot.title = element_text(size=8)) +
  # ylim(0,700) +
   ggtitle(paste0("Allelic frequencies of all SNPs in Gambier for the green phenotype",
                  "\n",
-                 "Total: ", length(dat$AF_Gambier_Green), " SNPs"))
-
+                 "Total: ", length(dat$AF_Gambier_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
 ggsave("gg_AF_Gambier_Green.png", width = 15, height = 10)
 
 
 
-library("gridExtra")
+#library("gridExtra")
 
 #grid.arrange(gg_AF_Hatchery_Red, gg_AF_Takapoto_Red, gg_AF_Katiu_Red, gg_AF_Gambier_Red, gg_AF_mean_Red, gg_AF_Hatchery_Yellow , gg_AF_Takapoto_Yellow , gg_AF_Katiu_Yellow, gg_AF_Gambier_Yellow, gg_AF_mean_Yellow, gg_AF_Hatchery_Green, gg_AF_Takapoto_Green, gg_AF_Katiu_Green, gg_AF_Gambier_Green, gg_AF_mean_Green, gg_AF_mean_Hatchery, gg_AF_mean_Takapoto, gg_AF_mean_Katiu, gg_AF_mean_Gambier,
 #    labels=c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S"), ncol = 5, nrow = 4)
 
 
-grid.arrange(gg_AF_Hatchery_Red, gg_AF_Takapoto_Red, gg_AF_Katiu_Red, gg_AF_Gambier_Red, gg_AF_mean_Red, gg_AF_Hatchery_Yellow , gg_AF_Takapoto_Yellow , gg_AF_Katiu_Yellow, gg_AF_Gambier_Yellow, gg_AF_mean_Yellow, gg_AF_Hatchery_Green, gg_AF_Takapoto_Green, gg_AF_Katiu_Green, gg_AF_Gambier_Green, 
-             ncol = 4, nrow = 3)
-ggsave("gg_AF_ALL.png", width = 30, height = 25)
+#grid.arrange(gg_AF_Hatchery_Red, gg_AF_Takapoto_Red, gg_AF_Katiu_Red, gg_AF_Gambier_Red, gg_AF_mean_Red, gg_AF_Hatchery_Yellow , gg_AF_Takapoto_Yellow , gg_AF_Katiu_Yellow, gg_AF_Gambier_Yellow, gg_AF_mean_Yellow, gg_AF_Hatchery_Green, gg_AF_Takapoto_Green, gg_AF_Katiu_Green, gg_AF_Gambier_Green, 
+#             ncol = 4, nrow = 3)
+#ggsave("gg_AF_ALL.png", width = 30, height = 25)
 
+
+
+dat <- read.table("AF_red_specific.txt", header=T)
+head(dat)
+
+# For Red Specific SNPs:
+
+#########################################################
+### red
+#########################################################
+AF_Hatchery_Red_ok <- subset(dat, AF_Hatchery_Red <=1)
+
+gg_AF_Hatchery_Red <- ggplot(AF_Hatchery_Red_ok, aes(x=AF_Hatchery_Red)) + 
+  geom_histogram(bins = 30, color="black", fill="red") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific red SNPs in Hatchery",
+                 "\n",
+                 "only for the red phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Hatchery_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Hatchery_Red_specific.png", width = 15, height = 10)
+
+
+AF_Takapoto_Red_ok <- subset(dat, AF_Takapoto_Red <=1)
+
+gg_AF_Takapoto_Red <- ggplot(AF_Takapoto_Red_ok, aes(x=AF_Takapoto_Red)) + 
+  geom_histogram(bins = 30, color="black", fill="red") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific red SNPs in Takapoto",
+                 "\n",
+                 "only for the red phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Takapoto_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Takapoto_Red_specific.png", width = 15, height = 10)
+
+
+AF_Katiu_Red_ok <- subset(dat, AF_Katiu_Red <=1)
+
+gg_AF_Katiu_Red <- ggplot(AF_Katiu_Red_ok, aes(x=AF_Katiu_Red)) + 
+  geom_histogram(bins = 30, color="black", fill="red") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific red SNPs in Katiu",
+                 "\n",
+                 "only for the red phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Katiu_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))			  
+			  
+ggsave("gg_AF_Katiu_Red_specific.png", width = 15, height = 10)
+
+
+AF_Gambier_Red_ok <- subset(dat, AF_Gambier_Red <=1)
+
+gg_AF_Gambier_Red <- ggplot(AF_Gambier_Red_ok, aes(x=AF_Gambier_Red)) + 
+  geom_histogram(bins = 30, color="black", fill="red") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific red SNPs in Gambier",
+                 "\n",
+                 "only for the red phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Gambier_Red), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Gambier_Red_specific.png", width = 15, height = 10)
+
+
+
+
+dat <- read.table("AF_yellow_specific.txt", header=T)
+head(dat)
+
+# For Yellow Specific SNPs:
+
+#########################################################
+### yellow
+#########################################################
+AF_Hatchery_Yellow_ok <- subset(dat, AF_Hatchery_Yellow <=1)
+
+gg_AF_Hatchery_Yellow <- ggplot(AF_Hatchery_Yellow_ok, aes(x=AF_Hatchery_Yellow)) + 
+  geom_histogram(bins = 30, color="black", fill="yellow") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific yellow SNPs in Hatchery",
+                 "\n",
+                 "only for the yellow phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Hatchery_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Hatchery_Yellow_specific.png", width = 15, height = 10)
+
+
+AF_Takapoto_Yellow_ok <- subset(dat, AF_Takapoto_Yellow <=1)
+
+gg_AF_Takapoto_Yellow <- ggplot(AF_Takapoto_Yellow_ok, aes(x=AF_Takapoto_Yellow)) + 
+  geom_histogram(bins = 30, color="black", fill="yellow") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific yellow SNPs in Takapoto",
+                 "\n",
+                 "only for the yellow phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Takapoto_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Takapoto_Yellow_specific.png", width = 15, height = 10)
+
+
+AF_Katiu_Yellow_ok <- subset(dat, AF_Katiu_Yellow <=1)
+
+gg_AF_Katiu_Yellow <- ggplot(AF_Katiu_Yellow_ok, aes(x=AF_Katiu_Yellow)) + 
+  geom_histogram(bins = 30, color="black", fill="yellow") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific yellow SNPs in Katiu",
+                 "\n",
+                 "only for the yellow phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Katiu_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))			  
+			  
+ggsave("gg_AF_Katiu_Yellow_specific.png", width = 15, height = 10)
+
+
+AF_Gambier_Yellow_ok <- subset(dat, AF_Gambier_Yellow <=1)
+
+gg_AF_Gambier_Yellow <- ggplot(AF_Gambier_Yellow_ok, aes(x=AF_Gambier_Yellow)) + 
+  geom_histogram(bins = 30, color="black", fill="yellow") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific yellow SNPs in Gambier",
+                 "\n",
+                 "only for the yellow phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Gambier_Yellow), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Gambier_Yellow_specific.png", width = 15, height = 10)
+
+
+
+
+
+dat <- read.table("AF_green_specific.txt", header=T)
+head(dat)
+
+# For Green Specific SNPs:
+
+#########################################################
+### green
+#########################################################
+AF_Hatchery_Green_ok <- subset(dat, AF_Hatchery_Green <=1)
+
+gg_AF_Hatchery_Green <- ggplot(AF_Hatchery_Green_ok, aes(x=AF_Hatchery_Green)) + 
+  geom_histogram(bins = 30, color="black", fill="green") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific green SNPs in Hatchery",
+                 "\n",
+                 "only for the green phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Hatchery_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Hatchery_Green_specific.png", width = 15, height = 10)
+
+
+AF_Takapoto_Green_ok <- subset(dat, AF_Takapoto_Green <=1)
+
+gg_AF_Takapoto_Green <- ggplot(AF_Takapoto_Green_ok, aes(x=AF_Takapoto_Green)) + 
+  geom_histogram(bins = 30, color="black", fill="green") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific green SNPs in Takapoto",
+                 "\n",
+                 "only for the green phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Takapoto_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Takapoto_Green_specific.png", width = 15, height = 10)
+
+
+AF_Katiu_Green_ok <- subset(dat, AF_Katiu_Green <=1)
+
+gg_AF_Katiu_Green <- ggplot(AF_Katiu_Green_ok, aes(x=AF_Katiu_Green)) + 
+  geom_histogram(bins = 30, color="black", fill="green") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific green SNPs in Katiu",
+                 "\n",
+                 "only for the green phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Katiu_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))			  
+			  
+ggsave("gg_AF_Katiu_Green_specific.png", width = 15, height = 10)
+
+
+AF_Gambier_Green_ok <- subset(dat, AF_Gambier_Green <=1)
+
+gg_AF_Gambier_Green <- ggplot(AF_Gambier_Green_ok, aes(x=AF_Gambier_Green)) + 
+  geom_histogram(bins = 30, color="black", fill="green") +
+  
+  theme(plot.title = element_text(size=8)) +
+  ylim(0,700) +
+  ggtitle(paste0("Allelic frequencies of the specific green SNPs in Gambier",
+                 "\n",
+                 "only for the green phenotype",
+                 "\n",
+                 "Total: ", length(dat$AF_Gambier_Green), " SNPs")) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        legend.key = element_rect(fill = "transparent", colour = "transparent"))
+ggsave("gg_AF_Gambier_Green_specific.png", width = 15, height = 10)
