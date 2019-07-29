@@ -3,6 +3,7 @@
 setwd("/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/07_01_vcf_files_modified")
 
 library("yarrr")
+library("tidyr") 
 
 data <- read.table("AF_pool10ER.txt", skip=1)
 datb <- read.table("AF_pool11EJ.txt", skip=1)
