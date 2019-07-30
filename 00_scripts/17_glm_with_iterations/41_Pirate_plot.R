@@ -27,7 +27,11 @@ str(dat)
 dat3 <- gather(dat)
 head(dat3)
 
-pdf(file = "pirateplot.pdf", width = 15, height = 6, pointsize = 10)
+kruskal.test(key ~ value, data = dat3) 
+
+pairwise.wilcox.test(dat3$value, dat3$key, p.adjust.method = "BH")
+
+pdf(file = "pirateplot.pdf", width = 15, height = 6)
 
 pirateplot(formula = value ~ key,
            data = dat3,
@@ -38,6 +42,4 @@ pirateplot(formula = value ~ key,
            
 dev.off()
 
-kruskal.test(key ~ value, data = dat3) 
 
-pairwise.wilcox.test(dat3$value, dat3$key, p.adjust.method = "BH")
