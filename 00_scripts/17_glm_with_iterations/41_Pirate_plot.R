@@ -37,7 +37,9 @@ library("tidyr")
 
 load("pirate_plot_1.rda")
 
-Takapoto_R <- dat3[ which(key=='Takapoto_R'),]
+head(dat3)
+
+Takapoto_R <- dat3[ which(dat3$key=='Takapoto_R'),]
 
 head(Takapoto_R)
 
@@ -73,7 +75,7 @@ pirateplot(formula = value ~ key,
 dev.off()
 
 
-Takapoto_R <- dat3[ which(key=='Katiu_R'),]
+Takapoto_R <- dat3[ which(dat3$key=='Katiu_R'),]
 
 pdf(file = "Katiu_R_pirateplot.pdf", width = 4, height = 16)
 
