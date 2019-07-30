@@ -31,15 +31,21 @@ kruskal.test(key ~ value, data = dat3)
 
 pairwise.wilcox.test(dat3$value, dat3$key, p.adjust.method = "BH")
 
-pdf(file = "pirateplot.pdf", width = 15, height = 6)
+save(dat3, file = "pirate_plot_1.rda")
 
-pirateplot(formula = value ~ key,
+#pdf(file = "pirateplot.pdf", width = 15, height = 6)
+
+lunch_plot <- pirateplot(formula = value ~ key,
            data = dat3,
            xlab = "Populations",
            ylab = "Allelic frequencies",
            pal = c("red", "red","red", "red","yellow", "yellow","yellow", "yellow","forestgreen", "forestgreen","forestgreen", "forestgreen"),
            sortx = "sequential")
+
+save(lunch_plot, file = "pirate_plot_2.rda")
+
+lunch_plot
            
-dev.off()
+#dev.off()
 
 
