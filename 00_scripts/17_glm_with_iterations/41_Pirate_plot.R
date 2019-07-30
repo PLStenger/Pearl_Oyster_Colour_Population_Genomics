@@ -70,7 +70,7 @@ pirateplot(formula = value ~ key,
            #point.bg = "black",
            point.col = "black",
            point.cex = .1)
-		 )
+		 
            
 dev.off()
 
@@ -104,7 +104,7 @@ pirateplot(formula = value ~ key,
            #point.bg = "black",
            point.col = "black",
            point.cex = .1)
-		 )
+		 
            
 dev.off()
 
