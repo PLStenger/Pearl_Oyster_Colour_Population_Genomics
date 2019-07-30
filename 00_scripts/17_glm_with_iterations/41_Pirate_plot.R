@@ -75,7 +75,7 @@ pirateplot(formula = value ~ key,
 dev.off()
 
 
-Takapoto_R <- dat3[ which(dat3$key=='Katiu_R'),]
+Katiu_R <- dat3[ which(dat3$key=='Katiu_R'),]
 
 pdf(file = "Katiu_R_pirateplot.pdf", width = 4, height = 16)
 
@@ -108,4 +108,349 @@ pirateplot(formula = value ~ key,
            
 dev.off()
 
+
+Gambier_R <- dat3[ which(dat3$key=='Gambier_R'),]
+
+pdf(file = "Gambier_R_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Gambier_R,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+
+Hatchery_R <- dat3[ which(dat3$key=='Hatchery_R'),]
+
+pdf(file = "Hatchery_R_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Hatchery_R,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+Takapoto_G <- dat3[ which(dat3$key=='Takapoto_G'),]
+
+head(Takapoto_G)
+
+pdf(file = "Takapoto_G_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Takapoto_G,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+Katiu_G <- dat3[ which(dat3$key=='Katiu_G'),]
+
+pdf(file = "Katiu_G_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Katiu_G,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+Gambier_G <- dat3[ which(dat3$key=='Gambier_G'),]
+
+pdf(file = "Gambier_G_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Gambier_G,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+
+Hatchery_G <- dat3[ which(dat3$key=='Hatchery_G'),]
+
+pdf(file = "Hatchery_G_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Hatchery_G,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+Takapoto_Y <- dat3[ which(dat3$key=='Takapoto_Y'),]
+
+head(Takapoto_Y)
+
+pdf(file = "Takapoto_Y_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Takapoto_Y,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+Katiu_Y <- dat3[ which(dat3$key=='Katiu_Y'),]
+
+pdf(file = "Katiu_Y_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Katiu_Y,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+Gambier_Y <- dat3[ which(dat3$key=='Gambier_Y'),]
+
+pdf(file = "Gambier_Y_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Gambier_Y,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
+
+
+
+Hatchery_Y <- dat3[ which(dat3$key=='Hatchery_Y'),]
+
+pdf(file = "Hatchery_Y_pirateplot.pdf", width = 4, height = 16)
+
+pirateplot(formula = value ~ key,
+           data = Hatchery_Y,
+           xlab = "Populations",
+           ylab = "Allelic frequencies",
+           pal = c("red"),
+           theme = 0,
+           #pal = "southpark", # southpark color palette
+           bean.f.o = .6, # Bean fill
+           bean.b.o = .9, 
+           bean.b.col = "black",
+           point.o = .3, # Points
+           inf.f.o = .7, # Inference fill
+           inf.b.o = .8, # Inference border
+           avg.line.o = 0.8, # Average line
+           bar.f.o = .5, # Bar
+           inf.f.col = "white", # Inf fill col
+           #inf.f.col = "black", # Inf fill col
+           inf.b.col = "black", # Inf border col
+           avg.line.col = "black", # avg line col
+           bar.f.col = gray(1), # bar filling color
+           point.pch = 21,
+           point.bg = "white",
+           #point.bg = "black",
+           point.col = "black",
+           point.cex = .1)
+		 
+           
+dev.off()
 
