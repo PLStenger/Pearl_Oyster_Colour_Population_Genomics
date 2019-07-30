@@ -16,4 +16,4 @@ source activate /home1/datawork/plstenge/96_env_conda/glm
 
 SCRIPT_R=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/17_glm_with_iterations/41_Pirate_plot.R
 
-Rscript --vanilla $SCRIPT_R >&1 ${SCRIPT_FOLDER}/41_Pirate_plot.out
+Rscript --vanilla $SCRIPT_R >& ${SCRIPT_FOLDER}/41_Pirate_plot.out
