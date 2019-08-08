@@ -9,12 +9,15 @@ DBNAME=sspace.final.scaffolds.fasta
 
 cd $DATADIRECTORY
 
-for FILE in $(ls $DATADIRECTORY/*.vcf)
+#for FILE in $(ls $DATADIRECTORY/*.vcf)
+for FILE in $(ls $DATADIRECTORY/*P_0_000000001.txt.vcf_SNPEff.vcf)
+
 do
 
-java -jar $SNPEFF/SnpSift.jar extractFields $DATADIRECTORY/${FILE##*/} CHROM POS REF ALT "ANN[0].EFFECT" "ANN[*].HGVS" > $DATADIRECTORY/${FILE##*/}_SnpSift.txt
+#java -jar $SNPEFF/SnpSift.jar extractFields $DATADIRECTORY/${FILE##*/} CHROM POS REF ALT "ANN[0].EFFECT" "ANN[*].HGVS" > $DATADIRECTORY/${FILE##*/}_SnpSift.txt
+java -jar $SNPEFF/SnpSift.jar extractFields $DATADIRECTORY/${FILE##*/} CHROM POS REF ALT "ANN[*].HGVS_P"> $DATADIRECTORY/${FILE##*/}_SnpSift_aa.txt
 
-awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5}' $DATADIRECTORY/${FILE##*/}_SnpSift.txt > $DATADIRECTORY/${FILE##*/}_SnpSift_OK.txt
+awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5}' $DATADIRECTORY/${FILE##*/}_SnpSift_aa.txt > $DATADIRECTORY/${FILE##*/}_SnpSift_OK_aa.txt
 
 done ;
 
