@@ -15,4 +15,4 @@ $BEDTOOLS_ENV
 
 cd $DATADIRECTORY
 
-bedtools getfasta -fi $GENOME_FASTA -bed $GFF -split > $DATADIRECTORY/GCF_000222465.1_Adig_1.1_genomicMOD.fasta
+bedtools getfasta -fi $GENOME_FASTA -bed $GFF -split -name > $DATADIRECTORY/GCF_000222465.1_Adig_1.1_genomicMOD_named.fasta
