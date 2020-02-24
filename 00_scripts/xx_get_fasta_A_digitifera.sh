@@ -6,7 +6,7 @@
 DATADIRECTORY=/home1/datahome/plstenge/A_digitifera
 GENOME_FASTA=/home1/datahome/plstenge/A_digitifera/GCF_000222465.1_Adig_1.1_genomic_database_06_col1.fna
 #GFF=/home1/datahome/plstenge/A_digitifera/GCF_000222465.1_Adig_1.1_genomicMOD_02.gtf
-GFF=/home1/datahome/plstenge/A_digitifera/GCF_000222465.1_Adig_1.1_genomic.gtf
+GFF=/home1/datahome/plstenge/A_digitifera/GCF_000222465.1_Adig_1.1_genomic_02.gtf
 
 # https://bedtools.readthedocs.io/en/latest/content/tools/getfasta.html
 
