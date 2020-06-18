@@ -28,15 +28,21 @@ cd $DATADIRECTORY
 
 
 
-plotHeatmap -m FC_C1vsA1_down.mat.gz -out FC_C1vsA1_down.mat.gz.pdf
-plotHeatmap -m FC_C1vsA3_down.mat.gz -out FC_C1vsA3_down.mat.gz.pdf
-plotHeatmap -m FC_C1vsC3_down.mat.gz -out FC_C1vsC3_down.mat.gz.pdf
-plotHeatmap -m FC_C3vsA3_down.mat.gz -out FC_C3vsA3_down.mat.gz.pdf
-plotHeatmap -m FC_C1vsA1_up.mat.gz -out FC_C1vsA1_up.mat.gz.pdf
-plotHeatmap -m FC_C1vsA3_up.mat.gz -out FC_C1vsA3_up.mat.gz.pdf
-plotHeatmap -m FC_C1vsC3_up.mat.gz -out FC_C1vsC3_up.mat.gz.pdf
-plotHeatmap -m FC_C3vsA3_up.mat.gz -out FC_C3vsA3_up.mat.gz.pdf
+#plotHeatmap -m FC_C1vsA1_down.mat.gz -out FC_C1vsA1_down.mat.gz.pdf
+#plotHeatmap -m FC_C1vsA3_down.mat.gz -out FC_C1vsA3_down.mat.gz.pdf
+#plotHeatmap -m FC_C1vsC3_down.mat.gz -out FC_C1vsC3_down.mat.gz.pdf
+#plotHeatmap -m FC_C3vsA3_down.mat.gz -out FC_C3vsA3_down.mat.gz.pdf
+#plotHeatmap -m FC_C1vsA1_up.mat.gz -out FC_C1vsA1_up.mat.gz.pdf
+#plotHeatmap -m FC_C1vsA3_up.mat.gz -out FC_C1vsA3_up.mat.gz.pdf
+#plotHeatmap -m FC_C1vsC3_up.mat.gz -out FC_C1vsC3_up.mat.gz.pdf
+#plotHeatmap -m FC_C3vsA3_up.mat.gz -out FC_C3vsA3_up.mat.gz.pdf
 
-
+plotHeatmap -m FC_A1vsA3_down.mat.gz \
+     -out FC_A1vsA3_down.mat.gz_k_means_04.pdf \
+     --colorMap RdBu \
+     --whatToShow 'plot, heatmap and colorbar' \
+     --zMin -3 --zMax 3 \
+     --kmeans 4 \
+     --outFileSortedRegions FC_A1vsA3_down_k_means_04.bed
 
 
