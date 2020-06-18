@@ -14,23 +14,18 @@ source activate $DATAWORK/96_env_conda/deeptools
 cd $DATADIRECTORY
 
 
-plotHeatmap -m FC_A1vsA3_down.mat.gz \
-     -out FC_A1vsA3_down_kmeans_05.mat.gz.pdf \
-     --colorMap RdBu \
-     --whatToShow 'plot, heatmap and colorbar' \
-     --zMin -3 --zMax 3 \
-     --kmeans 5
+#plotHeatmap -m FC_A1vsA3_down.mat.gz \
+#     -out FC_A1vsA3_down_kmeans_05.mat.gz.pdf \
+#     --colorMap RdBu \
+#     --whatToShow 'plot, heatmap and colorbar' \
+#     --zMin -3 --zMax 3 \
+#     --kmeans 5
      
-     plotHeatmap -m FC_A1vsA3_down.mat.gz \
-     -out FC_A1vsA3_down_kmeans_06.mat.gz.pdf \
-     --colorMap RdBu \
-     --whatToShow 'plot, heatmap and colorbar' \
-     --zMin -3 --zMax 3 \
-     --kmeans 6
+
 
      plotHeatmap -m FC_A1vsA3_down.mat.gz \
      -out FC_A1vsA3_down_hclust.mat.gz.pdf \
      --colorMap RdBu \
      --whatToShow 'plot, heatmap and colorbar' \
      --zMin -3 --zMax 3 \
-     --hclust
+     --hclust 4
