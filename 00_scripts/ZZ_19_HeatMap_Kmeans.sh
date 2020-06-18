@@ -17,6 +17,6 @@ cd $DATADIRECTORY
 plotHeatmap -m FC_A1vsA3_down.mat.gz \
      -out FC_A1vsA3_down_kmeans_04.mat.gz.pdf \
      --colorMap RdBu \
-     --whatToShow 'heatmap and colorbar' \
+     --whatToShow 'plot, heatmap and colorbar' \
      --zMin -3 --zMax 3 \
      --kmeans 4
