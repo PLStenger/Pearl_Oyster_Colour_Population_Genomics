@@ -17,7 +17,7 @@ cd $DATADIRECTORY
 for FILE in $(ls $DATADIRECTORY/*_R1_paired_bismark_bt2_pe.deduplicated.bam_sorted.bam.bw)
 do
 
-computeMatrix scale-regions -S $FILE -R FC_A1vsA3_down.bed --beforeRegionStartLength 3000 --regionBodyLength 5000 --afterRegionStartLength 3000 -o ${FILE##*/}_All_genes_matrix.mat.gz ;
+computeMatrix scale-regions -S $FILE -R real_gene_lenght_32469_all_exons_introns_02.bed --beforeRegionStartLength 3000 --regionBodyLength 5000 --afterRegionStartLength 3000 -o ${FILE##*/}_All_genes_matrix.mat.gz ;
 plotHeatmap -m ${FILE##*/}_All_genes_matrix.mat.gz -out ${FILE##*/}_All_genes_matrix.mat.gz.pdf
 
 done ;
