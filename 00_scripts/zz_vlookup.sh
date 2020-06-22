@@ -15,6 +15,18 @@ cd /home1/scratch/plstenge/genome
 #    print
 #}' selected_snp_for_validation.txt sspace.final.scaffolds_database.txt > selected_snp_for_validation_with_sequences.txt
 
+#awk '
+#    # { sub(/\r$/,"") }    # uncomment to remove Windows style line-endings.
+#    NR==FNR{a[$1]          # hash $1 of genes file to a
+#    next
+#}
+#($1 in a) {                # lookup from transcriptome
+#    print
+#}' 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_upstream_02.gff 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_02.gff > 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_MATCH_w_upstream.txt
+
+
+for FILE in $(ls $DATADIRECTORY/*_cpg_count.txt_no_first_line_rearranged5.txt)
+do
 
 awk '
     # { sub(/\r$/,"") }    # uncomment to remove Windows style line-endings.
@@ -23,4 +35,9 @@ awk '
 }
 ($1 in a) {                # lookup from transcriptome
     print
-}' 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_upstream_02.gff 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_02.gff > 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_MATCH_w_upstream.txt
+}' ${FILE##*/}_EVM_combined_gene_upstream_02.gff ${FILE##*/}_EVM_combined_gene_02.gff > ${FILE##*/}_EVM_combined_gene_MATCH_w_upstream.txt
+
+
+done ;
+
+
