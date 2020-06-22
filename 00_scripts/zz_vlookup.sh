@@ -23,4 +23,4 @@ awk '
 }
 ($1 in a) {                # lookup from transcriptome
     print
-}' 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_upstream.gff 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene.gff > 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_MATCH_w_upstream.txt
+}' 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_upstream_02.gff 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_02.gff > 3-V-620_cpg_count.txt_no_first_line_rearranged5.txt_EVM_combined_gene_MATCH_w_upstream.txt
