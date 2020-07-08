@@ -23,18 +23,18 @@ cd $DATADIRECTORY
 
 
 
-#for SELECTION in $(ls $DATADIRECTORY/CpG_*.bed)
-#do
+for SELECTION in $(ls $DATADIRECTORY/CpG_*.bed)
+do
 
-#for FILE in $(ls $DATADIRECTORY/*.bam_sorted.bam.bw)
-#do
+for FILE in $(ls $DATADIRECTORY/*.bam_sorted.bam.bw)
+do
 
-#computeMatrix scale-regions -S ${FILE##*/} -R ${SELECTION##*/} --beforeRegionStartLength 3000 --regionBodyLength 5000 --afterRegionStartLength 3000 -o ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz
+computeMatrix scale-regions -S ${FILE##*/} -R ${SELECTION##*/} --beforeRegionStartLength 3000 --regionBodyLength 5000 --afterRegionStartLength 3000 -o ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz
 
-#plotHeatmap -m ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz -out ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz.pdf 
+plotHeatmap -m ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz -out ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz.pdf 
 
-#done ;
-#done ;
+done ;
+done ;
 
 
 ################################################################################################################################################################
