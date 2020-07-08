@@ -5,7 +5,7 @@
 
 
 DATADIRECTORY=/home1/scratch/plstenge/A_digitifera
-BW_DIRECTORY=/home1/datawork/plstenge/A_digitifera
+#BW_DIRECTORY=/home1/datawork/plstenge/A_digitifera
 
 cd $DATADIRECTORY
 
@@ -26,7 +26,7 @@ cd $DATADIRECTORY
 for SELECTION in $(ls $DATADIRECTORY/CpG_*.bed)
 do
 
-for FILE in $(ls $BW_DIRECTORY/*.bam_sorted.bam.bw)
+for FILE in $(ls $DATADIRECTORY/*.bam_sorted.bam.bw)
 do
 
 computeMatrix scale-regions -S ${FILE##*/} -R ${SELECTION##*/} --beforeRegionStartLength 3000 --regionBodyLength 5000 --afterRegionStartLength 3000 -o ${FILE##*/}_${SELECTION##*/}_matrix.mat.gz
