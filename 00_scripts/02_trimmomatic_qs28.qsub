@@ -7,13 +7,15 @@
 # Header
 DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
 DATAOUTPUT=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
-SCRIPT=$0
-HEADER=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
+#SCRIPT=$0
+#HEADER=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 TRIMMOMATICENV=". /appli/bioinfo/trimmomatic/latest/env.sh"
-TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
-NAME=$(basename $0)
+#TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
+#NAME=$(basename $0)
 
-cd $PBS_O_WORKDIR
+#cd $PBS_O_WORKDIR
+
+cd $DATADIRECTORY
 
 # Global variables
 
@@ -21,7 +23,7 @@ cd $PBS_O_WORKDIR
 #>Illumina_TruSeq_LT_R2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 ADAPTERFILE=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/adapters.fasta
 NCPU=8
-base=__BASE__
+#base=__BASE__
 
 #Getting fastq files names
 #FILE_R1=$(ls *_R1.fastq.gz)
@@ -30,25 +32,206 @@ base=__BASE__
 
 $TRIMMOMATICENV
 
-cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
+#cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
 #for file in $(ls $DATADIRECTORY/*.fastq.gz) :
 #do
 
+#trimmomatic PE -Xmx60G \
+#        -threads 8 \
+#        -phred33 \
+#        $DATADIRECTORY/"$base"_R1.fastq.gz \
+#        $DATADIRECTORY/"$base"_R2.fastq.gz \
+#        $DATAOUTPUT/"$base"_R1.paired.fastq.gz \
+#        $DATAOUTPUT/"$base"_R1.single.fastq.gz \
+#        $DATAOUTPUT/"$base"_R2.paired.fastq.gz \
+#        $DATAOUTPUT/"$base"_R2.single.fastq.gz \
+#        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+#        LEADING:26 \
+#        TRAILING:26 \
+#        SLIDINGWINDOW:24:26 \
+#        MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"
+	
+#done
 
 trimmomatic PE -Xmx60G \
         -threads 8 \
         -phred33 \
-        $DATADIRECTORY/"$base"_R1.fastq.gz \
-        $DATADIRECTORY/"$base"_R2.fastq.gz \
-        $DATAOUTPUT/"$base"_R1.paired.fastq.gz \
-        $DATAOUTPUT/"$base"_R1.single.fastq.gz \
-        $DATAOUTPUT/"$base"_R2.paired.fastq.gz \
-        $DATAOUTPUT/"$base"_R2.single.fastq.gz \
+        $DATADIRECTORY/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.fastq.gz \
+        $DATADIRECTORY/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.fastq.gz \
+        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
         LEADING:26 \
         TRAILING:26 \
         SLIDINGWINDOW:24:26 \
-        MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"
-	
-#done
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4499.007.NS_Adaptor_15.pool7KR_R1.fastq.gz \
+        $DATADIRECTORY/HI.4499.007.NS_Adaptor_15.pool7KR_R2.fastq.gz \
+        $DATAOUTPUT/HI.4499.007.NS_Adaptor_15.pool7KR_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4499.007.NS_Adaptor_15.pool7KR_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4499.007.NS_Adaptor_15.pool7KR_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4499.007.NS_Adaptor_15.pool7KR_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4499.008.NS_Adaptor_14.pool6GV_R1.fastq.gz \
+        $DATADIRECTORY/HI.4499.008.NS_Adaptor_14.pool6GV_R2.fastq.gz \
+        $DATAOUTPUT/HI.4499.008.NS_Adaptor_14.pool6GV_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4499.008.NS_Adaptor_14.pool6GV_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4499.008.NS_Adaptor_14.pool6GV_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4499.008.NS_Adaptor_14.pool6GV_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4506.001.NS_Adaptor_13.pool5GJ_R1.fastq.gz \
+        $DATADIRECTORY/HI.4506.001.NS_Adaptor_13.pool5GJ_R2.fastq.gz \
+        $DATAOUTPUT/HI.4506.001.NS_Adaptor_13.pool5GJ_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.001.NS_Adaptor_13.pool5GJ_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4506.001.NS_Adaptor_13.pool5GJ_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.001.NS_Adaptor_13.pool5GJ_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4506.002.NS_Adaptor_12.pool4GR_R1.fastq.gz \
+        $DATADIRECTORY/HI.4506.002.NS_Adaptor_12.pool4GR_R2.fastq.gz \
+        $DATAOUTPUT/HI.4506.002.NS_Adaptor_12.pool4GR_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.002.NS_Adaptor_12.pool4GR_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4506.002.NS_Adaptor_12.pool4GR_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.002.NS_Adaptor_12.pool4GR_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4506.003.NS_Adaptor_11.pool3TV_R1.fastq.gz \
+        $DATADIRECTORY/HI.4506.003.NS_Adaptor_11.pool3TV_R2.fastq.gz \
+        $DATAOUTPUT/HI.4506.003.NS_Adaptor_11.pool3TV_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.003.NS_Adaptor_11.pool3TV_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4506.003.NS_Adaptor_11.pool3TV_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.003.NS_Adaptor_11.pool3TV_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4506.004.NS_Adaptor_10.pool2TJ_R1.fastq.gz \
+        $DATADIRECTORY/HI.4506.004.NS_Adaptor_10.pool2TJ_R2.fastq.gz \
+        $DATAOUTPUT/HI.4506.004.NS_Adaptor_10.pool2TJ_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.004.NS_Adaptor_10.pool2TJ_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4506.004.NS_Adaptor_10.pool2TJ_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.004.NS_Adaptor_10.pool2TJ_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4506.005.NS_Adaptor_9.pool1TR_R1.fastq.gz \
+        $DATADIRECTORY/HI.4506.005.NS_Adaptor_9.pool1TR_R2.fastq.gz \
+        $DATAOUTPUT/HI.4506.005.NS_Adaptor_9.pool1TR_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.005.NS_Adaptor_9.pool1TR_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4506.005.NS_Adaptor_9.pool1TR_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4506.005.NS_Adaptor_9.pool1TR_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4527.004.NS_Adaptor_20.pool12EV_R1.fastq.gz \
+        $DATADIRECTORY/HI.4527.004.NS_Adaptor_20.pool12EV_R2.fastq.gz \
+        $DATAOUTPUT/HI.4527.004.NS_Adaptor_20.pool12EV_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.004.NS_Adaptor_20.pool12EV_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4527.004.NS_Adaptor_20.pool12EV_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.004.NS_Adaptor_20.pool12EV_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4527.005.NS_Adaptor_19.pool11EJ_R1.fastq.gz \
+        $DATADIRECTORY/HI.4527.005.NS_Adaptor_19.pool11EJ_R2.fastq.gz \
+        $DATAOUTPUT/HI.4527.005.NS_Adaptor_19.pool11EJ_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.005.NS_Adaptor_19.pool11EJ_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4527.005.NS_Adaptor_19.pool11EJ_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.005.NS_Adaptor_19.pool11EJ_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4527.006.NS_Adaptor_18.pool10ER_R1.fastq.gz \
+        $DATADIRECTORY/HI.4527.006.NS_Adaptor_18.pool10ER_R2.fastq.gz \
+        $DATAOUTPUT/HI.4527.006.NS_Adaptor_18.pool10ER_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.006.NS_Adaptor_18.pool10ER_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4527.006.NS_Adaptor_18.pool10ER_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.006.NS_Adaptor_18.pool10ER_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+trimmomatic PE -Xmx60G \
+        -threads 8 \
+        -phred33 \
+        $DATADIRECTORY/HI.4527.007.NS_Adaptor_17.pool9KV_R1.fastq.gz \
+        $DATADIRECTORY/HI.4527.007.NS_Adaptor_17.pool9KV_R2.fastq.gz \
+        $DATAOUTPUT/HI.4527.007.NS_Adaptor_17.pool9KV_R1.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.007.NS_Adaptor_17.pool9KV_R1.single.fastq.gz \
+        $DATAOUTPUT/HI.4527.007.NS_Adaptor_17.pool9KV_R2.paired.fastq.gz \
+        $DATAOUTPUT/HI.4527.007.NS_Adaptor_17.pool9KV_R2.single.fastq.gz \
+        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40
+
+
