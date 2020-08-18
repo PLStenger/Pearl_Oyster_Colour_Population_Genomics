@@ -7,11 +7,11 @@
 # Header
 DATADIRECTORY=/home/ref-bioinfo/ifremer/rmpf/Pmarg_color_WGS_2018/data/dna-sequence-raw
 DATAOUTPUT=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/03_trimmed
-#SCRIPT=$0
-#HEADER=/home2/datahome/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
+SCRIPT=$0
+HEADER=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/header.txt
 TRIMMOMATICENV=". /appli/bioinfo/trimmomatic/latest/env.sh"
-#TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
-#NAME=$(basename $0)
+TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
+NAME=$(basename $0)
 
 cd $PBS_O_WORKDIR
 
@@ -21,35 +21,34 @@ cd $PBS_O_WORKDIR
 #>Illumina_TruSeq_LT_R2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 ADAPTERFILE=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/00_scripts/adapters.fasta
 NCPU=8
-#base=__BASE__
+base=__BASE__
 
 #Getting fastq files names
 #FILE_R1=$(ls *_R1.fastq.gz)
 #FILE_R2=$(ls *_R2.fastq.gz)
 
-cd $DATADIRECTORY
 
 $TRIMMOMATICENV
 
-#cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
+cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
-for file in $(ls $DATADIRECTORY/*.fastq.gz) :
-do
+#for file in $(ls $DATADIRECTORY/*.fastq.gz) :
+#do
 
 
 trimmomatic PE -Xmx60G \
         -threads 8 \
         -phred33 \
-        $DATADIRECTORY/"$file"_R1.fastq.gz \
-        $DATADIRECTORY/"$file"_R2.fastq.gz \
-        $DATAOUTPUT/"$file"_R1.paired.fastq.gz \
-        $DATAOUTPUT/"$file"_R1.single.fastq.gz \
-        $DATAOUTPUT/"$file"_R2.paired.fastq.gz \
-        $DATAOUTPUT/"$file"_R2.single.fastq.gz \
+        $DATADIRECTORY/"$base"_R1.fastq.gz \
+        $DATADIRECTORY/"$base"_R2.fastq.gz \
+        $DATAOUTPUT/"$base"_R1.paired.fastq.gz \
+        $DATAOUTPUT/"$base"_R1.single.fastq.gz \
+        $DATAOUTPUT/"$base"_R2.paired.fastq.gz \
+        $DATAOUTPUT/"$base"_R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
-        LEADING:28 \
-        TRAILING:28 \
-        SLIDINGWINDOW:24:28 \
-        MINLEN:40 #2> log.trimmomatic.pe."$TIMESTAMP"
+        LEADING:26 \
+        TRAILING:26 \
+        SLIDINGWINDOW:24:26 \
+        MINLEN:40 2> $LOG_FOLDER/log.trimmomatic.pe."$TIMESTAMP"
 	
-done
+#done
