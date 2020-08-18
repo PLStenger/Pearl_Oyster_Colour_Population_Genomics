@@ -40,12 +40,12 @@ do
 trimmomatic PE -Xmx60G \
         -threads 8 \
         -phred33 \
-        $DATADIRECTORY/"$base"_R1.fastq.gz \
-        $DATADIRECTORY/"$base"_R2.fastq.gz \
-        $DATAOUTPUT/"$base"_R1.paired.fastq.gz \
-        $DATAOUTPUT/"$base"_R1.single.fastq.gz \
-        $DATAOUTPUT/"$base"_R2.paired.fastq.gz \
-        $DATAOUTPUT/"$base"_R2.single.fastq.gz \
+        $DATADIRECTORY/"$file"_R1.fastq.gz \
+        $DATADIRECTORY/"$file"_R2.fastq.gz \
+        $DATAOUTPUT/"$file"_R1.paired.fastq.gz \
+        $DATAOUTPUT/"$file"_R1.single.fastq.gz \
+        $DATAOUTPUT/"$file"_R2.paired.fastq.gz \
+        $DATAOUTPUT/"$file"_R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
         LEADING:28 \
         TRAILING:28 \
