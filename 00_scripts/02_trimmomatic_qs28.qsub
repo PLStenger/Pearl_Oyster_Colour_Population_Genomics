@@ -54,20 +54,20 @@ $TRIMMOMATICENV
 	
 #done
 
-trimmomatic PE -Xmx60G \
-        -threads 8 \
-        -phred33 \
-        $DATADIRECTORY/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.fastq.gz \
-        $DATADIRECTORY/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.fastq.gz \
-        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.paired.fastq.gz \
-        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.single.fastq.gz \
-        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.paired.fastq.gz \
-        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.single.fastq.gz \
-        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
-        LEADING:26 \
-        TRAILING:26 \
-        SLIDINGWINDOW:24:26 \
-        MINLEN:40
+#trimmomatic PE -Xmx60G \
+#        -threads 8 \
+#        -phred33 \
+#        $DATADIRECTORY/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.fastq.gz \
+#        $DATADIRECTORY/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.fastq.gz \
+#        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.paired.fastq.gz \
+#        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R1.single.fastq.gz \
+#        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.paired.fastq.gz \
+#        $DATAOUTPUT/HI.4499.006.NS_Adaptor_16.pool8KJ_R2.single.fastq.gz \
+#        ILLUMINACLIP:"$ADAPTERFILE":2:30:10 \
+#        LEADING:26 \
+#        TRAILING:26 \
+#        SLIDINGWINDOW:24:26 \
+#        MINLEN:40
 
 trimmomatic PE -Xmx60G \
         -threads 8 \
