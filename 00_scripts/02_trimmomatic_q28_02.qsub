@@ -32,6 +32,9 @@ $TRIMMOMATICENV
 
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
+for base in $(ls $DATADIRECTORY/*.bam_sorted.bam.bw)
+do
+
 
 trimmomatic PE -Xmx60G \
         -threads 8 \
