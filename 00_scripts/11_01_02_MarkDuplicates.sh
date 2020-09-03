@@ -7,7 +7,7 @@ DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_02_filtered
 OUTDIR=/home2/scratch/plstenge/bam
 ASSEMBLY=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta
 TMP=/home2/scratch/plstenge/bam/tmp # Path for temporary files
-PICARD_TOOLS=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard/build/libs/picardcloud.jar#/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119 
+PICARD_TOOLS=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools/share/picard-2.18.14-0#/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119 
 SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
 GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
 
@@ -16,7 +16,7 @@ cd $DATA
 export PATH=$PATH:/appli/anaconda/2.7/bin
 #module load java/1.8.0_121
 #source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119
-#source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard
+source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools/share/picard-2.18.14-0
 
 # 1) Marking duplicates and removing them
 
@@ -28,7 +28,7 @@ module load java
 #module load java/1.8.0_121
 #time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 #time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
-java -jar ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard.jar MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 done;
 
 # 2) Supplementary step to prevent bug: sorting & indexing bam files
