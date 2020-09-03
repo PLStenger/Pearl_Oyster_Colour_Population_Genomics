@@ -27,7 +27,8 @@ do
 module load java
 #module load java/1.8.0_121
 #time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
-time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+#time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+java -jar ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 done;
 
 # 2) Supplementary step to prevent bug: sorting & indexing bam files
