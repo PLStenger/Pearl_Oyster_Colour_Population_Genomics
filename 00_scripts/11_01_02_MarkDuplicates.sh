@@ -22,6 +22,7 @@ for FILE in $(ls $DATA/*_sorted.bam)
 
 do
 # module load java
+module load java/1.8.0_121
 time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 done;
 
