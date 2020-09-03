@@ -16,7 +16,7 @@ cd $DATA
 export PATH=$PATH:/appli/anaconda/2.7/bin
 #module load java/1.8.0_121
 #source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119
-source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools/share/picard-2.18.14-0
+source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools
 
 # 1) Marking duplicates and removing them
 
@@ -24,7 +24,7 @@ cd $DATA
 for FILE in $(ls $DATA/*_sorted.bam)
 
 do
-module load java
+#module load java
 #module load java/1.8.0_121
 #time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
 #time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
