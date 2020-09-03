@@ -7,7 +7,7 @@ DATA=/home/datawork-rmpf/p_margaritifera/pl-pwgs/03_02_filtered
 OUTDIR=/home2/scratch/plstenge/bam
 ASSEMBLY=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta
 TMP=/home2/scratch/plstenge/bam/tmp # Path for temporary files
-PICARD_TOOLS=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools #2.18.14 but may be try 1.119 the next time
+PICARD_TOOLS=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119 
 SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
 GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
 
