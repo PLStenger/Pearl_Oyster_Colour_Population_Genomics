@@ -11,6 +11,8 @@ PICARD_TOOLS=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_too
 SAMTOOLS=". /appli/bioinfo/samtools/latest/env.sh" # samtools-1.4.1
 GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
 
+cd $DATA
+
 module load anaconda-py2.7/4.3.13
 module load java/1.8.0_121
 source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119
