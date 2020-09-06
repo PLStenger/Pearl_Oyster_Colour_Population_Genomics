@@ -15,33 +15,27 @@ GATK=". /appli/bioinfo/gatk/latest/env.sh" # version 4.0.2.1-0
 cd $DATA
 
 export PATH=$PATH:/appli/anaconda/2.7/bin
-#module load java/1.8.0_121
-#source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools-1.119
 source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_tools
 
 # 1) Marking duplicates and removing them
 
-cd $DATA
-for FILE in $(ls $DATA/*_sorted.bam)
+#cd $DATA
+#for FILE in $(ls $DATA/*_sorted.bam)
 
-do
-#module load java
-#module load java/1.8.0_121
-#time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/MarkDuplicates.jar I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
-#time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS} MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
-time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard.jar MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
-done;
+#do
+#time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard.jar MarkDuplicates I=${FILE##*/} O=${OUTDIR}/${FILE##*/}_MD.bam M=${OUTDIR}/${FILE##*/}_MD_metrics.txt ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=TRUE CREATE_INDEX=TRUE ;
+#done;
 
 # 2) Supplementary step to prevent bug: sorting & indexing bam files
-cd $OUTDIR
-$SAMTOOLS
+#cd $OUTDIR
+#$SAMTOOLS
 
-for FILE in $(ls $OUTDIR/*_MD.bam)
+#for FILE in $(ls $OUTDIR/*_MD.bam)
 
-do
-samtools sort ${FILE##*/} > ${FILE##*/}_sorted.bam ;
-samtools index ${FILE##*/}_sorted.bam  > ${FILE##*/}.bai  ;
-done;
+#do
+#samtools sort ${FILE##*/} > ${FILE##*/}_sorted.bam ;
+#samtools index ${FILE##*/}_sorted.bam  > ${FILE##*/}.bai  ;
+#done;
 
 # 3) Correctiong N cigar reads
 # This tool identifies all N cigar elements in sequence reads, and creates k+1 new reads 
@@ -56,7 +50,8 @@ $GATK
 for FILE in $(ls $OUTDIR/*_sorted.bam)
 
 do
-time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
+#time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
+time gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
 done;
 
 # 4) Told it's pooling data
@@ -84,7 +79,7 @@ for FILE in $(ls $OUTDIR/*_split.bam)
 do
 id=${FILE##*/}
 #id=${FILE%.*}
-time java -jar -Djava.io.TMPdir=$TMP ${PICARD_TOOLS}/AddOrReplaceReadGroups.jar I=${FILE##*/} O=${FILE##*/}_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
+time java -jar -Djava.io.TMPdir=$TMP ${PICARD_TOOLS}/picard.jar AddOrReplaceReadGroups.jar I=${FILE##*/} O=${FILE##*/}_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
 done;
 
 # 6) Indexing bam
