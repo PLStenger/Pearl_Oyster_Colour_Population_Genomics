@@ -53,12 +53,12 @@ time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard.jar CreateSequenceDi
 cd $OUTDIR
 $GATK
 
-for FILE in $(ls $OUTDIR/*_sorted.bam)
+#for FILE in $(ls $OUTDIR/*_sorted.bam)
 
-do
+#do
 #time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
-time gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
-done;
+#time gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
+#done;
 
 # 4) Told it's pooling data
 # En fait, étape uniquement dans Freebayes ?
@@ -79,26 +79,25 @@ done;
 # RGPM (String)	Read Group platform model Default value: null.
 
 
-cd $OUTDIR
-for FILE in $(ls $OUTDIR/*_split.bam)
+#cd $OUTDIR
+#for FILE in $(ls $OUTDIR/*_split.bam)
 
-do
-id=${FILE##*/}
-#id=${FILE%.*}
-time java -jar -Djava.io.TMPdir=$TMP ${PICARD_TOOLS}/picard.jar AddOrReplaceReadGroups.jar I=${FILE##*/} O=${FILE##*/}_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
-done;
+#do
+#id=${FILE##*/}
+#time java -jar -Djava.io.TMPdir=$TMP ${PICARD_TOOLS}/picard.jar AddOrReplaceReadGroups.jar I=${FILE##*/} O=${FILE##*/}_RG.bam RGID=${id} RGLB=${id} RGPL=illumina RGPU=${id} RGSM=${id}
+#done;
 
 # 6) Indexing bam
 
-cd $OUTDIR
-$SAMTOOLS
+#cd $OUTDIR
+#$SAMTOOLS
 
-for FILE in $(ls $OUTDIR/*_RG.bam)
+#for FILE in $(ls $OUTDIR/*_RG.bam)
 
-do
-samtools index ${FILE##*/} > ${FILE##*/}.bai ;
-samtools flagstat ${FILE##*/} > ${FILE##*/}.flagstat ;
-done;
+#do
+#samtools index ${FILE##*/} > ${FILE##*/}.bai ;
+#samtools flagstat ${FILE##*/} > ${FILE##*/}.flagstat ;
+#done;
 
 # 7) Removing int files
 # rm ${file%.*}_sorted_split.bam
