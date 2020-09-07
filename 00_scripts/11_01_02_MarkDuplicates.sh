@@ -47,7 +47,7 @@ source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_
 
 # Create the dictionnary
 #java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
-java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R= Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O= Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
+java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R= /home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O= /home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
 
 
 cd $OUTDIR
