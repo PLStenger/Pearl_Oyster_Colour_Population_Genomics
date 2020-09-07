@@ -48,7 +48,7 @@ cd $OUTDIR
 $GATK
 
 # Create the dictionnary
-java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
+java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary -R Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta -O Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
 
 for FILE in $(ls $OUTDIR/*_sorted.bam)
 
