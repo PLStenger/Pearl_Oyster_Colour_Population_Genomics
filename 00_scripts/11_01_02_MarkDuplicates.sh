@@ -44,11 +44,14 @@ source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_
 # The first read includes the bases that are to the left of the first N element, while the part of the read that is 
 # to the right of the N (including the Ns) is hard clipped, and so on for the rest of the new reads.
 
-cd $OUTDIR
-$GATK
 
 # Create the dictionnary
-java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary -R Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta -O Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
+#java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
+time java -jar -Djava.io.tmpdir=$TMP ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O=Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
+
+
+cd $OUTDIR
+$GATK
 
 for FILE in $(ls $OUTDIR/*_sorted.bam)
 
