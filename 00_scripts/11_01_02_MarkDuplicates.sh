@@ -55,8 +55,9 @@ $GATK
 for FILE in $(ls $OUTDIR/*_sorted.bam)
 
 do
-time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
+#time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
 #time gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
+gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
 done;
 
 # 4) Told it's pooling data
