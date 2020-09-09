@@ -49,16 +49,16 @@ source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/picard_
 #java -jar ${PICARD_TOOLS}/picard.jar CreateSequenceDictionary R= /home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta O= /home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.dict
 
 
-cd $OUTDIR
-$GATK
+#cd $OUTDIR
+#$GATK
 
-for FILE in $(ls $OUTDIR/*_sorted.bam)
+#for FILE in $(ls $OUTDIR/*_sorted.bam)
 
-do
+#do
 #time gatk SplitNCigarReads --TMP_DIR ${TMP} -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
 #time gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
-gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
-done;
+#gatk SplitNCigarReads -R $ASSEMBLY -I ${FILE##*/} -O ${FILE##*/}_split.bam ;
+#done;
 
 # 4) Told it's pooling data
 # En fait, étape uniquement dans Freebayes ?
@@ -80,7 +80,8 @@ done;
 
 
 cd $OUTDIR
-for FILE in $(ls $OUTDIR/*_split.bam)
+for FILE in $(ls $OUTDIR/*_sorted.bam)
+#for FILE in $(ls $OUTDIR/*_split.bam)
 
 do
 id=${FILE##*/}
