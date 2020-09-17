@@ -22,11 +22,11 @@
 
 # FB_ENV=/home1/datawork/plstenge/96_env_conda/freebayes # path to conda freebayes env if needed Version 1.2.0
 REF=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta # path to ref genome
-BAM=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes		#path to txt file containing list of filtered bam files (resulting from step 03)
+BAM=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes_02		#path to txt file containing list of filtered bam files (resulting from step 03)
 NCPU=56
 INDEX=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta.fai # path to ref genome index
 nAlleles=4
-OUTPUT=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/06_vcf
+OUTPUT=/home2/scratch/plstenge/vcf
 # minMapQ=20
 # minCOV=5
 # VCF=/home/datawork-rmpf/p_margaritifera/pl-pwgs/05_variant_call_freebayes		#path to output vcf file
@@ -38,4 +38,4 @@ source activate /home1/datawork/plstenge/96_env_conda/freebayes
 
 
 freebayes-parallel      <(fasta_generate_regions.py $INDEX 10000) "$NCPU" \
--f $REF --use-best-n-alleles $nAlleles HI.4499.006.NS_Adaptor_16.pool8KJ_filtered_sorted_MD_sorted_split_RG.bam HI.4499.007.NS_Adaptor_15.pool7KR_filtered_sorted_MD_sorted_split_RG.bam HI.4499.008.NS_Adaptor_14.pool6GV_filtered_sorted_MD_sorted_split_RG.bam HI.4506.001.NS_Adaptor_13.pool5GJ_filtered_sorted_MD_sorted_split_RG.bam HI.4506.002.NS_Adaptor_12.pool4GR_filtered_sorted_MD_sorted_split_RG.bam HI.4506.003.NS_Adaptor_11.pool3TV_filtered_sorted_MD_sorted_split_RG.bam HI.4506.004.NS_Adaptor_10.pool2TJ_filtered_sorted_MD_sorted_split_RG.bam HI.4506.005.NS_Adaptor_9.pool1TR_filtered_sorted_MD_sorted_split_RG.bam HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted_MD_sorted_split_RG.bam HI.4527.005.NS_Adaptor_19.pool11EJ_filtered_sorted_MD_sorted_split_RG.bam HI.4527.006.NS_Adaptor_18.pool10ER_filtered_sorted_MD_sorted_split_RG.bam HI.4527.007.NS_Adaptor_17.pool9KV_filtered_sorted_MD_sorted_split_RG.bam > $OUTPUT/individuals.vcf
+-f $REF --use-best-n-alleles $nAlleles HI.4499.006.NS_Adaptor_16.pool8KJ_filtered_sorted_MD_sorted_split_RG.bam HI.4499.007.NS_Adaptor_15.pool7KR_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4499.008.NS_Adaptor_14.pool6GV_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4506.001.NS_Adaptor_13.pool5GJ_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4506.002.NS_Adaptor_12.pool4GR_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4506.003.NS_Adaptor_11.pool3TV_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4506.004.NS_Adaptor_10.pool2TJ_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4506.005.NS_Adaptor_9.pool1TR_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4527.004.NS_Adaptor_20.pool12EV_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4527.005.NS_Adaptor_19.pool11EJ_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4527.006.NS_Adaptor_18.pool10ER_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam HI.4527.007.NS_Adaptor_17.pool9KV_filtered_sorted.bam_MD.bam_sorted.bam_RG.bam > $OUTPUT/individuals.vcf
