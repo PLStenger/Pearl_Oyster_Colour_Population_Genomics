@@ -34,7 +34,7 @@ OUTPUT=/home2/scratch/plstenge/vcf
 
 cd ${BAM}
 export PATH=$PATH:/appli/anaconda/2.7/bin
-source activate /home1/datawork/plstenge/96_env_conda/freebayes
+source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/freebayes
 
 
 freebayes-parallel      <(fasta_generate_regions.py $INDEX 10000) "$NCPU" \
