@@ -27,5 +27,4 @@ cp $FASTA ./data/genomes/$DBNAME.fa
 echo "# Genome of your species, your_genome.fasta" >> snpEff.config
 echo "$DBNAME.genome : $DBNAME" >> snpEff.config
 
-#java -Xmx115G -jar $SNPEFF/snpEff.jar build -gff3 -v $DBNAME
-snpEff.jar build -gff3 -v $DBNAME
+java -Xmx115G -jar $SNPEFF/snpEff.jar build -gff3 -v $DBNAME
