@@ -11,8 +11,8 @@ SNPEFFENV=". /appli/bioinfo/snpeff/latest/env.sh"
 
 SNPEFF=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/SNPeff/snpEff #/Path/to/snpEff/Folder
 
-export PATH=$PATH:/appli/anaconda/2.7/bin
-source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/SNPeff/
+#export PATH=$PATH:/appli/anaconda/2.7/bin
+#source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/SNPeff/
 
 DBNAME=sspace.final.scaffolds.fasta
 
