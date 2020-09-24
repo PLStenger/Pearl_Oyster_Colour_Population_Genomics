@@ -9,6 +9,10 @@ FASTA=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome
 DBNAME=sspace.final.scaffolds.fasta
 WORKDIR=/home/datawork-rmpf/p_margaritifera/pl-pwgs/07_snpeff #/your/path/to/WGS_pipeline
 
+export PATH=$PATH:/appli/anaconda/2.7/bin
+source activate /home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/SNPeff/
+
+
 cd $SNPEFF
 
 #create necessary directories for analysis in the SNPeff program folder: a directory "data" in wich two other directories is created:
