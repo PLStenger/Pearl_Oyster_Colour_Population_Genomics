@@ -3,12 +3,11 @@
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=28:mem=115g
 
-SNPEFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/95_software/snpEff #/Path/to/snpEff/Folder
-#GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.gff3 # 01_info_files/your_genome.gff3
-GFF=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/EVM_combined.gff3
-FASTA=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_data/sspace.final.scaffolds.fasta # 01_info_files/your_genome.fasta
+SNPEFF=/home/datawork-rmpf/p_margaritifera/pl-pwgs/98_programms/SNPeff #/Path/to/snpEff/Folder
+GFF=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/EVM_combined.gff3
+FASTA=/home2/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/01_genome/sspace.final.scaffolds.fasta # 01_info_files/your_genome.fasta
 DBNAME=sspace.final.scaffolds.fasta
-WORKDIR=/home1/datawork/plstenge/Pearl_Oyster_Colour_Population_Genomics/09_snpEff #/your/path/to/WGS_pipeline
+WORKDIR=/home/datawork-rmpf/p_margaritifera/pl-pwgs/07_snpeff #/your/path/to/WGS_pipeline
 
 cd $SNPEFF
 
