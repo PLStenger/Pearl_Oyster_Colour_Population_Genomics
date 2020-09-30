@@ -10,5 +10,10 @@ cd $DATADIRECTORY
 
 $BEDTOOLS_ENV
 
-bedtools intersect -b SNP_color_selection.bed -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wa -wb > SNP_color_selection_EVM_combined_gene_upstream.gff
+bedtools intersect -b SNP_color_selection.bed -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > SNP_color_selection_EVM_combined_gene.gff
 
+bedtools intersect -b individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_RedVsGreen_dat_P_0_000000001_SNPEff.vcf -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > SNP_color_selection_EVM_combined_gene_RedVsGreen_dat_P_0_000000001_SNPEff.txt
+
+bedtools intersect -b individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_YellowVsGreen_dat_P_0_000000001_SNPEff.vcf -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > SNP_color_selection_EVM_combined_gene_YellowVsGreen_dat_P_0_000000001_SNPEff.txt
+
+bedtools intersect -b individuals.vcf_DP20_maf0.1_miss1.vcf.recode_bcfm2M2v.vcf_decomposed_complex_header_YellowVsRed_dat_P_0_000000001_SNPEff.vcf -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > SNP_color_selection_EVM_combined_gene_YellowVsRed_dat_P_0_000000001_SNPEff.txt
