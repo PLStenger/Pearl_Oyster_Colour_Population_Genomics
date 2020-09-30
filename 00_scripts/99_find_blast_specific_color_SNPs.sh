@@ -15,11 +15,11 @@ awk -vRS="_" -vORS="\t" '1'  Yellow_specific_SNPs_P_0_000000001_list.txt > Yello
 
 awk '{print $1"\t"$2"\t"$2}' Green_specific_SNPs_P_0_000000001_list_02.txt > Green_specific_SNPs_P_0_000000001_list_03.txt
 awk '{print $1"\t"$2"\t"$2}' Red_specific_SNPs_P_0_000000001_list_02.txt > Red_specific_SNPs_P_0_000000001_list_03.txt
-awk -v OFS='/t' '{print $1, $2, $2}' Yellow_specific_SNPs_P_0_000000001_list_02.txt > Yellow_specific_SNPs_P_0_000000001_list_03.txt
+awk '{print $1"\t"$2"\t"$2}' Yellow_specific_SNPs_P_0_000000001_list_02.txt > Yellow_specific_SNPs_P_0_000000001_list_03.txt
 
 
-bedtools intersect -b Green_specific_SNPs_P_0_000000001_list_03.txt -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > Green_specific_SNPs_P_0_000000001_list_03_gene.txt
-bedtools intersect -b Red_specific_SNPs_P_0_000000001_list_03.txt -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > Red_specific_SNPs_P_0_000000001_list_03_gene.txt
-bedtools intersect -b Yellow_specific_SNPs_P_0_000000001_list_03.txt -a /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > Yellow_specific_SNPs_P_0_000000001_list_03_gene.txt
+bedtools intersect -a Green_specific_SNPs_P_0_000000001_list_03.txt -b /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > Green_specific_SNPs_P_0_000000001_list_03_gene.txt
+bedtools intersect -a Red_specific_SNPs_P_0_000000001_list_03.txt -b /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > Red_specific_SNPs_P_0_000000001_list_03_gene.txt
+bedtools intersect -a Yellow_specific_SNPs_P_0_000000001_list_03.txt -b /home/datawork-rmpf/p_margaritifera/genome/annotation/EVM_combined.gff3 -wb -wa > Yellow_specific_SNPs_P_0_000000001_list_03_gene.txt
 
 
