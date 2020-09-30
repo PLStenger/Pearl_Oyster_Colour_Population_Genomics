@@ -13,8 +13,8 @@ awk -vRS="_" -vORS="\t" '1'  Green_specific_SNPs_P_0_000000001_list.txt > Green_
 awk -vRS="_" -vORS="\t" '1'  Red_specific_SNPs_P_0_000000001_list.txt > Red_specific_SNPs_P_0_000000001_list_02.txt
 awk -vRS="_" -vORS="\t" '1'  Yellow_specific_SNPs_P_0_000000001_list.txt > Yellow_specific_SNPs_P_0_000000001_list_02.txt
 
-awk -v OFS='/t' '{print $1, $2, $2}' Green_specific_SNPs_P_0_000000001_list_02.txt > Green_specific_SNPs_P_0_000000001_list_03.txt
-awk -v OFS='/t' '{print $1, $2, $2}' Red_specific_SNPs_P_0_000000001_list_02.txt > Red_specific_SNPs_P_0_000000001_list_03.txt
+awk '{print $1"\t"$2"\t"$2}' Green_specific_SNPs_P_0_000000001_list_02.txt > Green_specific_SNPs_P_0_000000001_list_03.txt
+awk '{print $1"\t"$2"\t"$2}' Red_specific_SNPs_P_0_000000001_list_02.txt > Red_specific_SNPs_P_0_000000001_list_03.txt
 awk -v OFS='/t' '{print $1, $2, $2}' Yellow_specific_SNPs_P_0_000000001_list_02.txt > Yellow_specific_SNPs_P_0_000000001_list_03.txt
 
 
